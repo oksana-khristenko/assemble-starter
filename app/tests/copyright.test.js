@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-var copyrightHelper = require('../modules/copyright');
+var copyrightHelper = require('../helpers/modules/copyright');
 
 describe('copyright', function() {
 
