@@ -12,7 +12,7 @@ function validate(startYear, currentYear) {
     }
 }
 
-exports.getCopyright = function(startYear, currentYear) {
+exports.getText = function(startYear, currentYear) {
     validate(startYear, currentYear);
     return (startYear === currentYear) ? `${currentYear}` : `${startYear} - ${currentYear}`;
 };

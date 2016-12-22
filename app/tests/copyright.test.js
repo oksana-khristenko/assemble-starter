@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-var copyrightHelper = require('../helpers/modules/copyright');
+var copyright = require('../helpers/modules/copyright');
 
 describe('copyright', function() {
 
@@ -10,7 +10,7 @@ describe('copyright', function() {
 
         it('should throw TypeError if startYear argument is not an integer', function() {
             var fn = function(){
-                copyrightHelper.getCopyright('2019', 2023);
+                copyright.getText('2019', 2023);
             };
 
             expect(fn).to.throw(TypeError, 'startYear must be an integer');
@@ -18,7 +18,7 @@ describe('copyright', function() {
 
         it('should throw TypeError if currentYear argument is not an integer', function() {
             var fn = function(){
-                copyrightHelper.getCopyright(2017, '2019');
+                copyright.getText(2017, '2019');
             };
 
             expect(fn).to.throw(TypeError, 'currentYear must be an integer');
@@ -26,7 +26,7 @@ describe('copyright', function() {
 
         it('should throw RangeError if currentYear argument is less than startYear', function() {
             var fn = function(){
-                copyrightHelper.getCopyright(2028, 2020);
+                copyright.getText(2028, 2020);
             };
 
             expect(fn).to.throw(RangeError, 'startYear must be equal to or less than currentYear');
@@ -40,21 +40,21 @@ describe('copyright', function() {
         it('should return correct text if startYear is equal to currentYear', function() {
             var startYear = 2018,
                 currentYear = 2018,
-                text = `${currentYear}`;
+                expectedText = `${currentYear}`;
 
-            var copyright = copyrightHelper.getCopyright(startYear, currentYear);
+            var actualText = copyright.getText(startYear, currentYear);
 
-            expect(copyright).to.equal(text);
+            expect(actualText).to.equal(expectedText);
         });
 
         it('should return correct text if startYear is less than currentYear', function() {
             var startYear = 2014,
                 currentYear = 2020,
-                text = `${startYear} - ${currentYear}`;
+                expectedText = `${startYear} - ${currentYear}`;
 
-            var copyright = copyrightHelper.getCopyright(startYear, currentYear);
+            var actualText = copyright.getText(startYear, currentYear);
 
-            expect(copyright).to.equal(text);
+            expect(actualText).to.equal(expectedText);
         });
 
     });
