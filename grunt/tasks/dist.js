@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   grunt.registerTask('dist', [
     'clean:dist',
-    'copy:htmlDist',
+    'assemble:dist',
     'htmlmin:dist',
     'postcss:dist',
     'svgstore:dist',

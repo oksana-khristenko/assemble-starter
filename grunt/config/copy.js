@@ -28,7 +28,5 @@ var getSvgFiles = dest => {
 module.exports = {
   imagesBuild: getImageFiles('public'),
   imagesDist: getImageFiles('dist'),
-  htmlBuild: getHtmlFiles('public'),
-  htmlDist: getHtmlFiles('dist'),
   svgBuild: getSvgFiles('public')
 };

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{title}} - {{project.name}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{{summary}}">
+        <link rel="stylesheet" href="{{assets}}/css/main.css">
+        {{#if page_css_file}}<link rel="stylesheet" href="{{assets}}/css/pages/{{page_css_file}}.css">{{/if}}
+        {{> meta-facebook }}
+        {{> meta-twitter-card }}
+        <link href="{{assets}}/img/favicon.png" rel="shortcut icon">
+        <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    </head>
+
+    <body class="{{body_class}}">

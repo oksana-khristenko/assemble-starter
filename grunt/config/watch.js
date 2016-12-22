@@ -35,10 +35,18 @@ module.exports = {
     files: ['app/assets/js/**/*'],
     tasks: ['jshint:all', 'jscs:all', 'browserify:build']
   },
+  assembleData: {
+    files: ['app/data/**/*.json'],
+    tasks: ['jsonlint:assembleData']
+  },
   html: {
     files: [
-      'app/**/*.html'
+      'app/content/**/*',
+      'app/data/**/*',
+      'app/helpers/**/*',
+      'app/layouts/**/*',
+      'app/partials/**/*'
     ],
-    tasks: ['copy:htmlBuild']
+    tasks: ['assemble:build']
   }
 };
