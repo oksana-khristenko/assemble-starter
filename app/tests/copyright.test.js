@@ -9,18 +9,28 @@ describe('copyright', function() {
     describe('Arguments validation', function() {
 
         it('should throw TypeError if startYear argument is not an integer', function() {
-            var err = new TypeError('startYear must be an integer');
-            expect(copyrightHelper.getCopyright.bind('2019', 2023)).to.throw(TypeError);
+            var fn = function(){
+                copyrightHelper.getCopyright('2019', 2023);
+            };
+
+            expect(fn).to.throw(TypeError, 'startYear must be an integer');
         });
 
         it('should throw TypeError if currentYear argument is not an integer', function() {
-            var err = new TypeError('currentYear must be an integer');
-            expect(copyrightHelper.getCopyright.bind(2017, '2019')).to.throw(TypeError);
+            var fn = function(){
+                copyrightHelper.getCopyright(2017, '2019');
+            };
+
+            expect(fn).to.throw(TypeError, 'currentYear must be an integer');
         });
 
         it('should throw RangeError if currentYear argument is less than startYear', function() {
-            var err = new TypeError('startYear must be equal to or less than currentYear');
-            expect(copyrightHelper.getCopyright.bind(2020, 2028)).to.throw(TypeError);
+            var fn = function(){
+                copyrightHelper.getCopyright(2028, 2020);
+            };
+
+            expect(fn).to.throw(RangeError, 'startYear must be equal to or less than currentYear');
+
         });
 
     });
