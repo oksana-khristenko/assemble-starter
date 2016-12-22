@@ -1,0 +1,23 @@
+{
+  "curly": true, // true: Require {} for every new block or scope
+  "eqeqeq": true, // true: Require triple equals (===) for comparison
+  "forin": true, // true:  Require all for in loops to filter object's items
+  "freeze": true, // true: Prohibit overwriting prototypes of native objects
+  "latedef": true, // true: Prohibit the use of a variable before it was defined
+  "noarg": true, // true: Prohibit use of `arguments.caller` and `arguments.callee`
+  "strict": true, // true: Require all functions to run in ECMAScript 5's strict mode
+  "undef": true, // true: Prohibit the use of explicitly undeclared variables
+  "unused": false, // true: Warn when variables are defined and never used
+  "lastsemic": true, // true: Suppress warnings about missing semicolons, but only when the semicolon is omitted for the last statement in a one-line block
+  "loopfunc": true,
+  "browserify": true,
+  "globals" : {
+    "window": true,
+    "Blazy": true,
+    "document": true,
+    "location": true,
+    "ga": true,
+    "console": true
+  },
+  "esversion": 6
+}
