@@ -1,5 +1,5 @@
-Grunt Demo
-==========
+Assemble starter kit
+====================
 
 > Assemble starter kit for brochure sites, landing pages, blogs etc.
 
