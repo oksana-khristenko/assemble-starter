@@ -4,6 +4,9 @@ Grunt Demo
 > Assemble starter kit for brochure sites, landing pages, blogs etc.
 
 - [Install](#install)
+- [Build](#build)
+- [Dist](#dist)
+- [Test](#dist)
 
 ## Install
 
@@ -15,14 +18,20 @@ Grunt Demo
 
 - Run `npm install` from project root to install node modules
 
-### Build
+## Build
 
 Compiles HTML files and assets into `public` folder and makes them available at `http://localhost:4001`.
 
 Run `npm start` from project root.
 
-### Dist
+## Dist
 
 Compiles and minifies HTML files and assets into `dist` folder.
 
 Run `npm run dist` from project root.
+
+## Test
+
+Tests helper files.
+
+Run `npm test` from project root.
