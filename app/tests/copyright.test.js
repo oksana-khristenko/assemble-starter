@@ -8,6 +8,22 @@ describe('copyright', function() {
 
     describe('Arguments validation', function() {
 
+        it('should throw ReferenceError if startYear argument is not provided', function() {
+            var fn = function(){
+                copyright.getText();
+            };
+
+            expect(fn).to.throw(ReferenceError, 'startYear is undefined');
+        });
+
+        it('should throw ReferenceError if currentYear argument is not provided', function() {
+            var fn = function(){
+                copyright.getText(2020);
+            };
+
+            expect(fn).to.throw(ReferenceError, 'currentYear is undefined');
+        });
+
         it('should throw TypeError if startYear argument is not an integer', function() {
             var fn = function(){
                 copyright.getText('2019', 2023);

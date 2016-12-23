@@ -1,4 +1,12 @@
 function validate(startYear, currentYear) {
+    if (typeof startYear == 'undefined') {
+        throw new ReferenceError('startYear is undefined');
+    }
+
+    if (typeof currentYear == 'undefined') {
+        throw new ReferenceError('currentYear is undefined');
+    }
+
     if (!Number.isInteger(startYear)) {
         throw new TypeError('startYear must be an integer');
     }
