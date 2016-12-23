@@ -4,6 +4,7 @@ Assemble starter kit
 > Assemble starter kit for brochure sites, landing pages, blogs etc.
 
 - [Install](#install)
+- [Update project settings](#update-project-settings)
 - [Build](#build)
 - [Dist](#dist)
 - [Test](#dist)
@@ -17,6 +18,10 @@ Assemble starter kit
 - Install [ImageOptim](https://imageoptim.com/) desktop app
 
 - Run `npm install` from project root to install node modules
+
+## Update project settings
+
+Update project settings in `app/config.js`.
 
 ## Build
 
