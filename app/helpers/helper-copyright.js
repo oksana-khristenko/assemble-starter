@@ -7,7 +7,7 @@ module.exports.register = function(Handlebars, options) {
 
     var helpers = {
 
-        helper_copyright: function () {
+        helper_copyright: function() {
             var date = new Date(),
                 currentYear = date.getFullYear(),
                 startYear = Number(config.get('projectStartYear'));
