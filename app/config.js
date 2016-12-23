@@ -9,5 +9,5 @@ module.exports = {
     facebookPageUrl: 'Facebook Page Url', // e.g. https://facebook.com/twitter,
     googleAnalyticsId: 'Google Analytics Id', // e.g. UA-000000-01
     googleAnalyticsDomain: 'Google Analytics Domain', // e.g. twitter.com
-    enableGoogleAnalytics: false // e.g. false
+    enableGoogleAnalytics: true // e.g. false
 }

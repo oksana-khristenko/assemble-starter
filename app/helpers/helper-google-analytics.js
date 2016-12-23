@@ -6,9 +6,12 @@ module.exports.register = function(Handlebars, options) {
 
     var helpers = {
 
-        helper_google_analytics_script: function (options) {
+        helper_google_analytics: function (options) {
             if (config.get('enableGoogleAnalytics') === true) {
-                return options.fn();
+                return options.fn({
+                    googleAnalyticsId: config.get('googleAnalyticsId'),
+                    googleAnalyticsDomain: config.get('googleAnalyticsDomain')
+                });
             }
         }
 
