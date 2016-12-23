@@ -6,8 +6,7 @@
         <title>{{title}} - {{helper_config 'projectName'}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="{{summary}}">
-        <link rel="stylesheet" href="{{assets}}/css/main.css">
-        {{#if page_css_file}}<link rel="stylesheet" href="{{assets}}/css/pages/{{page_css_file}}.css">{{/if}}
+        {{> css-main }}
         {{> meta-facebook }}
         {{> meta-twitter-card }}
         <link href="{{assets}}/img/favicon.png" rel="shortcut icon">
