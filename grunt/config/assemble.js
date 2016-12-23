@@ -11,18 +11,6 @@ var getAssembleFiles = function(dest) {
 
 module.exports = {
   options: {
-    project: {
-      name: 'Project name', // e.g. Twitter
-      key: 'project key', // e.g. twitter.com
-      url: 'https://project-url/', // e.g. https://twitter.com/
-      urlNoSlash: 'https://project-url', // e.g. https://twitter.com
-      displayUrl: 'project-url', // e.g. twitter.com
-      startYear: '2016' // e.g. 2016
-    },
-    googleAnalytics: {
-      id: '',
-      domain: '' // e.g. twitter.com
-    },
     layoutdir: 'app/layouts',
     partials: ['app/partials/**/*.hbs'],
     data: ['app/data/**/*.{json,yml}'],
@@ -30,17 +18,13 @@ module.exports = {
   },
   build: {
     options: {
-      assets: 'public/assets',
-      enableGa: false,
-      showDrafts: true
+      assets: 'public/assets'
     },
     files: getAssembleFiles('public')
   },
   dist: {
     options: {
-      assets: 'dist/assets',
-      enableGa: false,
-      showDrafts: true
+      assets: 'dist/assets'
     },
     files: getAssembleFiles('dist')
   }
