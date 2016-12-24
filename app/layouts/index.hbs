@@ -2,5 +2,11 @@
 layout: default.hbs
 ---
 
-{{> body }}
-{{> footer }}
+<div class="page-sticky-footer">
+    <div class="page-sticky-footer__content">
+        {{> body }}
+    </div>
+    <div class="page-sticky-footer__footer">
+        {{> footer }}
+    </div>
+</div>
