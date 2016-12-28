@@ -5,17 +5,17 @@ body {
     margin: 0;
 }
 
-.page-sticky-footer {
+.layout-sticky-footer {
     display: table;
     height: 100%;
     width: 100%;
 }
 
-.page-sticky-footer__footer {
+.layout-sticky-footer__footer {
     display: table-row;
     height: 1px;
 }
 
-.page-sticky-footer__content {
+.layout-sticky-footer__content {
     height: 100%;
 }
