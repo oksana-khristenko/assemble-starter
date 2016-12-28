@@ -1,0 +1,39 @@
+:root {
+    --colorFacebook: #4267b2;
+    --colorTwitter: #1DA1F2;
+    --colorGoogleplus: #DD4F43;
+    --colorPintrest: #BD081C;
+    --colorInstagram: #E03566;
+    --colorLinkedin: #0077B5;
+}
+
+.icon-social {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+
+    &_facebook svg {
+        color: var(--colorFacebook);
+    }
+
+    &_twitter svg {
+        color: var(--colorTwitter);
+    }
+
+    &_googleplus svg {
+        color: var(--colorGoogleplus);
+    }
+
+    &_pintrest svg {
+        color: var(--colorPintrest);
+    }
+
+    &_instagram svg {
+        color: var(--colorInstagram);
+    }
+
+    &_linkedin svg {
+        color: var(--colorLinkedin);
+    }
+
+}
