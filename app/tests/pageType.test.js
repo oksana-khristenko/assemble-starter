@@ -64,6 +64,28 @@ describe('pageType', function() {
                 pageProperty.isTrue.restore();
             });
 
+            it('should return true when pageProperty.isTrue() returns true', function() {
+                var page = {};
+                var stub = sinon.stub(pageProperty, 'isTrue');
+                stub.returns(true);
+
+                var bool = pageType.is(page, 'article');
+                expect(bool).to.be.equal(true);
+
+                pageProperty.isTrue.restore();
+            });
+
+            it('should return false when pageProperty.isTrue() returns false', function() {
+                var page = {};
+                var stub = sinon.stub(pageProperty, 'isTrue');
+                stub.returns(false);
+
+                var bool = pageType.is(page, 'section');
+                expect(bool).to.be.equal(false);
+
+                pageProperty.isTrue.restore();
+            });
+
         });
 
     });
