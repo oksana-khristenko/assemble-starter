@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 function validateArguments(page, propertyName) {
     if (typeof page == 'undefined') {
         throw new ReferenceError('page is undefined');
