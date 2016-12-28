@@ -56,10 +56,10 @@ describe('pageType', function() {
                 var page = {};
                 var spy = sinon.spy(pageProperty, 'isTrue');
 
-                pageType.is(page, 'article');
+                pageType.is(page, 'currentPage');
 
                 expect(spy).to.have.been.calledOnce;
-                expect(spy).to.have.been.calledWith(page, 'is_article');
+                expect(spy).to.have.been.calledWith(page, 'isCurrentPage');
 
                 pageProperty.isTrue.restore();
             });

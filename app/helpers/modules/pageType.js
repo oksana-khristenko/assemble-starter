@@ -22,6 +22,6 @@ function validateArguments(page, pageType) {
 exports.is = function(page, pageType) {
     validateArguments(page, pageType);
 
-    var propertyName = `is_${pageType}`;
+    var propertyName = `is${pageType[0].toUpperCase()}${pageType.slice(1)}`;
     return pageProperty.isTrue(page, propertyName);
 };
