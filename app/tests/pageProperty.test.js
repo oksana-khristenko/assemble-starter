@@ -1,18 +1,18 @@
 var expect = require("chai").expect;
 
-var pageData = require('../helpers/modules/pageProperties');
+var pageProperty = require('../helpers/modules/pageProperty');
 
-describe('pageProperties', function() {
+describe('pageProperty', function() {
 
     'use strict';
 
-    describe('hasProperty', function() {
+    describe('exists', function() {
 
         describe('Arguments validation', function() {
 
             it('should throw ReferenceError if page argument is not provided', function() {
                 var fn = function(){
-                    pageData.hasProperty();
+                    pageProperty.exists();
                 };
 
                 expect(fn).to.throw(ReferenceError, 'page is undefined');
@@ -20,7 +20,7 @@ describe('pageProperties', function() {
 
             it('should throw ReferenceError if propertyName argument is not provided', function() {
                 var fn = function(){
-                    pageData.hasProperty({});
+                    pageProperty.exists({});
                 };
 
                 expect(fn).to.throw(ReferenceError, 'propertyName is undefined');
@@ -28,7 +28,7 @@ describe('pageProperties', function() {
 
             it('should throw TypeError if page argument is not an object', function() {
                 var fn = function(){
-                    pageData.hasProperty(null, 'propName');
+                    pageProperty.exists(null, 'propName');
                 };
 
                 expect(fn).to.throw(TypeError, 'page must be an object');
@@ -36,7 +36,7 @@ describe('pageProperties', function() {
 
             it('should throw TypeError if propertyName argument is not a string', function() {
                 var fn = function(){
-                    pageData.hasProperty({}, 5);
+                    pageProperty.exists({}, 5);
                 };
 
                 expect(fn).to.throw(TypeError, 'propertyName must be a string');
@@ -47,17 +47,17 @@ describe('pageProperties', function() {
         describe('Return values', function() {
 
             it('should return true if propertyName exists in the page object', function() {
-                var propertyExists = pageData.hasProperty({ testPropName: '' }, 'testPropName');
+                var propertyExists = pageProperty.exists({ testPropName: '' }, 'testPropName');
                 expect(propertyExists).to.equal(true);
             });
 
             it('should return true if propertyName exists in the page.data object', function() {
-                var propertyExists = pageData.hasProperty({ data: { testPropName: '' }}, 'testPropName');
+                var propertyExists = pageProperty.exists({ data: { testPropName: '' }}, 'testPropName');
                 expect(propertyExists).to.equal(true);
             });
 
             it('should return false if propertyName does not exist in both page and page.data objects', function() {
-                var propertyExists = pageData.hasProperty({data: {}}, 'testPropName');
+                var propertyExists = pageProperty.exists({data: {}}, 'testPropName');
                 expect(propertyExists).to.equal(false);
             });
 
@@ -65,13 +65,13 @@ describe('pageProperties', function() {
 
     });
 
-    describe('hasPropertyEqualTrue', function() {
+    describe('isTrue', function() {
 
         describe('Arguments validation', function() {
 
             it('should throw ReferenceError if page argument is not provided', function() {
                 var fn = function(){
-                    pageData.hasPropertyEqualTrue();
+                    pageProperty.isTrue();
                 };
 
                 expect(fn).to.throw(ReferenceError, 'page is undefined');
@@ -79,7 +79,7 @@ describe('pageProperties', function() {
 
             it('should throw ReferenceError if propertyName argument is not provided', function() {
                 var fn = function(){
-                    pageData.hasPropertyEqualTrue({});
+                    pageProperty.isTrue({});
                 };
 
                 expect(fn).to.throw(ReferenceError, 'propertyName is undefined');
@@ -87,7 +87,7 @@ describe('pageProperties', function() {
 
             it('should throw TypeError if page argument is not an object', function() {
                 var fn = function(){
-                    pageData.hasPropertyEqualTrue(null, 'propName');
+                    pageProperty.isTrue(null, 'propName');
                 };
 
                 expect(fn).to.throw(TypeError, 'page must be an object');
@@ -95,7 +95,7 @@ describe('pageProperties', function() {
 
             it('should throw TypeError if propertyName argument is not a string', function() {
                 var fn = function(){
-                    pageData.hasPropertyEqualTrue({}, 5);
+                    pageProperty.isTrue({}, 5);
                 };
 
                 expect(fn).to.throw(TypeError, 'propertyName must be a string');
@@ -105,12 +105,12 @@ describe('pageProperties', function() {
 
         describe('Return values', function() {
             it('should return true if propertyName exists in the page object and is true', function() {
-                var propertyEqualTrue = pageData.hasPropertyEqualTrue({ testPropName: true }, 'testPropName');
+                var propertyEqualTrue = pageProperty.isTrue({ testPropName: true }, 'testPropName');
                 expect(propertyEqualTrue).to.equal(true);
             });
 
             it('should return true if propertyName exists in the page.data object and is true', function() {
-                var propertyEqualTrue = pageData.hasPropertyEqualTrue({ data: { testPropName: true }}, 'testPropName');
+                var propertyEqualTrue = pageProperty.isTrue({ data: { testPropName: true }}, 'testPropName');
                 expect(propertyEqualTrue).to.equal(true);
             });
 
@@ -119,7 +119,7 @@ describe('pageProperties', function() {
                     testPropName: true,
                     data: { testPropName: false }
                 };
-                var propertyEqualTrue = pageData.hasPropertyEqualTrue(obj, 'testPropName');
+                var propertyEqualTrue = pageProperty.isTrue(obj, 'testPropName');
                 expect(propertyEqualTrue).to.equal(true);
             });
 
@@ -128,12 +128,12 @@ describe('pageProperties', function() {
                     testPropName: false,
                     data: { testPropName: true }
                 };
-                var propertyEqualTrue = pageData.hasPropertyEqualTrue(obj, 'testPropName');
+                var propertyEqualTrue = pageProperty.isTrue(obj, 'testPropName');
                 expect(propertyEqualTrue).to.equal(true);
             });
 
             it('should return false if propertyName does not exist in both page and page.data objects', function() {
-                var propertyEqualTrue = pageData.hasPropertyEqualTrue({data: {}}, 'testPropName');
+                var propertyEqualTrue = pageProperty.isTrue({data: {}}, 'testPropName');
                 expect(propertyEqualTrue).to.equal(false);
             });
 
@@ -142,20 +142,20 @@ describe('pageProperties', function() {
                     testPropName: false,
                     data: { testPropName: false }
                 };
-                var propertyEqualTrue = pageData.hasPropertyEqualTrue(obj, 'testPropName');
+                var propertyEqualTrue = pageProperty.isTrue(obj, 'testPropName');
                 expect(propertyEqualTrue).to.equal(false);
             });
         });
 
     });
 
-    describe('getPropertyValue', function() {
+    describe('get', function() {
 
         describe('Arguments validation', function() {
 
             it('should throw ReferenceError if page argument is not provided', function() {
                 var fn = function(){
-                    pageData.getPropertyValue();
+                    pageProperty.get();
                 };
 
                 expect(fn).to.throw(ReferenceError, 'page is undefined');
@@ -163,7 +163,7 @@ describe('pageProperties', function() {
 
             it('should throw ReferenceError if propertyName argument is not provided', function() {
                 var fn = function(){
-                    pageData.getPropertyValue({});
+                    pageProperty.get({});
                 };
 
                 expect(fn).to.throw(ReferenceError, 'propertyName is undefined');
@@ -171,7 +171,7 @@ describe('pageProperties', function() {
 
             it('should throw TypeError if page argument is not an object', function() {
                 var fn = function(){
-                    pageData.getPropertyValue(null, 'propName');
+                    pageProperty.get(null, 'propName');
                 };
 
                 expect(fn).to.throw(TypeError, 'page must be an object');
@@ -179,7 +179,7 @@ describe('pageProperties', function() {
 
             it('should throw TypeError if propertyName argument is not a string', function() {
                 var fn = function(){
-                    pageData.getPropertyValue({}, 5);
+                    pageProperty.get({}, 5);
                 };
 
                 expect(fn).to.throw(TypeError, 'propertyName must be a string');
@@ -193,7 +193,7 @@ describe('pageProperties', function() {
                 var obj = {
                     data: {}
                 };
-                var propertyValue = pageData.getPropertyValue(obj, 'testPropName');
+                var propertyValue = pageProperty.get(obj, 'testPropName');
                 expect(propertyValue).to.equal(false);
             });
 
@@ -202,7 +202,7 @@ describe('pageProperties', function() {
                     testPropName: 'testPropVal',
                     data: {}
                 };
-                var propertyValue = pageData.getPropertyValue(obj, 'testPropName');
+                var propertyValue = pageProperty.get(obj, 'testPropName');
                 expect(propertyValue).to.equal('testPropVal');
             });
 
@@ -210,7 +210,7 @@ describe('pageProperties', function() {
                 var obj = {
                     data: { testPropName: 'testPropVal' }
                 };
-                var propertyValue = pageData.getPropertyValue(obj, 'testPropName');
+                var propertyValue = pageProperty.get(obj, 'testPropName');
                 expect(propertyValue).to.equal('testPropVal');
             });
 
@@ -219,7 +219,7 @@ describe('pageProperties', function() {
                     testPropName: 'testPropVal_1',
                     data: { testPropName: 'testPropVal_2' }
                 };
-                var propertyValue = pageData.getPropertyValue(obj, 'testPropName');
+                var propertyValue = pageProperty.get(obj, 'testPropName');
                 expect(propertyValue).to.equal('testPropVal_1');
             });
 

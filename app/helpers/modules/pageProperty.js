@@ -18,7 +18,7 @@ function validateArguments(page, propertyName) {
     }
 }
 
-exports.hasPropertyEqualTrue = function(page, propertyName) {
+exports.isTrue = function(page, propertyName) {
     validateArguments(page, propertyName);
 
     if (page.hasOwnProperty(propertyName) && (page[propertyName] === true)) {
@@ -32,7 +32,7 @@ exports.hasPropertyEqualTrue = function(page, propertyName) {
     }
 };
 
-exports.hasProperty = function(page, propertyName) {
+exports.exists = function(page, propertyName) {
     validateArguments(page, propertyName);
 
     if (page.hasOwnProperty(propertyName) || page.data.hasOwnProperty(propertyName)) {
@@ -42,7 +42,7 @@ exports.hasProperty = function(page, propertyName) {
     return false;
 };
 
-exports.getPropertyValue = function(page, propertyName) {
+exports.get = function(page, propertyName) {
     validateArguments(page, propertyName);
 
     if (page.hasOwnProperty(propertyName)) {
