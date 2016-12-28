@@ -1,0 +1,21 @@
+@import "./_icon-social.css";
+
+.list-social {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    &__item {
+        padding: 0;
+        display: inline-block;
+        font-size: 0;
+    }
+
+    &__link {
+        margin-left: 5px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
