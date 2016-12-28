@@ -1,0 +1,11 @@
+@import "./_container";
+@import "./_copyright";
+@import "./_side";
+@import "./_list-social";
+
+.footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #efefef;
+}
+
