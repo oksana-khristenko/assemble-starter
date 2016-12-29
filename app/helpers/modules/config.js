@@ -2,8 +2,8 @@
 
 class Config {
 
-    constructor(config) {
-        this.config = config;
+    constructor(data) {
+        this.config = data;
     }
 
     validate(key) {

@@ -4,6 +4,8 @@ module.exports = {
     projectKey: 'Project Key', // e.g. twitter.com
     projectUrl: 'Project Url', // e.g. https://twitter.com/
     projectDisplayUrl: 'Project Display Url', // e.g. twitter.com
+    twitterCardEnabled: true, // e.g. true
+    twitterCardType: 'summary_large_image', // e.g. summary_large_image
     twitterUserName: 'Twitter User Name', // e.g. @twitter
     twitterPageUrl: 'Twitter Page Url', // e.g. https://twitter.com/twitter
     facebookPageUrl: 'Facebook Page Url', // e.g. https://facebook.com/twitter,
