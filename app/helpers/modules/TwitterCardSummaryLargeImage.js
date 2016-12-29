@@ -1,14 +1,14 @@
 'use strict';
 
 var Config = require('./Config');
+var PageData = require('./PageData');
 
 class TwitterCardSummaryLargeImage {
 
-    constructor(data) {
+    constructor(data, page) {
         this.config = new Config(data);
         this.twitterCardEnabled = this.config.get('twitterCardEnabled');
-        this.twitterUserName = this.config.get('twitterUserName');
-        this.cardType = 'summary_large_image';
+        this.page = page;
     }
 
     validate() {
@@ -17,13 +17,29 @@ class TwitterCardSummaryLargeImage {
         }
     }
 
+    get title() {
+        return new PageData(this.page).title;
+    }
+
+    get twitterUserName() {
+        return this.config.get('twitterUserName');
+    }
+
+    get description() {
+        return new PageData(this.page).shortSummary;
+    }
+
+    get cardType() {
+        return 'summary_large_image';
+    }
+
     get card() {
         return {
             card_name: this.cardType,
             site: this.twitterUserName,
             creator: this.twitterUserName,
-            title: 'test',
-            description: 'test',
+            title: this.title,
+            description: this.description,
             image: 'test'
         };
     }

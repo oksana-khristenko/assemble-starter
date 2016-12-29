@@ -5,11 +5,12 @@ var TwitterCardSummaryLargeImage = require('./TwitterCardSummaryLargeImage');
 
 class TwitterCard {
 
-    constructor(data) {
+    constructor(data, page) {
         this.data = data;
         this.config = new Config(data);
         this.twitterCardEnabled = this.config.get('twitterCardEnabled');
         this.twitterCardType = this.config.get('twitterCardType');
+        this.page = page;
     }
 
     get cardType() {
@@ -34,10 +35,10 @@ class TwitterCard {
         }
 
         if (this.twitterCardType === 'summary_large_image') {
-            return new TwitterCardSummaryLargeImage(this.data).get();
+            return new TwitterCardSummaryLargeImage(this.data, this.page).get();
         }
 
-        return new TwitterCardSummaryLargeImage(this.data).get();
+        return new TwitterCardSummaryLargeImage(this.data, this.page).get();
     }
 
 };

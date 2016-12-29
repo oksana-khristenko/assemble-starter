@@ -13,7 +13,7 @@ describe('TwitterCardSummaryLargeImage', function() {
                 twitterCardEnabled: false
             };
 
-            var twitterCard = new TwitterCardSummaryLargeImage(config).get();
+            var twitterCard = new TwitterCardSummaryLargeImage(config, {}).get();
             expect(twitterCard).to.be.false;
 
         });
@@ -25,7 +25,7 @@ describe('TwitterCardSummaryLargeImage', function() {
                 twitterUserName: 'test'
             };
 
-            var twitterCard = new TwitterCardSummaryLargeImage(config).get();
+            var twitterCard = new TwitterCardSummaryLargeImage(config, {}).get();
             expect(twitterCard).to.be.an('object');
         });
     });

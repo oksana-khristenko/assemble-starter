@@ -17,7 +17,7 @@ describe('TwitterCard', function() {
                     twitterCardEnabled: true,
                     twitterCardType: 'test'
                 };
-                var twitterCard = new TwitterCard(config);
+                var twitterCard = new TwitterCard(config, {});
                 var twitterCardData = twitterCard.get();
             };
 
@@ -28,7 +28,7 @@ describe('TwitterCard', function() {
             var config = {
                 twitterCardEnabled: false
             };
-            var twitterCard = new TwitterCard(config);
+            var twitterCard = new TwitterCard(config, {});
             var twitterCardData = twitterCard.get();
 
             expect(twitterCardData).to.be.false;
