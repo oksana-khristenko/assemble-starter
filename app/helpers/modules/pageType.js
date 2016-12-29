@@ -1,6 +1,7 @@
 var pageProperty = require('./pageProperty');
 
 class PageType {
+
     validatePage(page, pageType) {
         if (typeof page == 'undefined') {
             throw new ReferenceError('page is undefined');
@@ -33,6 +34,7 @@ class PageType {
         var propertyName = this.getPropertyName(pageType);
         return pageProperty.isTrue(page, propertyName);
     }
+
 };
 
 module.exports = PageType;
