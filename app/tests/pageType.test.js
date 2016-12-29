@@ -11,8 +11,6 @@ var PageProperty = require('../helpers/modules/PageProperty');
 
 describe('PageType', function() {
 
-    'use strict';
-
     describe('is', function() {
 
         describe('Arguments validation', function() {

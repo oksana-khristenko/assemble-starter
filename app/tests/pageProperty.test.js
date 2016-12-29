@@ -1,10 +1,10 @@
+'use strict';
+
 var expect = require("chai").expect;
 
 var PageProperty = require('../helpers/modules/PageProperty');
 
 describe('PageProperty', function() {
-
-    'use strict';
 
     describe('exists', function() {
 

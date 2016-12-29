@@ -1,3 +1,5 @@
+'use strict';
+
 var PageProperty = require('./PageProperty');
 
 class PageType {
