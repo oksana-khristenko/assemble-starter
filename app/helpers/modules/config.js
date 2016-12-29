@@ -1,23 +1,24 @@
 'use strict';
 
-var config = require('../../config.js');
-
 class Config {
+
+    constructor(config) {
+        this.config = config;
+    }
 
     validate(key) {
         if (typeof key == 'undefined') {
-            throw new ReferenceError('config key is not provided');
+            throw new ReferenceError('config key is undefined');
+        }
+
+        if (typeof key != 'string') {
+            throw new TypeError('config key must be a string');
         }
     }
 
     get(key) {
         this.validate(key);
-        return config[key];
-    }
-
-    exists(key) {
-        this.validate(key);
-        return config.hasOwnProperty(key);
+        return this.config[key];
     }
 
 };

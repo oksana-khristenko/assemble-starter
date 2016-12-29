@@ -1,3 +1,4 @@
+var configObj = require('../config.js');
 var Config = require('./modules/Config');
 
 module.exports.register = function(Handlebars, options) {
@@ -5,7 +6,7 @@ module.exports.register = function(Handlebars, options) {
 
     var helpers = {
         helper_config: function(key) {
-            var config = new Config();
+            var config = new Config(configObj);
             return config.get(key);
         }
     };
