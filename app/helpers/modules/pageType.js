@@ -1,4 +1,4 @@
-var pageProperty = require('./pageProperty');
+var PageProperty = require('./PageProperty');
 
 class PageType {
 
@@ -32,6 +32,8 @@ class PageType {
         this.validatePageType(pageType);
 
         var propertyName = this.getPropertyName(pageType);
+
+        var pageProperty = new PageProperty();
         return pageProperty.isTrue(page, propertyName);
     }
 

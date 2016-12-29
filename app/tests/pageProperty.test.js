@@ -1,14 +1,19 @@
 var expect = require("chai").expect;
 
-var pageProperty = require('../helpers/modules/pageProperty');
+var PageProperty = require('../helpers/modules/PageProperty');
 
-describe('pageProperty', function() {
+describe('PageProperty', function() {
 
     'use strict';
 
     describe('exists', function() {
 
         describe('Arguments validation', function() {
+            var pageProperty;
+
+            beforeEach(function() {
+                pageProperty = new PageProperty();
+            });
 
             it('should throw ReferenceError if page argument is not provided', function() {
                 var fn = function(){
@@ -46,6 +51,12 @@ describe('pageProperty', function() {
 
         describe('Return values', function() {
 
+            var pageProperty;
+
+            beforeEach(function() {
+                pageProperty = new PageProperty();
+            });
+
             it('should return true if propertyName exists in the page object', function() {
                 var propertyExists = pageProperty.exists({ testPropName: '' }, 'testPropName');
                 expect(propertyExists).to.equal(true);
@@ -68,6 +79,12 @@ describe('pageProperty', function() {
     describe('isTrue', function() {
 
         describe('Arguments validation', function() {
+
+            var pageProperty;
+
+            beforeEach(function() {
+                pageProperty = new PageProperty();
+            });
 
             it('should throw ReferenceError if page argument is not provided', function() {
                 var fn = function(){
@@ -104,6 +121,13 @@ describe('pageProperty', function() {
         });
 
         describe('Return values', function() {
+
+            var pageProperty;
+
+            beforeEach(function() {
+                pageProperty = new PageProperty();
+            });
+
             it('should return true if propertyName exists in the page object and is true', function() {
                 var propertyEqualTrue = pageProperty.isTrue({ testPropName: true }, 'testPropName');
                 expect(propertyEqualTrue).to.equal(true);
@@ -153,6 +177,12 @@ describe('pageProperty', function() {
 
         describe('Arguments validation', function() {
 
+            var pageProperty;
+
+            beforeEach(function() {
+                pageProperty = new PageProperty();
+            });
+
             it('should throw ReferenceError if page argument is not provided', function() {
                 var fn = function(){
                     pageProperty.get();
@@ -188,6 +218,12 @@ describe('pageProperty', function() {
         });
 
         describe('Return values', function() {
+
+            var pageProperty;
+
+            beforeEach(function() {
+                pageProperty = new PageProperty();
+            });
 
             it('should return false if property does not exist in both page.data and page objects', function() {
                 var obj = {

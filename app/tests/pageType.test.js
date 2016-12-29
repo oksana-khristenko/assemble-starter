@@ -7,19 +7,23 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var PageType = require('../helpers/modules/PageType');
-var pageProperty = require('../helpers/modules/pageProperty');
+var PageProperty = require('../helpers/modules/PageProperty');
 
-describe('pageType', function() {
+describe('PageType', function() {
 
     'use strict';
 
     describe('is', function() {
 
         describe('Arguments validation', function() {
+            var pageType;
+
+            beforeEach(function() {
+                pageType = new PageType();
+            });
 
             it('should throw ReferenceError if page argument is not provided', function() {
                 var fn = function(){
-                    var pageType = new PageType();
                     pageType.is();
                 };
 
@@ -28,7 +32,6 @@ describe('pageType', function() {
 
             it('should throw ReferenceError if pageType argument is not provided', function() {
                 var fn = function(){
-                    var pageType = new PageType();
                     pageType.is({});
                 };
 
@@ -37,7 +40,6 @@ describe('pageType', function() {
 
             it('should throw TypeError if page argument is not an object', function() {
                 var fn = function(){
-                    var pageType = new PageType();
                     pageType.is(null, '7');
                 };
 
@@ -46,7 +48,6 @@ describe('pageType', function() {
 
             it('should throw TypeError if pageType argument is not a string', function() {
                 var fn = function(){
-                    var pageType = new PageType();
                     pageType.is({}, 6);
                 };
 
@@ -57,9 +58,16 @@ describe('pageType', function() {
 
         describe('Return values', function() {
 
+            var pageProperty;
+
+            beforeEach(function() {
+                pageProperty = new PageProperty();
+            });
+
             it('should call pageProperty.isTrue() with correct arguments', function() {
                 var page = {};
-                var spy = sinon.spy(pageProperty, 'isTrue');
+                var pageProperty = new PageProperty();
+                var spy = sinon.spy(PageProperty.prototype, 'isTrue');
 
                 var pageType = new PageType();
                 pageType.is(page, 'currentPage');
@@ -67,31 +75,31 @@ describe('pageType', function() {
                 expect(spy).to.have.been.calledOnce;
                 expect(spy).to.have.been.calledWith(page, 'isCurrentPage');
 
-                pageProperty.isTrue.restore();
+                PageProperty.prototype.isTrue.restore();
             });
 
             it('should return true when pageProperty.isTrue() returns true', function() {
                 var page = {};
-                var stub = sinon.stub(pageProperty, 'isTrue');
+                var stub = sinon.stub(PageProperty.prototype, 'isTrue');
                 stub.returns(true);
 
                 var pageType = new PageType();
                 var bool = pageType.is(page, 'article');
                 expect(bool).to.be.equal(true);
 
-                pageProperty.isTrue.restore();
+                PageProperty.prototype.isTrue.restore();
             });
 
             it('should return false when pageProperty.isTrue() returns false', function() {
                 var page = {};
-                var stub = sinon.stub(pageProperty, 'isTrue');
+                var stub = sinon.stub(PageProperty.prototype, 'isTrue');
                 stub.returns(false);
 
                 var pageType = new PageType();
                 var bool = pageType.is(page, 'section');
                 expect(bool).to.be.equal(false);
 
-                pageProperty.isTrue.restore();
+                PageProperty.prototype.isTrue.restore();
             });
 
         });
