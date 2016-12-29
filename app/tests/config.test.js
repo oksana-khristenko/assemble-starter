@@ -1,19 +1,22 @@
-var expect = require("chai").expect;
+'use strict';
 
-var config = require('../helpers/modules/config');
+var expect = require('chai').expect;
 
-describe('config', function() {
+var Config = require('../helpers/modules/Config');
+
+describe('Config', function() {
 
     'use strict';
 
     describe('Arguments validation', function() {
 
-        it('should throw TypeError if config key is not provided', function() {
+        it('should throw ReferenceError if config key is not provided', function() {
             var fn = function(){
+                var config = new Config();
                 config.get();
             };
 
-            expect(fn).to.throw(TypeError, 'config key is not provided');
+            expect(fn).to.throw(ReferenceError, 'config key is not provided');
         });
 
     });

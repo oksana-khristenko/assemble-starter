@@ -1,5 +1,5 @@
 var copyright = require('./modules/copyright');
-var config = require('./modules/config');
+var Config = require('./modules/Config');
 
 module.exports.register = function(Handlebars, options) {
 
@@ -10,6 +10,7 @@ module.exports.register = function(Handlebars, options) {
         helper_copyright: function() {
             var date = new Date(),
                 currentYear = date.getFullYear(),
+                config = new Config(),
                 startYear = Number(config.get('projectStartYear'));
 
             return copyright.getText(startYear, currentYear);

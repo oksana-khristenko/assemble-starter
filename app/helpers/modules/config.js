@@ -1,12 +1,25 @@
+'use strict';
+
 var config = require('../../config.js');
 
-function validate(key) {
-    if (!key) {
-        throw new TypeError('config key is not provided');
-    }
-}
+class Config {
 
-exports.get = function(key) {
-    validate(key);
-    return config[key];
-}
+    validate(key) {
+        if (typeof key == 'undefined') {
+            throw new ReferenceError('config key is not provided');
+        }
+    }
+
+    get(key) {
+        this.validate(key);
+        return config[key];
+    }
+
+    exists(key) {
+        this.validate(key);
+        return config.hasOwnProperty(key);
+    }
+
+};
+
+module.exports = Config;
