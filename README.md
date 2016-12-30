@@ -17,7 +17,7 @@ Assemble starter kit
 
 ## Components
 
-Available at `http://localhost:4001/examples`.
+Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 
 - [x] [Sticky footer](http://localhost:4001/examples/sticky-footer)
 - [ ] Aspect ratio box
