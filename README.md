@@ -1,22 +1,33 @@
 Assemble starter kit
 ====================
 
-> Assemble starter kit for generating static sites (landing pages, brochure sites, blogs etc). Contains pre-built components.
+> Assemble starter kit for generating static sites (landing pages, brochure sites, blogs etc).
 
-- [When to use?](when-to-use)
+- [Use cases](#use-cases)
 - [Components](#components)
 - [Tech stack](#tech-stack)
 - [Install](#install)
 - [Workflow](#workflow)
-- [Examples](#examples)
 
-## When to use?
+## Use cases
 
-TBC
+- final product is HTML/CSS/JS files
+- CMS is not required
+- custom design
 
 ## Components
 
-TBC
+Available at `http://localhost:4001/examples`.
+
+- [x] [Sticky footer](http://localhost:4001/examples/sticky-footer)
+- [ ] Aspect ratio box
+- [ ] Images lazy load
+- [ ] Scroll to content
+- [ ] Copyright (current year)
+- [ ] Twitter card meta tags
+- [ ] OG meta tags
+- [ ] Share buttons
+- [ ] Follow buttons
 
 ## Tech stack
 
@@ -60,10 +71,4 @@ Run `npm run dist` from project root.
 Tests helper files.
 
 Run `npm test` from project root.
-
-## Examples
-
-Available at `http://localhost:4001/examples`
-
-- Sticky footer `http://localhost:4001/examples/sticky-footer`
 
