@@ -20,7 +20,7 @@ function validate(startYear, currentYear) {
     }
 }
 
-exports.getText = function(startYear, currentYear) {
+exports.get = function(startYear, currentYear) {
     validate(startYear, currentYear);
     return (startYear === currentYear) ? `${currentYear}` : `${startYear} - ${currentYear}`;
 };

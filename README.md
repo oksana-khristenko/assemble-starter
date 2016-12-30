@@ -23,8 +23,10 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [ ] Aspect ratio box
 - [ ] Images lazy load
 - [ ] Scroll to content
-- [ ] Copyright (current year)
+- [x] Copyright
 - [ ] Twitter card meta tags
+- [ ] Google Analytics tag
+- [ ] Google events
 - [ ] OG meta tags
 - [ ] Share buttons
 - [ ] Follow buttons
