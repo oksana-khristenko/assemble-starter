@@ -9,6 +9,10 @@ Assemble starter kit
 - [Workflow](#workflow)
 - [Examples](#examples)
 
+## Components
+
+TBC
+
 ## Tech stack
 
 - Assemble.io
@@ -17,10 +21,6 @@ Assemble starter kit
 - Handlebars
 - Browserify
 - Mocha, Chai, Sinon
-
-## Components
-
-TBC
 
 ## Install
 
