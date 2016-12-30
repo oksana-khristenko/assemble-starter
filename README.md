@@ -1,11 +1,26 @@
 Assemble starter kit
 ====================
 
-> Assemble starter kit for brochure sites, landing pages, blogs etc.
+> Assemble starter kit for generating static sites (landing pages, brochure sites, blogs etc). Contains pre-built components.
 
+- [Components](#components)
+- [Tech stack](#tech-stack)
 - [Install](#install)
 - [Workflow](#workflow)
 - [Examples](#examples)
+
+## Tech stack
+
+- Assemble.io
+- Grunt
+- PostCSS, BEM
+- Handlebars
+- Browserify
+- Mocha, Chai, Sinon
+
+## Components
+
+TBC
 
 ## Install
 
