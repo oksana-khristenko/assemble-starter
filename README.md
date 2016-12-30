@@ -1,7 +1,7 @@
 Assemble starter kit
 ====================
 
-> Assemble starter kit for generating static sites (landing pages, brochure sites, blogs etc).
+Assemble starter kit for generating static sites (landing pages, brochure sites, blogs etc).
 
 - [Use cases](#use-cases)
 - [Components](#components)
