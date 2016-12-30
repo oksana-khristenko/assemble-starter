@@ -31,7 +31,7 @@ describe('copyright', function() {
 
                 copyright.get(2013, currentYear);
 
-                expect(spy.withArgs(currentYear).calledOnce);
+                expect(spy.withArgs(currentYear)).calledOnce;
 
                 CopyrightValidator.prototype.validateCurrentYear.restore();
             });
@@ -62,7 +62,7 @@ describe('copyright', function() {
 
                 copyright.get(2013, currentYear, format);
 
-                expect(spy.withArgs(currentYear).calledOnce);
+                expect(spy.withArgs(currentYear)).calledOnce;
 
                 CopyrightValidator.prototype.validateCurrentYear.restore();
             });
@@ -95,7 +95,7 @@ describe('copyright', function() {
 
                 copyright.get(startYear, currentYear, format);
 
-                expect(spy.withArgs(currentYear).calledOnce);
+                expect(spy.withArgs(startYear, currentYear)).calledOnce;
 
                 CopyrightValidator.prototype.validateRange.restore();
             });
