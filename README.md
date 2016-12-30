@@ -11,7 +11,7 @@ Assemble starter kit
 
 - Install [Node.js](https://nodejs.org/)
 
-- Install [nvm](https://github.com/creationix/nvm) if required (node version v6.8.0, npm version 3.10.8)
+- Install [nvm](https://github.com/creationix/nvm) if required (node version v7.3.0, npm version 3.10.10)
 
 - Install [ImageOptim](https://imageoptim.com/) desktop app
 
