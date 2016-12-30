@@ -8,25 +8,107 @@ describe('TwitterCardSummaryLargeImage', function() {
 
     describe('get', function() {
 
-        it('should return false when twitter card is disabled', function() {
-            var config = {
-                twitterCardEnabled: false
-            };
+        describe('Return value', function() {
 
-            var twitterCard = new TwitterCardSummaryLargeImage(config, {}).get();
-            expect(twitterCard).to.be.false;
+            describe('twitter card is disabled', function() {
 
-        });
+                it('should return false', function() {
+                    var config = {
+                        twitterCardEnabled: false
+                    };
 
-        it('should return value of language type Object when twitter card is enabled', function() {
-            var config = {
-                twitterCardEnabled: true,
-                twitterCardType: 'summary_large_image',
-                twitterUserName: 'test'
-            };
+                    var page = {};
 
-            var twitterCard = new TwitterCardSummaryLargeImage(config, {}).get();
-            expect(twitterCard).to.be.an('object');
+                    var twitterCard = new TwitterCardSummaryLargeImage(config, page).get();
+                    expect(twitterCard).to.be.false;
+                });
+
+            });
+
+            describe('twitter card is enabled', function() {
+
+                it('should return an object', function() {
+                    var config = {
+                        twitterCardEnabled: true,
+                        twitterCardType: 'summary_large_image',
+                        twitterUserName: 'test'
+                    };
+
+                    var page = {
+                        title: 'title',
+                        short_summary: 'desc'
+                    };
+
+                    var twitterCard = new TwitterCardSummaryLargeImage(config, page).get();
+                    expect(twitterCard).to.be.an('object');
+                });
+
+                it('should have property "card"', function() {
+                    var config = {
+                        twitterCardEnabled: true,
+                        twitterCardType: 'summary_large_image',
+                        twitterUserName: 'test'
+                    };
+
+                    var page = {
+                        title: 'title',
+                        short_summary: 'desc'
+                    };
+
+                    var twitterCard = new TwitterCardSummaryLargeImage(config, page).get();
+                    expect(twitterCard).to.have.property('card');
+                });
+
+                it('should have property "site"', function() {
+                    var config = {
+                        twitterCardEnabled: true,
+                        twitterCardType: 'summary_large_image',
+                        twitterUserName: 'test'
+                    };
+
+                    var page = {
+                        title: 'title',
+                        short_summary: 'desc'
+                    };
+
+                    var twitterCard = new TwitterCardSummaryLargeImage(config, page).get();
+                    expect(twitterCard).to.have.property('card');
+                });
+
+                it('should have property "title"', function() {
+                    var config = {
+                        twitterCardEnabled: true,
+                        twitterCardType: 'summary_large_image',
+                        twitterUserName: 'test'
+                    };
+
+                    var page = {
+                        title: 'title',
+                        short_summary: 'desc'
+                    };
+
+                    var twitterCard = new TwitterCardSummaryLargeImage(config, page).get();
+                    expect(twitterCard).to.have.property('title');
+                });
+
+                it('should have property "description"', function() {
+                    var config = {
+                        twitterCardEnabled: true,
+                        twitterCardType: 'summary_large_image',
+                        twitterUserName: 'test'
+                    };
+
+                    var page = {
+                        title: 'title',
+                        short_summary: 'desc'
+                    };
+
+                    var twitterCard = new TwitterCardSummaryLargeImage(config, page).get();
+                    expect(twitterCard).to.have.property('description');
+                });
+
+            });
+
         });
     });
 });

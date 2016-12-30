@@ -35,7 +35,7 @@ class TwitterCardSummaryLargeImage {
 
     get card() {
         return {
-            card_name: this.cardType,
+            card: this.cardType,
             site: this.twitterUserName,
             creator: this.twitterUserName,
             title: this.title,
