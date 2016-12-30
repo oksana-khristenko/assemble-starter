@@ -5,14 +5,15 @@ short_title: Copyright
 title: Copyright
 summary: Copyright
 short_summary: Copyright
+
 ---
 
 <h1>Copyright</h1>
 
 <h2>Format [startYear] - [currentYear]</h2>
 <p>If startYear and currentYear are the same, format [currentYear] will be applied.</p>
-<div>Copyright &copy; {{helper_copyright 'range'}}</div>
+<div>{{> example-copyright-range }}</div>
 
 <h2>Format [currentYear]</h2>
 <p>Default format.</p>
-<div>Copyright &copy; {{helper_copyright}}</div>
+<div>{{> example-copyright }}</div>

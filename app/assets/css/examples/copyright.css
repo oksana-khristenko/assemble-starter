@@ -1,4 +1,6 @@
 @import "../_normalize";
 @import "../_base";
 
-@import "../_aspect-ratio";
+.copyright {
+    font-size: 1.5rem;
+}
