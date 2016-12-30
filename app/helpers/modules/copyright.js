@@ -15,22 +15,15 @@ class Copyright {
         return `${currentYear}`;
     };
 
-    getRangeTemplate(startYear, currentYear, type) {
+    getRangeTemplate(startYear, currentYear) {
         this.validator.validateRange(startYear, currentYear);
         return (startYear == currentYear) ? `${currentYear}` : `${startYear} - ${currentYear}`;
     };
 
-    get(startYear, currentYear, type) {
-        switch(type) {
-            case 'current':
-                return this.getCurrentYearTemplate(currentYear);
-                break;
-            case 'range':
-                return this.getRangeTemplate(startYear, currentYear);
-                break;
-            default:
-                return this.getRangeTemplate(startYear, currentYear);
-        }
+    get(startYear, currentYear, format) {
+        return (format == 'range') ?
+            this.getRangeTemplate(startYear, currentYear) :
+            this.getCurrentYearTemplate(currentYear);
     }
 
 }

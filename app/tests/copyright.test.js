@@ -23,6 +23,31 @@ describe('copyright', function() {
 
     describe('Return values', function() {
 
+        describe('format not provided', function() {
+
+            it('should call validateCurrentYear() of CopyrightValidator with correct arguments', function() {
+                var currentYear = 2018;
+                var spy = sinon.spy(CopyrightValidator.prototype, 'validateCurrentYear');
+
+                copyright.get(2013, currentYear);
+
+                expect(spy.withArgs(currentYear).calledOnce);
+
+                CopyrightValidator.prototype.validateCurrentYear.restore();
+            });
+
+            it('should return correct text', function() {
+                var startYear = 2013,
+                    currentYear = 2018,
+                    expected = `${currentYear}`;
+
+                var actual = copyright.get(startYear, currentYear);
+
+                expect(actual).to.equal(expected);
+            });
+
+        });
+
         describe('format "current"', function() {
 
             var format;
@@ -38,6 +63,8 @@ describe('copyright', function() {
                 copyright.get(2013, currentYear, format);
 
                 expect(spy.withArgs(currentYear).calledOnce);
+
+                CopyrightValidator.prototype.validateCurrentYear.restore();
             });
 
             it('should return correct text', function() {
@@ -69,6 +96,8 @@ describe('copyright', function() {
                 copyright.get(startYear, currentYear, format);
 
                 expect(spy.withArgs(currentYear).calledOnce);
+
+                CopyrightValidator.prototype.validateRange.restore();
             });
 
             it('should return correct text if startYear is equal to currentYear', function() {
@@ -86,7 +115,7 @@ describe('copyright', function() {
                     currentYear = 2020,
                     expectedText = `${startYear} - ${currentYear}`;
 
-                var actualText = copyright.get(startYear, currentYear);
+                var actualText = copyright.get(startYear, currentYear, format);
 
                 expect(actualText).to.equal(expectedText);
             });
