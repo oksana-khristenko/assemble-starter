@@ -1,76 +1,96 @@
-var expect = require("chai").expect;
+'use strict';
 
-var copyright = require('../helpers/modules/copyright');
+var chai = require('chai');
+var sinon = require('sinon');
+var sinonChai = require('sinon-chai');
+var expect = chai.expect;
+chai.use(sinonChai);
+
+var Copyright = require('../helpers/modules/Copyright');
+var CopyrightValidator = require('../helpers/modules/CopyrightValidator');
 
 describe('copyright', function() {
 
-    'use strict';
+    var copyright;
 
-    describe('Arguments validation', function() {
+    beforeEach(function() {
+        copyright = new Copyright();
+    });
 
-        it('should throw ReferenceError if startYear argument is not provided', function() {
-            var fn = function(){
-                copyright.get();
-            };
-
-            expect(fn).to.throw(ReferenceError, 'startYear is undefined');
-        });
-
-        it('should throw ReferenceError if currentYear argument is not provided', function() {
-            var fn = function(){
-                copyright.get(2020);
-            };
-
-            expect(fn).to.throw(ReferenceError, 'currentYear is undefined');
-        });
-
-        it('should throw TypeError if startYear argument is not an integer', function() {
-            var fn = function(){
-                copyright.get('2019', 2023);
-            };
-
-            expect(fn).to.throw(TypeError, 'startYear must be an integer');
-        });
-
-        it('should throw TypeError if currentYear argument is not an integer', function() {
-            var fn = function(){
-                copyright.get(2017, '2019');
-            };
-
-            expect(fn).to.throw(TypeError, 'currentYear must be an integer');
-        });
-
-        it('should throw RangeError if currentYear argument is less than startYear', function() {
-            var fn = function(){
-                copyright.get(2028, 2020);
-            };
-
-            expect(fn).to.throw(RangeError, 'startYear must be equal to or less than currentYear');
-
-        });
-
+    afterEach(function() {
+        copyright = null;
     });
 
     describe('Return values', function() {
 
-        it('should return correct text if startYear is equal to currentYear', function() {
-            var startYear = 2018,
-                currentYear = 2018,
-                expectedText = `${currentYear}`;
+        describe('format "current"', function() {
 
-            var actualText = copyright.get(startYear, currentYear);
+            var format;
 
-            expect(actualText).to.equal(expectedText);
+            beforeEach(function() {
+                format = 'current';
+            });
+
+            it('should call validateCurrentYear() of CopyrightValidator with correct arguments', function() {
+                var currentYear = 2018;
+                var spy = sinon.spy(CopyrightValidator.prototype, 'validateCurrentYear');
+
+                copyright.get(2013, currentYear, format);
+
+                expect(spy.withArgs(currentYear).calledOnce);
+            });
+
+            it('should return correct text', function() {
+                var startYear = 2013,
+                    currentYear = 2018,
+                    expected = `${currentYear}`;
+
+                var actual = copyright.get(startYear, currentYear, format);
+
+                expect(actual).to.equal(expected);
+            });
+
         });
 
-        it('should return correct text if startYear is less than currentYear', function() {
-            var startYear = 2014,
-                currentYear = 2020,
-                expectedText = `${startYear} - ${currentYear}`;
+        describe('format "range"', function() {
 
-            var actualText = copyright.get(startYear, currentYear);
+            var format;
 
-            expect(actualText).to.equal(expectedText);
+            beforeEach(function() {
+                format = 'range';
+            });
+
+            it('should call validateRange() of CopyrightValidator with correct arguments', function() {
+                var startYear = 2013,
+                    currentYear = 2018;
+
+                var spy = sinon.spy(CopyrightValidator.prototype, 'validateRange');
+
+                copyright.get(startYear, currentYear, format);
+
+                expect(spy.withArgs(currentYear).calledOnce);
+            });
+
+            it('should return correct text if startYear is equal to currentYear', function() {
+                var startYear = 2018,
+                    currentYear = 2018,
+                    expectedText = `${currentYear}`;
+
+                var actualText = copyright.get(startYear, currentYear, format);
+
+                expect(actualText).to.equal(expectedText);
+            });
+
+            it('should return correct text if currentYear is greater than startYear', function() {
+                var startYear = 2014,
+                    currentYear = 2020,
+                    expectedText = `${startYear} - ${currentYear}`;
+
+                var actualText = copyright.get(startYear, currentYear);
+
+                expect(actualText).to.equal(expectedText);
+            });
+
         });
 
     });

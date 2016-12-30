@@ -1,10 +1,17 @@
 ---
 layout: examples.hbs
 
-short_title: Follow buttons
-title: Follow buttons
-summary: Follow buttons
-short_summary: Follow buttons
+short_title: Copyright
+title: Copyright
+summary: Copyright
+short_summary: Copyright
 ---
 
-Copyright &copy; {{helper_copyright}}
+<h1>Copyright</h1>
+
+<h2>Format [startYear] - [currentYear]</h2>
+<p>If startYear and currentYear are the same, format [currentYear] will be applied.</p>
+<div>Copyright &copy; {{helper_copyright 'range'}}</div>
+
+<h2>Format [currentYear]</h2>
+<div>Copyright &copy; {{helper_copyright 'current'}}</div>
