@@ -1,7 +1,7 @@
 'use strict';
 
 import $ from 'jquery';
-import ImageLoader from './modules/image-loader';
+import ImageLoader from '../modules/_image-loader';
 
 var imageLoader = new ImageLoader();
 
