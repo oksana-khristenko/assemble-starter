@@ -1,13 +1,9 @@
 'use strict';
 
-var CopyrightValidator = require('./CopyrightValidator');
-
-'use strict';
-
 class Copyright {
 
-    constructor() {
-        this.validator = new CopyrightValidator();
+    constructor(validator) {
+        this.validator = validator;
     }
 
     getCurrentYearTemplate(currentYear) {

@@ -7,18 +7,21 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var Copyright = require('../../helpers/modules/Copyright');
-var CopyrightValidator = require('../../helpers/modules/CopyrightValidator');
+var CopyrightValidator = require('../doubles/CopyrightValidator');
 
 describe('copyright', function() {
 
-    var copyright;
+    var copyright,
+        validator;
 
     beforeEach(function() {
-        copyright = new Copyright();
+        validator = new CopyrightValidator();
+        copyright = new Copyright(validator);
     });
 
     afterEach(function() {
         copyright = null;
+        validator = null;
     });
 
     describe('Return values', function() {
