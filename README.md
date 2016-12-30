@@ -3,11 +3,16 @@ Assemble starter kit
 
 > Assemble starter kit for generating static sites (landing pages, brochure sites, blogs etc). Contains pre-built components.
 
+- [When to use?](when-to-use)
 - [Components](#components)
 - [Tech stack](#tech-stack)
 - [Install](#install)
 - [Workflow](#workflow)
 - [Examples](#examples)
+
+## When to use?
+
+TBC
 
 ## Components
 
@@ -19,7 +24,7 @@ TBC
 - Grunt
 - PostCSS, BEM
 - Handlebars
-- Browserify
+- ES6, Babel, Browserify
 - Mocha, Chai, Sinon
 
 ## Install
@@ -59,3 +64,6 @@ Run `npm test` from project root.
 ## Examples
 
 Available at `http://localhost:4001/examples`
+
+- Sticky footer `http://localhost:4001/examples/sticky-footer`
+
