@@ -4,10 +4,8 @@ Assemble starter kit
 > Assemble starter kit for brochure sites, landing pages, blogs etc.
 
 - [Install](#install)
-- [Update project settings](#update-project-settings)
-- [Build](#build)
-- [Dist](#dist)
-- [Test](#dist)
+- [Workflow](#workflow)
+- [Examples](#examples)
 
 ## Install
 
@@ -19,24 +17,30 @@ Assemble starter kit
 
 - Run `npm install` from project root to install node modules
 
-## Update project settings
+## Workflow
+
+### Update project settings
 
 Update project settings in `app/config.js`.
 
-## Build
+### Build
 
 Compiles HTML files and assets into `public` folder and makes them available at `http://localhost:4001`.
 
 Run `npm start` from project root.
 
-## Dist
+### Dist
 
 Compiles and minifies HTML files and assets into `dist` folder.
 
 Run `npm run dist` from project root.
 
-## Test
+### Test
 
 Tests helper files.
 
 Run `npm test` from project root.
+
+## Examples
+
+Available at `http://localhost:4001/examples`
