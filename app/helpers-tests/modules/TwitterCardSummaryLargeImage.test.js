@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var TwitterCardSummaryLargeImage = require('../helpers/modules/TwitterCardSummaryLargeImage');
+var TwitterCardSummaryLargeImage = require('../../helpers/modules/TwitterCardSummaryLargeImage');
 
 describe('TwitterCardSummaryLargeImage', function() {
 

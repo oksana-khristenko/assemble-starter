@@ -6,8 +6,8 @@ var sinonChai = require('sinon-chai');
 var expect = chai.expect;
 chai.use(sinonChai);
 
-var PageData = require('../helpers/modules/PageData');
-var PageProperty = require('../helpers/modules/PageProperty');
+var PageData = require('../../helpers/modules/PageData');
+var PageProperty = require('../../helpers/modules/PageProperty');
 
 describe('PageData', function() {
 

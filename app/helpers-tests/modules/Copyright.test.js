@@ -6,8 +6,8 @@ var sinonChai = require('sinon-chai');
 var expect = chai.expect;
 chai.use(sinonChai);
 
-var Copyright = require('../helpers/modules/Copyright');
-var CopyrightValidator = require('../helpers/modules/CopyrightValidator');
+var Copyright = require('../../helpers/modules/Copyright');
+var CopyrightValidator = require('../../helpers/modules/CopyrightValidator');
 
 describe('copyright', function() {
 

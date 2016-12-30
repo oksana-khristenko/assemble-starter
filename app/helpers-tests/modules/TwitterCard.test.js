@@ -2,10 +2,10 @@
 
 var expect = require('chai').expect;
 
-var Config = require('../helpers/modules/Config');
+var Config = require('../../helpers/modules/Config');
 
-var TwitterCard = require('../helpers/modules/TwitterCard');
-var TwitterCardSummaryLargeImage = require('../helpers/modules/TwitterCardSummaryLargeImage');
+var TwitterCard = require('../../helpers/modules/TwitterCard');
+var TwitterCardSummaryLargeImage = require('../../helpers/modules/TwitterCardSummaryLargeImage');
 
 describe('TwitterCard', function() {
 

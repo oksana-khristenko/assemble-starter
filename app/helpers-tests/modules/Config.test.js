@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var Config = require('../helpers/modules/Config');
+var Config = require('../../helpers/modules/Config');
 
 describe('Config', function() {
 

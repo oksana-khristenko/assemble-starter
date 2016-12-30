@@ -3,7 +3,7 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-var CopyrightValidator = require('../helpers/modules/CopyrightValidator');
+var CopyrightValidator = require('../../helpers/modules/CopyrightValidator');
 
 describe('CopyrightValidator', function() {
 

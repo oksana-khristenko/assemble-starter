@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var PageProperty = require('../helpers/modules/PageProperty');
+var PageProperty = require('../../helpers/modules/PageProperty');
 
 describe('PageProperty', function() {
 
