@@ -1,6 +1,5 @@
 var CopyrightBuilder = require('./builders/CopyrightBuilder');
-var Config = require('./modules/Config');
-var configObj = require('../config.js');
+var ConfigBuilder = require('./builders/ConfigBuilder');
 
 module.exports.register = function(Handlebars, options) {
 
@@ -11,7 +10,7 @@ module.exports.register = function(Handlebars, options) {
         helper_copyright: function(format, options) {
             var date = new Date(),
                 currentYear = date.getFullYear(),
-                config = new Config(configObj),
+                config = new ConfigBuilder().build(),
                 startYear = Number(config.get('projectStartYear')),
                 copyright = new CopyrightBuilder().build();
 

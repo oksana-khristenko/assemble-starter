@@ -1,5 +1,4 @@
-var configObj = require('../config.js');
-var Config = require('./modules/Config');
+var ConfigBuilder = require('./builders/ConfigBuilder');
 
 module.exports.register = function(Handlebars, options) {
 
@@ -8,8 +7,7 @@ module.exports.register = function(Handlebars, options) {
     var helpers = {
 
         helper_google_analytics: function(options) {
-            var config = new Config(configObj);
-
+            var config = new ConfigBuilder().build();
             if (config.get('enableGoogleAnalytics') === true) {
                 return options.fn({
                     googleAnalyticsId: config.get('googleAnalyticsId'),

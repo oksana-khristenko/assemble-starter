@@ -1,12 +1,11 @@
-var configObj = require('../config.js');
-var Config = require('./modules/Config');
+var ConfigBuilder = require('./builders/ConfigBuilder');
 
 module.exports.register = function(Handlebars, options) {
     options = options || {};
 
     var helpers = {
         helper_config: function(key) {
-            var config = new Config(configObj);
+            var config = new ConfigBuilder().build();
             return config.get(key);
         }
     };
