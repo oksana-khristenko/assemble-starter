@@ -27,7 +27,7 @@ class SocialAccountsValidator {
         var invalidAccounts = [];
 
         accounts.forEach((account) => {
-            !this.isValidAccountType(account) && invalidAccounts.push(account);
+            this.isValidAccountType(account) || invalidAccounts.push(account);
         });
 
         return invalidAccounts;
