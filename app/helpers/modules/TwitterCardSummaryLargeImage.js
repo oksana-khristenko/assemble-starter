@@ -1,7 +1,7 @@
 'use strict';
 
 var Config = require('./Config');
-var PageData = require('./PageData');
+var PagePropertyBuilder = require('../builders/PagePropertyBuilder');
 
 class TwitterCardSummaryLargeImage {
 
@@ -9,6 +9,7 @@ class TwitterCardSummaryLargeImage {
         this.config = new Config(data);
         this.twitterCardEnabled = this.config.get('twitterCardEnabled');
         this.page = page;
+        this.pagePropertyBuilder = new PagePropertyBuilder().build();
     }
 
     validate() {
@@ -18,7 +19,7 @@ class TwitterCardSummaryLargeImage {
     }
 
     get title() {
-        return new PageData(this.page).title;
+        return this.pagePropertyBuilder.get(this.page, 'title');
     }
 
     get twitterUserName() {
@@ -26,7 +27,7 @@ class TwitterCardSummaryLargeImage {
     }
 
     get description() {
-        return new PageData(this.page).shortSummary;
+        return this.pagePropertyBuilder.get(this.page, 'short_summary');
     }
 
     get cardType() {

@@ -1,6 +1,6 @@
 'use strict';
 
-var PageProperty = require('./PageProperty');
+var PagePropertyBuilder = require('../builders/PagePropertyBuilder');
 
 class PageType {
 
@@ -35,7 +35,7 @@ class PageType {
 
         var propertyName = this.getPropertyName(pageType);
 
-        var pageProperty = new PageProperty();
+        var pageProperty = new PagePropertyBuilder().build();
         return pageProperty.isTrue(page, propertyName);
     }
 
