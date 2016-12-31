@@ -5,8 +5,8 @@ var CopyrightValidator = require('../modules/CopyrightValidator');
 
 class CopyrightBuilder {
 
-    constructor() {
-        this.validator = new CopyrightValidator();
+    constructor(validator) {
+        this.validator = validator || new CopyrightValidator();
     }
 
     build() {

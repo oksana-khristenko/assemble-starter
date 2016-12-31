@@ -1,14 +1,14 @@
 'use strict';
 
 var Config = require('../modules/Config');
-var config = require('../../config.js');
+var configObj = require('../../config.js');
 var ConfigValidator = require('../modules/ConfigValidator');
 
 class ConfigBuilder {
 
-    constructor() {
-        this.config = config;
-        this.validator = new ConfigValidator();;
+    constructor(config, validator) {
+        this.config = config || configObj;
+        this.validator = validator || new ConfigValidator();
     }
 
     build() {

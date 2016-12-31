@@ -5,8 +5,8 @@ var PagePropertyValidator = require('../modules/PagePropertyValidator');
 
 class PagePropertyBuilder {
 
-    constructor() {
-        this.validator = new PagePropertyValidator();
+    constructor(validator) {
+        this.validator = validator || new PagePropertyValidator();
     }
 
     build() {

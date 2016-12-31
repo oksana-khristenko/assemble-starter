@@ -1,14 +1,13 @@
 'use strict';
 
-var Config = require('./Config');
-var ConfigValidator = require('./ConfigValidator');
+var ConfigBuilder = require('../builders/ConfigBuilder');
 var TwitterCardSummaryLargeImage = require('./TwitterCardSummaryLargeImage');
 
 class TwitterCard {
 
     constructor(data, page) {
         this.data = data;
-        this.config = new Config(data, new ConfigValidator());
+        this.config = new ConfigBuilder(data).build();
         this.twitterCardEnabled = this.config.get('twitterCardEnabled');
         this.twitterCardType = this.config.get('twitterCardType');
         this.page = page;
