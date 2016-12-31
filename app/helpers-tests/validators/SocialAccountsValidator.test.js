@@ -7,10 +7,12 @@ var SocialAccountsValidator = require('../../helpers/validators/SocialAccountsVa
 
 describe('SocialAccountsValidator', function() {
 
-    var socialAccountsValidator;
+    var socialAccountsValidator,
+    	validSocialAccounts = ['test', 'test1'],
+    	invalidSocialAccounts = ['sample', 'sample1'];
 
     beforeEach(function() {
-        socialAccountsValidator = new SocialAccountsValidator(['test', 'test1']);
+        socialAccountsValidator = new SocialAccountsValidator(validSocialAccounts);
     });
 
     afterEach(function() {
@@ -21,10 +23,18 @@ describe('SocialAccountsValidator', function() {
 
         it('should throw TypeError if at least one social account is invalid', function() {
             var fn = function(){
-                socialAccountsValidator.validate(['sample', 'sample1']);
+                socialAccountsValidator.validate(invalidSocialAccounts);
             };
 
-            expect(fn).to.throw(TypeError, 'Invalid social accounts: sample, sample1');
+            expect(fn).to.throw(TypeError, `Invalid social accounts: ${invalidSocialAccounts.join(', ')}`);
+        });
+
+        it('should not throw when social accounts are valid', function() {
+            var fn = function(){
+                socialAccountsValidator.validate(validSocialAccounts);
+            };
+
+            expect(fn).to.not.throw;
         });
 
     });
