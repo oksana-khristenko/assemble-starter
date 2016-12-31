@@ -3,7 +3,7 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-var ConfigValidator = require('../../helpers/modules/ConfigValidator');
+var ConfigValidator = require('../../helpers/validators/ConfigValidator');
 
 describe('ConfigValidator', function() {
 

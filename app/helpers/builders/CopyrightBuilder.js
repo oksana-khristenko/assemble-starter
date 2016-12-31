@@ -1,7 +1,7 @@
 'use strict';
 
 var Copyright = require('../modules/Copyright');
-var CopyrightValidator = require('../modules/CopyrightValidator');
+var CopyrightValidator = require('../validators/CopyrightValidator');
 
 class CopyrightBuilder {
 

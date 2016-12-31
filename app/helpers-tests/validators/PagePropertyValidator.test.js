@@ -3,7 +3,7 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-var PagePropertyValidator = require('../../helpers/modules/PagePropertyValidator');
+var PagePropertyValidator = require('../../helpers/validators/PagePropertyValidator');
 
 describe('PagePropertyValidator', function() {
 

@@ -1,7 +1,7 @@
 'use strict';
 
 var PageProperty = require('../modules/PageProperty');
-var PagePropertyValidator = require('../modules/PagePropertyValidator');
+var PagePropertyValidator = require('../validators/PagePropertyValidator');
 
 class PagePropertyBuilder {
 

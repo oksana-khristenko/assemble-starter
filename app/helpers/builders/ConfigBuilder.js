@@ -2,7 +2,7 @@
 
 var Config = require('../modules/Config');
 var configObj = require('../../config.js');
-var ConfigValidator = require('../modules/ConfigValidator');
+var ConfigValidator = require('../validators/ConfigValidator');
 
 class ConfigBuilder {
 
