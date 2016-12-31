@@ -24,7 +24,7 @@ describe('copyright', function() {
         validator = null;
     });
 
-    describe('Return values', function() {
+    describe('get', function() {
 
         describe('format not provided', function() {
 
