@@ -1,51 +1,52 @@
 'use strict';
 
-var expect = require('chai').expect;
+var chai = require('chai');
+var sinon = require('sinon');
+var sinonChai = require('sinon-chai');
+var expect = chai.expect;
+chai.use(sinonChai);
 
 var Config = require('../../helpers/modules/Config');
+var ConfigValidator = require('../doubles/ConfigValidator');
 
 describe('Config', function() {
 
+    var validator;
+
+    beforeEach(function() {
+        validator = new ConfigValidator();
+    });
+
+    afterEach(function() {
+        validator = null;
+    });
+
     describe('get', function() {
 
-        describe('Arguments validation', function() {
+        it('should call validateKey() of ConfigValidator with correct arguments', function() {
+            var spy = sinon.spy(ConfigValidator.prototype, 'validateKey');
 
-            it('should throw ReferenceError if config key is not provided', function() {
-                var fn = function(){
-                    var config = new Config({});
-                    config.get();
-                };
+            var config = new Config({}, validator);
+            config.get('testKey');
 
-                expect(fn).to.throw(ReferenceError, 'config key is undefined');
-            });
+            expect(spy.withArgs('testKey')).calledOnce;
 
-            it('should throw TypeError if config key is not a string', function() {
-                var fn = function(){
-                    var config = new Config({});
-                    config.get({});
-                };
-
-                expect(fn).to.throw(TypeError, 'config key must be a string');
-            });
-
+            ConfigValidator.prototype.validateKey.restore();
         });
 
-        describe('Return values', function() {
+        it('should return correct key value', function() {
+            var config = new Config({testKey: 'str'}, validator);
+            var val = config.get('testKey');
 
-            it('should return correct key value', function() {
-                var config = new Config({testKey: 'str'});
-                var val = config.get('testKey');
-
-                expect(val).to.equal('str');
-            });
-
-            it('should return undefined if key does not exist', function() {
-                var config = new Config({});
-                var val = config.get('testKey');
-
-                expect(val).to.equal(undefined);
-            });
-
+            expect(val).to.equal('str');
         });
+
+        it('should return undefined if key does not exist', function() {
+            var config = new Config({}, validator);
+            var val = config.get('testKey');
+
+            expect(val).to.equal(undefined);
+        });
+
     });
 });

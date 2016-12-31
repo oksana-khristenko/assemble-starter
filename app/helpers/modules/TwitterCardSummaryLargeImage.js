@@ -1,12 +1,13 @@
 'use strict';
 
 var Config = require('./Config');
+var ConfigValidator = require('./ConfigValidator');
 var PagePropertyBuilder = require('../builders/PagePropertyBuilder');
 
 class TwitterCardSummaryLargeImage {
 
     constructor(data, page) {
-        this.config = new Config(data);
+        this.config = new Config(data, new ConfigValidator());
         this.twitterCardEnabled = this.config.get('twitterCardEnabled');
         this.page = page;
         this.pagePropertyBuilder = new PagePropertyBuilder().build();

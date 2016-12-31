@@ -2,22 +2,13 @@
 
 class Config {
 
-    constructor(config) {
+    constructor(config, validator) {
         this.config = config;
-    }
-
-    validate(key) {
-        if (typeof key == 'undefined') {
-            throw new ReferenceError('config key is undefined');
-        }
-
-        if (typeof key != 'string') {
-            throw new TypeError('config key must be a string');
-        }
+        this.validator = validator;
     }
 
     get(key) {
-        this.validate(key);
+        this.validator.validateKey(key);
         return this.config[key];
     }
 
