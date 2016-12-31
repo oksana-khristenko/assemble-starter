@@ -1,5 +1,5 @@
-var CopyrightBuilder = require('./builders/CopyrightBuilder');
-var ConfigBuilder = require('./builders/ConfigBuilder');
+var CopyrightBuilder = require('../builders/CopyrightBuilder');
+var ConfigBuilder = require('../builders/ConfigBuilder');
 
 module.exports.register = function(Handlebars, options) {
 
