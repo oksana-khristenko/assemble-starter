@@ -2,26 +2,13 @@
 
 class PageProperty {
 
-    validateArguments(page, propertyName) {
-        if (typeof page == 'undefined') {
-            throw new ReferenceError('page is undefined');
-        }
-
-        if (typeof propertyName == 'undefined') {
-            throw new ReferenceError('propertyName is undefined');
-        }
-
-        if (typeof page != 'object' || page === null) {
-            throw new TypeError('page must be an object');
-        }
-
-        if (typeof propertyName != 'string') {
-            throw new TypeError('propertyName must be a string');
-        }
+    constructor(validator) {
+        this.validator = validator;
     }
 
     isTrue(page, propertyName) {
-        this.validateArguments(page, propertyName);
+        this.validator.validatePage(page);
+        this.validator.validatePropertyName(propertyName);
 
         if (page.hasOwnProperty(propertyName) && (page[propertyName] === true)) {
             return true;
@@ -35,7 +22,8 @@ class PageProperty {
     };
 
     exists(page, propertyName) {
-        this.validateArguments(page, propertyName);
+        this.validator.validatePage(page);
+        this.validator.validatePropertyName(propertyName);
 
         if (page.hasOwnProperty(propertyName) || page.data.hasOwnProperty(propertyName)) {
             return true;
@@ -45,7 +33,8 @@ class PageProperty {
     }
 
     get(page, propertyName) {
-        this.validateArguments(page, propertyName);
+        this.validator.validatePage(page);
+        this.validator.validatePropertyName(propertyName);
 
         if (page.hasOwnProperty(propertyName)) {
             return page[propertyName];

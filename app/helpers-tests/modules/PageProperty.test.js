@@ -1,60 +1,53 @@
 'use strict';
 
-var expect = require('chai').expect;
+var chai = require('chai');
+var sinon = require('sinon');
+var sinonChai = require('sinon-chai');
+var expect = chai.expect;
+chai.use(sinonChai);
 
 var PageProperty = require('../../helpers/modules/PageProperty');
+var PagePropertyValidator = require('../doubles/PagePropertyValidator');
 
 describe('PageProperty', function() {
 
+    var pageProperty,
+        validator;
+
+    beforeEach(function() {
+        validator = new PagePropertyValidator();
+        pageProperty = new PageProperty(validator);
+    });
+
+    afterEach(function() {
+        pageProperty = null;
+        validator = null;
+    });
+
     describe('exists', function() {
-
-        describe('Arguments validation', function() {
-            var pageProperty;
-
-            beforeEach(function() {
-                pageProperty = new PageProperty();
-            });
-
-            it('should throw ReferenceError if page argument is not provided', function() {
-                var fn = function(){
-                    pageProperty.exists();
-                };
-
-                expect(fn).to.throw(ReferenceError, 'page is undefined');
-            });
-
-            it('should throw ReferenceError if propertyName argument is not provided', function() {
-                var fn = function(){
-                    pageProperty.exists({});
-                };
-
-                expect(fn).to.throw(ReferenceError, 'propertyName is undefined');
-            });
-
-            it('should throw TypeError if page argument is not an object', function() {
-                var fn = function(){
-                    pageProperty.exists(null, 'propName');
-                };
-
-                expect(fn).to.throw(TypeError, 'page must be an object');
-            });
-
-            it('should throw TypeError if propertyName argument is not a string', function() {
-                var fn = function(){
-                    pageProperty.exists({}, 5);
-                };
-
-                expect(fn).to.throw(TypeError, 'propertyName must be a string');
-            });
-
-        });
 
         describe('Return values', function() {
 
-            var pageProperty;
+            it('should call validatePage() of PagePropertyValidator with correct arguments', function() {
+                var page = {};
+                var spy = sinon.spy(PagePropertyValidator.prototype, 'validatePage');
 
-            beforeEach(function() {
-                pageProperty = new PageProperty();
+                pageProperty.get(page, 'prop');
+
+                expect(spy.withArgs(page)).calledOnce;
+
+                PagePropertyValidator.prototype.validatePage.restore();
+            });
+
+            it('should call validatePropertyName() of PagePropertyValidator with correct arguments', function() {
+                var page = {};
+                var spy = sinon.spy(PagePropertyValidator.prototype, 'validatePropertyName');
+
+                pageProperty.get(page, 'prop');
+
+                expect(spy.withArgs('prop')).calledOnce;
+
+                PagePropertyValidator.prototype.validatePropertyName.restore();
             });
 
             it('should return true if propertyName exists in the page object', function() {
@@ -78,55 +71,7 @@ describe('PageProperty', function() {
 
     describe('isTrue', function() {
 
-        describe('Arguments validation', function() {
-
-            var pageProperty;
-
-            beforeEach(function() {
-                pageProperty = new PageProperty();
-            });
-
-            it('should throw ReferenceError if page argument is not provided', function() {
-                var fn = function(){
-                    pageProperty.isTrue();
-                };
-
-                expect(fn).to.throw(ReferenceError, 'page is undefined');
-            });
-
-            it('should throw ReferenceError if propertyName argument is not provided', function() {
-                var fn = function(){
-                    pageProperty.isTrue({});
-                };
-
-                expect(fn).to.throw(ReferenceError, 'propertyName is undefined');
-            });
-
-            it('should throw TypeError if page argument is not an object', function() {
-                var fn = function(){
-                    pageProperty.isTrue(null, 'propName');
-                };
-
-                expect(fn).to.throw(TypeError, 'page must be an object');
-            });
-
-            it('should throw TypeError if propertyName argument is not a string', function() {
-                var fn = function(){
-                    pageProperty.isTrue({}, 5);
-                };
-
-                expect(fn).to.throw(TypeError, 'propertyName must be a string');
-            });
-
-        });
-
         describe('Return values', function() {
-
-            var pageProperty;
-
-            beforeEach(function() {
-                pageProperty = new PageProperty();
-            });
 
             it('should return true if propertyName exists in the page object and is true', function() {
                 var propertyEqualTrue = pageProperty.isTrue({ testPropName: true }, 'testPropName');
@@ -175,55 +120,7 @@ describe('PageProperty', function() {
 
     describe('get', function() {
 
-        describe('Arguments validation', function() {
-
-            var pageProperty;
-
-            beforeEach(function() {
-                pageProperty = new PageProperty();
-            });
-
-            it('should throw ReferenceError if page argument is not provided', function() {
-                var fn = function(){
-                    pageProperty.get();
-                };
-
-                expect(fn).to.throw(ReferenceError, 'page is undefined');
-            });
-
-            it('should throw ReferenceError if propertyName argument is not provided', function() {
-                var fn = function(){
-                    pageProperty.get({});
-                };
-
-                expect(fn).to.throw(ReferenceError, 'propertyName is undefined');
-            });
-
-            it('should throw TypeError if page argument is not an object', function() {
-                var fn = function(){
-                    pageProperty.get(null, 'propName');
-                };
-
-                expect(fn).to.throw(TypeError, 'page must be an object');
-            });
-
-            it('should throw TypeError if propertyName argument is not a string', function() {
-                var fn = function(){
-                    pageProperty.get({}, 5);
-                };
-
-                expect(fn).to.throw(TypeError, 'propertyName must be a string');
-            });
-
-        });
-
         describe('Return values', function() {
-
-            var pageProperty;
-
-            beforeEach(function() {
-                pageProperty = new PageProperty();
-            });
 
             it('should return false if property does not exist in both page.data and page objects', function() {
                 var obj = {
