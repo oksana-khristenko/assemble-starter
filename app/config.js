@@ -15,5 +15,5 @@ module.exports = {
     instagramPageUrl: 'Instagram Page Url', // e.g. https://www.instagram.com/teslamotors/,
     googleAnalyticsId: 'Google Analytics Id', // e.g. UA-000000-01
     googleAnalyticsDomain: 'Google Analytics Domain', // e.g. twitter.com
-    enableGoogleAnalytics: true // e.g. false
+    googleAnalyticsEnabled: true // e.g. false
 }

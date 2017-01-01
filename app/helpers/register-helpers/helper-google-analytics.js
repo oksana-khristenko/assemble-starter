@@ -1,4 +1,4 @@
-var ConfigBuilder = require('../builders/ConfigBuilder');
+var GoogleAnalyticsTagBuilder = require('../builders/GoogleAnalyticsTagBuilder');
 
 module.exports.register = function(Handlebars, options) {
 
@@ -6,14 +6,9 @@ module.exports.register = function(Handlebars, options) {
 
     var helpers = {
 
-        helper_google_analytics: function(options) {
-            var config = new ConfigBuilder().build();
-            if (config.get('enableGoogleAnalytics') === true) {
-                return options.fn({
-                    googleAnalyticsId: config.get('googleAnalyticsId'),
-                    googleAnalyticsDomain: config.get('googleAnalyticsDomain')
-                });
-            }
+        helper_google_analytics_tag: function(options) {
+            var googleAnalyticsTagBuilder = new GoogleAnalyticsTagBuilder().build();
+            return options.fn(googleAnalyticsTagBuilder.get());
         }
 
     };
