@@ -74,6 +74,8 @@ describe('SocialAccounts', function() {
             }
 
             expect(actual).to.deep.equal(expected);
+
+            Config.prototype.get.restore();
         });
 
     });
