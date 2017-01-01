@@ -7,7 +7,7 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var Config = require('../../helpers/modules/Config');
-var ConfigValidator = require('../doubles/ConfigValidator');
+var ConfigValidator = require('../doubles/validators/ConfigValidator');
 
 describe('Config', function() {
 

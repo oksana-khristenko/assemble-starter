@@ -7,7 +7,7 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var PageProperty = require('../../helpers/modules/PageProperty');
-var PagePropertyValidator = require('../doubles/PagePropertyValidator');
+var PagePropertyValidator = require('../doubles/validators/PagePropertyValidator');
 
 describe('PageProperty', function() {
 

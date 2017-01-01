@@ -7,7 +7,7 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var Copyright = require('../../helpers/modules/Copyright');
-var CopyrightValidator = require('../doubles/CopyrightValidator');
+var CopyrightValidator = require('../doubles/validators/CopyrightValidator');
 
 describe('copyright', function() {
 
