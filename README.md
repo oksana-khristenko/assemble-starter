@@ -29,7 +29,7 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [ ] Google events
 - [ ] OG meta tags
 - [ ] Share buttons
-- [ ] Follow buttons
+- [x] Follow buttons
 
 ## Tech stack
 
