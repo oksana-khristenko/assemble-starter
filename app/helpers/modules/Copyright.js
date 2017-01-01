@@ -6,20 +6,20 @@ class Copyright {
         this.validator = validator;
     }
 
-    getCurrentYearTemplate(currentYear) {
+    getCurrentYearFormat(currentYear) {
         this.validator.validateCurrentYear(currentYear);
         return `${currentYear}`;
     };
 
-    getRangeTemplate(startYear, currentYear) {
+    getRangeFormat(startYear, currentYear) {
         this.validator.validateRange(startYear, currentYear);
         return (startYear == currentYear) ? `${currentYear}` : `${startYear} - ${currentYear}`;
     };
 
     get(startYear, currentYear, format) {
         return (format == 'range') ?
-            this.getRangeTemplate(startYear, currentYear) :
-            this.getCurrentYearTemplate(currentYear);
+            this.getRangeFormat(startYear, currentYear) :
+            this.getCurrentYearFormat(currentYear);
     }
 
 }
