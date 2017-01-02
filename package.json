@@ -6,7 +6,7 @@
   "scripts": {
     "start": "grunt",
     "dist": "grunt dist",
-    "test": "./node_modules/.bin/mocha app/helpers-tests/**/*.test.js"
+    "test": "./node_modules/.bin/mocha app/helpers-tests/**/*.test.js app/helpers-tests/**/**/*.test.js"
   },
   "devDependencies": {
     "assemble": "^0.4.42",

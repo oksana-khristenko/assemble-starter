@@ -7,7 +7,8 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var PageType = require('../../helpers/modules/PageType');
-var PageProperty = require('../../helpers/modules/PageProperty');
+var PageProperty = require('../doubles/modules/PageProperty');
+var PagePropertyValidator = require('../doubles/validators/PagePropertyValidator');
 
 describe('PageType', function() {
 
@@ -56,22 +57,16 @@ describe('PageType', function() {
 
         describe('Return values', function() {
 
-            var pageProperty;
-
-            beforeEach(function() {
-                pageProperty = new PageProperty();
-            });
-
             it('should call pageProperty.isTrue() with correct arguments', function() {
                 var page = {};
-                var pageProperty = new PageProperty();
+                var pageProperty = new PageProperty(page, new PagePropertyValidator());
                 var spy = sinon.spy(PageProperty.prototype, 'isTrue');
 
                 var pageType = new PageType();
                 pageType.is(page, 'currentPage');
 
                 expect(spy).to.have.been.calledOnce;
-                expect(spy).to.have.been.calledWith(page, 'isCurrentPage');
+                expect(spy).to.have.been.calledWith('isCurrentPage');
 
                 PageProperty.prototype.isTrue.restore();
             });

@@ -11,26 +11,24 @@ var PagePropertyValidator = require('../doubles/validators/PagePropertyValidator
 
 describe('PageProperty', function() {
 
-    var pageProperty,
-        validator;
+    var validator;
 
     beforeEach(function() {
         validator = new PagePropertyValidator();
-        pageProperty = new PageProperty(validator);
     });
 
     afterEach(function() {
-        pageProperty = null;
         validator = null;
     });
 
     describe('exists', function() {
 
         it('should call validatePage() of PagePropertyValidator with correct arguments', function() {
-            var page = {};
+            var page = {'prop': ''};
             var spy = sinon.spy(PagePropertyValidator.prototype, 'validatePage');
 
-            pageProperty.get(page, 'prop');
+            var pageProperty = new PageProperty(page, validator);
+            pageProperty.exists('prop');
 
             expect(spy.withArgs(page)).calledOnce;
 
@@ -38,10 +36,11 @@ describe('PageProperty', function() {
         });
 
         it('should call validatePropertyName() of PagePropertyValidator with correct arguments', function() {
-            var page = {};
+            var page = {'prop': ''};
             var spy = sinon.spy(PagePropertyValidator.prototype, 'validatePropertyName');
 
-            pageProperty.get(page, 'prop');
+            var pageProperty = new PageProperty(page, validator);
+            pageProperty.exists('prop');
 
             expect(spy.withArgs('prop')).calledOnce;
 
@@ -49,17 +48,23 @@ describe('PageProperty', function() {
         });
 
         it('should return true if propertyName exists in the page object', function() {
-            var propertyExists = pageProperty.exists({ testPropName: '' }, 'testPropName');
+            var page = { testPropName: '' };
+            var pageProperty = new PageProperty(page, validator);
+            var propertyExists = pageProperty.exists('testPropName');
             expect(propertyExists).to.equal(true);
         });
 
         it('should return true if propertyName exists in the page.data object', function() {
-            var propertyExists = pageProperty.exists({ data: { testPropName: '' }}, 'testPropName');
+            var page = { data: { testPropName: '' } };
+            var pageProperty = new PageProperty(page, validator);
+            var propertyExists = pageProperty.exists('testPropName');
             expect(propertyExists).to.equal(true);
         });
 
         it('should return false if propertyName does not exist in both page and page.data objects', function() {
-            var propertyExists = pageProperty.exists({data: {}}, 'testPropName');
+            var page = {data: {}};
+            var pageProperty = new PageProperty(page, validator);
+            var propertyExists = pageProperty.exists('testPropName');
             expect(propertyExists).to.equal(false);
         });
 
@@ -68,44 +73,53 @@ describe('PageProperty', function() {
     describe('isTrue', function() {
 
         it('should return true if propertyName exists in the page object and is true', function() {
-            var propertyEqualTrue = pageProperty.isTrue({ testPropName: true }, 'testPropName');
+            var page = { testPropName: true };
+            var pageProperty = new PageProperty(page, validator);
+            var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(true);
         });
 
         it('should return true if propertyName exists in the page.data object and is true', function() {
-            var propertyEqualTrue = pageProperty.isTrue({ data: { testPropName: true }}, 'testPropName');
+            var page = { data: { testPropName: true }};
+            var pageProperty = new PageProperty(page, validator);
+            var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(true);
         });
 
         it('should return true if propertyName is equal to false in page and is equal to true in page.data', function() {
-            var obj = {
+            var page = {
                 testPropName: true,
                 data: { testPropName: false }
             };
-            var propertyEqualTrue = pageProperty.isTrue(obj, 'testPropName');
+            var pageProperty = new PageProperty(page, validator);
+            var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(true);
         });
 
         it('should return true if propertyName is equal to true in page and is equal to false in page.data', function() {
-            var obj = {
+            var page = {
                 testPropName: false,
                 data: { testPropName: true }
             };
-            var propertyEqualTrue = pageProperty.isTrue(obj, 'testPropName');
+            var pageProperty = new PageProperty(page, validator);
+            var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(true);
         });
 
         it('should return false if propertyName does not exist in both page and page.data objects', function() {
-            var propertyEqualTrue = pageProperty.isTrue({data: {}}, 'testPropName');
+            var page = {data: {}};
+            var pageProperty = new PageProperty(page, validator);
+            var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(false);
         });
 
         it('should return false if propertyName is equal to false in both page and page.data', function() {
-            var obj = {
+            var page = {
                 testPropName: false,
                 data: { testPropName: false }
             };
-            var propertyEqualTrue = pageProperty.isTrue(obj, 'testPropName');
+            var pageProperty = new PageProperty(page, validator);
+            var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(false);
         });
 
@@ -114,36 +128,40 @@ describe('PageProperty', function() {
     describe('get', function() {
 
         it('should return false if property does not exist in both page.data and page objects', function() {
-            var obj = {
+            var page = {
                 data: {}
             };
-            var propertyValue = pageProperty.get(obj, 'testPropName');
+            var pageProperty = new PageProperty(page, validator);
+            var propertyValue = pageProperty.get('testPropName');
             expect(propertyValue).to.equal(false);
         });
 
         it('should return correct property value if property exists in page object but not in page.data object', function() {
-            var obj = {
+            var page = {
                 testPropName: 'testPropVal',
                 data: {}
             };
-            var propertyValue = pageProperty.get(obj, 'testPropName');
+            var pageProperty = new PageProperty(page, validator);
+            var propertyValue = pageProperty.get('testPropName');
             expect(propertyValue).to.equal('testPropVal');
         });
 
         it('should return correct property value if property exists in page.data object but not in page object', function() {
-            var obj = {
+            var page = {
                 data: { testPropName: 'testPropVal' }
             };
-            var propertyValue = pageProperty.get(obj, 'testPropName');
+            var pageProperty = new PageProperty(page, validator);
+            var propertyValue = pageProperty.get('testPropName');
             expect(propertyValue).to.equal('testPropVal');
         });
 
         it('should return correct property value if property exists in both page and page.data objects', function() {
-            var obj = {
+            var page = {
                 testPropName: 'testPropVal_1',
                 data: { testPropName: 'testPropVal_2' }
             };
-            var propertyValue = pageProperty.get(obj, 'testPropName');
+            var pageProperty = new PageProperty(page, validator);
+            var propertyValue = pageProperty.get('testPropName');
             expect(propertyValue).to.equal('testPropVal_1');
         });
 

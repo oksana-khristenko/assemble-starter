@@ -2,18 +2,19 @@
 
 class PageProperty {
 
-    constructor(validator) {
+    constructor(page, validator) {
+        this.page = page;
         this.validator = validator;
     }
 
-    isTrue(page, propertyName) {
-        this.validator.validatePage(page);
+    isTrue(propertyName) {
+        this.validator.validatePage(this.page);
         this.validator.validatePropertyName(propertyName);
 
-        if (page.hasOwnProperty(propertyName) && (page[propertyName] === true)) {
+        if (this.page.hasOwnProperty(propertyName) && (this.page[propertyName] === true)) {
             return true;
         }
-        else if (page.hasOwnProperty('data') && page.data.hasOwnProperty(propertyName) && (page.data[propertyName] === true)) {
+        else if (this.page.hasOwnProperty('data') && this.page.data.hasOwnProperty(propertyName) && (this.page.data[propertyName] === true)) {
             return true;
         }
         else {
@@ -21,26 +22,26 @@ class PageProperty {
         }
     };
 
-    exists(page, propertyName) {
-        this.validator.validatePage(page);
+    exists(propertyName) {
+        this.validator.validatePage(this.page);
         this.validator.validatePropertyName(propertyName);
 
-        if (page.hasOwnProperty(propertyName) || page.data.hasOwnProperty(propertyName)) {
+        if (this.page.hasOwnProperty(propertyName) || this.page.data.hasOwnProperty(propertyName)) {
             return true;
         }
 
         return false;
     }
 
-    get(page, propertyName) {
-        this.validator.validatePage(page);
+    get(propertyName) {
+        this.validator.validatePage(this.page);
         this.validator.validatePropertyName(propertyName);
 
-        if (page.hasOwnProperty(propertyName)) {
-            return page[propertyName];
+        if (this.page.hasOwnProperty(propertyName)) {
+            return this.page[propertyName];
         }
-        else if (page.hasOwnProperty('data') && page.data.hasOwnProperty(propertyName)) {
-            return page.data[propertyName];
+        else if (this.page.hasOwnProperty('data') && this.page.data.hasOwnProperty(propertyName)) {
+            return this.page.data[propertyName];
         }
         else {
             return false;

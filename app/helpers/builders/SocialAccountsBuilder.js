@@ -1,6 +1,6 @@
 'use strict';
 
-var ConfigBuilder = require('../builders/ConfigBuilder');
+var ConfigBuilder = require('./ConfigBuilder');
 var SocialAccounts = require('../modules/SocialAccounts');
 var SocialAccountsValidator = require('../validators/SocialAccountsValidator');
 

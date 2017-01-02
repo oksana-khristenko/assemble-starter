@@ -1,6 +1,6 @@
 'use strict';
 
-var ConfigBuilder = require('../builders/ConfigBuilder');
+var ConfigBuilder = require('./ConfigBuilder');
 var GoogleAnalyticsTag = require('../modules/GoogleAnalyticsTag');
 
 class GoogleAnalyticsTagBuilder {

@@ -1,5 +1,4 @@
-var TwitterCard = require('../modules/TwitterCard');
-var configObj = require('../../config.js');
+var TwitterCardFactoryBuilder = require('../builders/TwitterCard/FactoryBuilder');
 
 module.exports.register = function(Handlebars, options) {
 
@@ -8,7 +7,7 @@ module.exports.register = function(Handlebars, options) {
     var helpers = {
 
         helper_twitter_card: function(options) {
-            var twitterCard = new TwitterCard(configObj, this.page);
+            var twitterCard = new TwitterCardFactoryBuilder(null, null, null, this.page).build();
             return options.fn(twitterCard.get());
         }
 
