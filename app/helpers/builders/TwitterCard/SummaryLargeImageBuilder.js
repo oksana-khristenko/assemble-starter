@@ -13,7 +13,10 @@ class TwitterCardSummaryLargeImageBuilder {
     }
 
     build() {
-        return new TwitterCardSummaryLargeImage(this.config, this.pageProperty);
+        return new TwitterCardSummaryLargeImage({
+        	config: this.config,
+        	pageProperty: this.pageProperty
+        });
     }
 
 }

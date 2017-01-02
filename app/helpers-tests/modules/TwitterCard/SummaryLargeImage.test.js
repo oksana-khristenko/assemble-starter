@@ -17,10 +17,10 @@ describe('TwitterCardSummaryLargeImage', function() {
     var twitterCardSummaryLargeImage;
 
     beforeEach(function() {
-        twitterCardSummaryLargeImage = new TwitterCardSummaryLargeImage(
-            new Config({}, new ConfigValidator()),
-            new PageProperty({}, new PagePropertyValidator())
-        );
+        twitterCardSummaryLargeImage = new TwitterCardSummaryLargeImage({
+            config: new Config({}, new ConfigValidator()),
+            pageProperty: new PageProperty({}, new PagePropertyValidator())
+        });
     });
 
     afterEach(function() {
