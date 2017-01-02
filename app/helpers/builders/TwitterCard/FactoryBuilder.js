@@ -3,7 +3,6 @@
 var ConfigBuilder = require('../ConfigBuilder');
 var PagePropertyBuilder = require('../PagePropertyBuilder');
 var TwitterCardFactory = require('../../modules/TwitterCard/Factory');
-var TwitterCardSummaryLargeImageBuilder = require('./SummaryLargeImageBuilder');
 
 class TwitterCardFactoryBuilder {
 
@@ -14,13 +13,22 @@ class TwitterCardFactoryBuilder {
         this.pageProperty = (obj && obj.pageProperty) || new PagePropertyBuilder({page: this.page}).build();
         this.cardType = (obj && obj.cardType) || 'summary_large_image';
 
-        this.setTwitterCard();
+        this.setTwitterCard(this.cardType);
     }
 
-    setTwitterCard() {
-        if (this.cardType === 'summary_large_image') {
-            this.twitterCard = new TwitterCardSummaryLargeImageBuilder({page: this.page}).build();
-        }
+    getModules() {
+        return [
+            { cardType: 'summary_large_image', source: './SummaryLargeImageBuilder' }
+        ];
+    }
+
+    setTwitterCard(cardType) {
+        this.getModules().forEach((module) => {
+            if (module.cardType === cardType) {
+                var twitterCard = require(module.source);
+                this.twitterCard = new twitterCard({page: this.page}).build();
+            }
+        });
     }
 
     build() {
