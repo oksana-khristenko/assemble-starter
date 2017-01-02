@@ -6,7 +6,7 @@ module.exports.register = function(Handlebars, options) {
 
     var helpers = {
 
-        helper_absolute_url: function(options) {
+        helper_page_absolute_url: function(options) {
             var pageUrl = new PageUrlBuilder({page: this.page}).build();
             return options.fn(pageUrl.getAbsoluteUrl());
         }
