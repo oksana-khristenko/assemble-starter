@@ -35,7 +35,7 @@ class PageType {
 
         var propertyName = this.getPropertyName(pageType);
 
-        var pageProperty = new PagePropertyBuilder(page).build();
+        var pageProperty = new PagePropertyBuilder({page: page}).build();
         return pageProperty.isTrue(propertyName);
     }
 

@@ -9,7 +9,7 @@ class TwitterCardSummaryLargeImageBuilder {
     constructor(obj) {
         this.config = obj.config || new ConfigBuilder().build();
         this.page = obj.page;
-        this.pageProperty = obj.pageProperty || new PagePropertyBuilder(this.page).build();
+        this.pageProperty = obj.pageProperty || new PagePropertyBuilder({page: this.page}).build();
     }
 
     build() {

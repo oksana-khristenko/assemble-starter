@@ -5,9 +5,9 @@ var PagePropertyValidator = require('../validators/PagePropertyValidator');
 
 class PagePropertyBuilder {
 
-    constructor(page, validator) {
-        this.page = page;
-        this.validator = validator || new PagePropertyValidator();
+    constructor(obj) {
+        this.page = obj.page;
+        this.validator = obj.validator || new PagePropertyValidator();
     }
 
     build() {
