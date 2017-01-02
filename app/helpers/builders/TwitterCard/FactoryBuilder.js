@@ -8,11 +8,11 @@ var TwitterCardSummaryLargeImageBuilder = require('./SummaryLargeImageBuilder');
 class TwitterCardFactoryBuilder {
 
     constructor(obj) {
-        this.config = obj.config || new ConfigBuilder().build();
+        this.config = (obj && obj.config) || new ConfigBuilder().build();
         this.page = obj.page;
 
-        this.pageProperty = obj.pageProperty || new PagePropertyBuilder({page: this.page}).build();
-        this.cardType = obj.cardType || 'summary_large_image';
+        this.pageProperty = (obj && obj.pageProperty) || new PagePropertyBuilder({page: this.page}).build();
+        this.cardType = (obj && obj.cardType) || 'summary_large_image';
 
         this.setTwitterCard();
     }

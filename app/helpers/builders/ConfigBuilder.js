@@ -6,13 +6,16 @@ var ConfigValidator = require('../validators/ConfigValidator');
 
 class ConfigBuilder {
 
-    constructor(config, validator) {
-        this.config = config || configObj;
-        this.validator = validator || new ConfigValidator();
+    constructor(obj) {
+        this.config = (obj && obj.config) || configObj;
+        this.validator = (obj && obj.validator) || new ConfigValidator();
     }
 
     build() {
-        return new Config(this.config, this.validator);
+        return new Config({
+            config: this.config,
+            validator: this.validator
+        });
     }
 
 }

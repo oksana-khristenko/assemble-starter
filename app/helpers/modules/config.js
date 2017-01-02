@@ -2,9 +2,9 @@
 
 class Config {
 
-    constructor(config, validator) {
-        this.config = config;
-        this.validator = validator;
+    constructor(obj) {
+        this.config = obj && obj.config;
+        this.validator = obj && obj.validator;
     }
 
     get(key) {
