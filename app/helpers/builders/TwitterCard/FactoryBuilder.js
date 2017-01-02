@@ -16,14 +16,14 @@ class TwitterCardFactoryBuilder {
         this.setTwitterCard(this.cardType);
     }
 
-    getModules() {
+    get modules() {
         return [
             { cardType: 'summary_large_image', source: './SummaryLargeImageBuilder' }
         ];
     }
 
     setTwitterCard(cardType) {
-        this.getModules().forEach((module) => {
+        this.modules.forEach((module) => {
             if (module.cardType === cardType) {
                 var twitterCard = require(module.source);
                 this.twitterCard = new twitterCard({page: this.page}).build();
