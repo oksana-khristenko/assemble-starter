@@ -24,8 +24,8 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [ ] Images lazy load
 - [ ] Scroll to content
 - [x] [Copyright](http://localhost:4001/examples/copyright)
-- [ ] Twitter card meta tags
-- [ ] Google Analytics tag
+- [x] Twitter card meta tags (summary large image only)
+- [x] Google Analytics tag
 - [ ] Google events
 - [ ] OG meta tags
 - [ ] Share buttons
