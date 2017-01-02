@@ -20,16 +20,17 @@ Assemble starter kit for generating static sites (landing pages, brochure sites,
 Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 
 - [x] [Sticky footer](http://localhost:4001/examples/sticky-footer)
+- [ ] Grid
 - [ ] Aspect ratio box
 - [ ] Images lazy load
 - [ ] Scroll to content
 - [x] [Copyright](http://localhost:4001/examples/copyright)
 - [x] Twitter card meta tags (summary large image only)
 - [x] Google Analytics tag
-- [ ] Google events
 - [ ] OG meta tags
-- [ ] Share buttons
 - [x] [Follow buttons](http://localhost:4001/examples/follow)
+- [ ] Share buttons
+- [ ] Google Analytics events
 
 ## Tech stack
 
@@ -45,8 +46,6 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - Install [Node.js](https://nodejs.org/)
 
 - Install [nvm](https://github.com/creationix/nvm) if required (node version v7.3.0, npm version 3.10.10)
-
-- Install [ImageOptim](https://imageoptim.com/) desktop app
 
 - Run `npm install` from project root to install node modules
 
