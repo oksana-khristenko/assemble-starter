@@ -15,7 +15,7 @@ class TwitterCardFactoryBuilder {
         this.cardType = obj.cardType || 'summary_large_image';
 
         if (this.cardType === 'summary_large_image') {
-            this.twitterCard = new TwitterCardSummaryLargeImageBuilder(null, null, this.page).build();
+            this.twitterCard = new TwitterCardSummaryLargeImageBuilder({page: this.page}).build();
         }
     }
 

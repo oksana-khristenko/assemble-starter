@@ -6,10 +6,10 @@ var TwitterCardSummaryLargeImage = require('../../modules/TwitterCard/SummaryLar
 
 class TwitterCardSummaryLargeImageBuilder {
 
-    constructor(config, pageProperty, page) {
-        this.config = config || new ConfigBuilder().build();
-        this.page = page;
-        this.pageProperty = pageProperty || new PagePropertyBuilder(this.page).build();
+    constructor(obj) {
+        this.config = obj.config || new ConfigBuilder().build();
+        this.page = obj.page;
+        this.pageProperty = obj.pageProperty || new PagePropertyBuilder(this.page).build();
     }
 
     build() {
