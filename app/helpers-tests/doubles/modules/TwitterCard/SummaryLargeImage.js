@@ -2,11 +2,6 @@
 
 class TwitterCardSummaryLargeImage {
 
-    constructor(config, pageProperty) {
-        this.config = config;
-        this.pageProperty = pageProperty;
-    }
-
     get() {}
 
 };
