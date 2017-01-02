@@ -60,17 +60,15 @@ describe('TwitterCardSummaryLargeImage', function() {
                 var actual = twitterCardSummaryLargeImage.get();
 
                 var expected = {
-                    data: {
-                        card: 'summary_large_image',
-                        site: 'twitter user name test',
-                        creator: 'twitter user name test',
-                        title: 'title test',
-                        description: 'desc test',
-                        image: {
-                            url: 'image url test',
-                            alt: 'image alt test'
-                        }
-                    }
+                    data: [
+                        {name: 'twitter:card', description: 'summary_large_image'},
+                        {name: 'twitter:site', description: 'twitter user name test'},
+                        {name: 'twitter:creator', description: 'twitter user name test'},
+                        {name: 'twitter:title', description: 'title test'},
+                        {name: 'twitter:description', description: 'desc test'},
+                        {name: 'twitter:image', description: 'image url test'},
+                        {name: 'twitter:image:alt', description: 'image alt test'}
+                    ]
                 }
 
                 expect(actual).to.deep.equal(expected);
