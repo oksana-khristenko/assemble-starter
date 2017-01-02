@@ -28,6 +28,7 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [x] Twitter card meta tags (summary large image only)
 - [x] Google Analytics tag
 - [ ] OG meta tags
+- [x] Canonical URL in HTML head
 - [x] [Follow buttons](http://localhost:4001/examples/follow)
 - [ ] Share buttons
 - [ ] Google Analytics events
