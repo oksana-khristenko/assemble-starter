@@ -8,8 +8,6 @@ chai.use(sinonChai);
 
 var TwitterCardSummaryLargeImage = require('../../../helpers/modules/TwitterCard/SummaryLargeImage');
 var Config = require('../../doubles/modules/Config');
-var ConfigValidator = require('../../doubles/validators/ConfigValidator');
-var PagePropertyValidator = require('../../doubles/validators/PagePropertyValidator');
 var PageProperty = require('../../doubles/modules/PageProperty');
 
 describe('TwitterCardSummaryLargeImage', function() {
@@ -18,8 +16,8 @@ describe('TwitterCardSummaryLargeImage', function() {
 
     beforeEach(function() {
         twitterCardSummaryLargeImage = new TwitterCardSummaryLargeImage({
-            config: new Config({}, new ConfigValidator()),
-            pageProperty: new PageProperty({}, new PagePropertyValidator())
+            config: new Config(),
+            pageProperty: new PageProperty()
         });
     });
 

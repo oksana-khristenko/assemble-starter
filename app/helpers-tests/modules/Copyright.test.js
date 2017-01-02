@@ -11,17 +11,16 @@ var CopyrightValidator = require('../doubles/validators/CopyrightValidator');
 
 describe('Copyright', function() {
 
-    var copyright,
-        validator;
+    var copyright;
 
     beforeEach(function() {
-        validator = new CopyrightValidator();
-        copyright = new Copyright(validator);
+        copyright = new Copyright(
+            new CopyrightValidator()
+        );
     });
 
     afterEach(function() {
         copyright = null;
-        validator = null;
     });
 
     describe('get', function() {

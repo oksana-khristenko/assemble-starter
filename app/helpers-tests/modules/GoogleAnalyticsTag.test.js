@@ -8,7 +8,6 @@ chai.use(sinonChai);
 
 var GoogleAnalyticsTag = require('../../helpers/modules/GoogleAnalyticsTag');
 var Config = require('../doubles/modules/Config');
-var ConfigValidator = require('../doubles/validators/ConfigValidator');
 
 describe('GoogleAnalyticsTag', function() {
 
@@ -16,7 +15,7 @@ describe('GoogleAnalyticsTag', function() {
 
     beforeEach(function() {
         googleAnalyticsTag = new GoogleAnalyticsTag(
-            new Config({}, new ConfigValidator())
+            new Config()
         );
     });
 

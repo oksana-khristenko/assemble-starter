@@ -8,7 +8,6 @@ chai.use(sinonChai);
 
 var SocialAccounts = require('../../helpers/modules/SocialAccounts');
 var Config = require('../doubles/modules/Config');
-var ConfigValidator = require('../doubles/validators/ConfigValidator');
 var SocialAccountsValidator = require('../doubles/validators/SocialAccountsValidator');
 
 describe('SocialAccounts', function() {
@@ -17,7 +16,7 @@ describe('SocialAccounts', function() {
 
     beforeEach(function() {
         socialAccounts = new SocialAccounts(
-            new Config({}, new ConfigValidator()),
+            new Config(),
             new SocialAccountsValidator()
         );
     });

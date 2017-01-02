@@ -18,15 +18,11 @@ describe('TwitterCardFactory', function() {
     var twitterCardFactory;
 
     beforeEach(function() {
-        var config = new Config({}, new ConfigValidator());
-        var pageProperty = new PageProperty(
-            {},
-            new PagePropertyValidator()
-        );
+        var config = new Config();
 
         twitterCardFactory = new TwitterCardFactory(
             config,
-            new TwitterCardSummaryLargeImage(config, pageProperty)
+            new TwitterCardSummaryLargeImage(config, new PageProperty())
         );
     });
 
