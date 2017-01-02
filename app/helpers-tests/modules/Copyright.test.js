@@ -9,7 +9,7 @@ chai.use(sinonChai);
 var Copyright = require('../../helpers/modules/Copyright');
 var CopyrightValidator = require('../doubles/validators/CopyrightValidator');
 
-describe('copyright', function() {
+describe('Copyright', function() {
 
     var copyright,
         validator;
