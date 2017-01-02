@@ -12,5 +12,18 @@ module.exports = {
       cwd: 'public',
       src: ['**/*']
     }]
+  },
+  examples: {
+    files: [{
+      expand: true,
+      cwd: 'app',
+      src: [
+        'content/examples/**/*',
+        'assets/css/examples/**/*',
+        'assets/js/examples/**/*',
+        'partials/example/**/*',
+        'layouts/examples.hbs'
+      ]
+    }]
   }
 };

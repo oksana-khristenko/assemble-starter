@@ -73,3 +73,8 @@ Tests helper files.
 
 Run `npm test` from project root.
 
+### Remove examples
+
+Removes example files.
+
+Run `npm run removeExamples` from project root.
