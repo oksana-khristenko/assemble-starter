@@ -26,7 +26,11 @@ describe('Config', function() {
         it('should call validateKey() of ConfigValidator with correct arguments', function() {
             var spy = sinon.spy(ConfigValidator.prototype, 'validateKey');
 
-            var config = new Config({}, validator);
+            var config = new Config({
+                config: {},
+                validator: validator
+            });
+
             config.get('testKey');
 
             expect(spy.withArgs('testKey')).calledOnce;
@@ -35,14 +39,22 @@ describe('Config', function() {
         });
 
         it('should return correct key value', function() {
-            var config = new Config({testKey: 'str'}, validator);
+            var config = new Config({
+                config: {testKey: 'str'},
+                validator: validator
+            });
+
             var val = config.get('testKey');
 
             expect(val).to.equal('str');
         });
 
         it('should return undefined if key does not exist', function() {
-            var config = new Config({}, validator);
+            var config = new Config({
+                config: {},
+                validator: validator
+            });
+
             var val = config.get('testKey');
 
             expect(val).to.equal(undefined);
