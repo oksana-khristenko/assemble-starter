@@ -7,7 +7,7 @@ module.exports.register = function(Handlebars, options) {
     var helpers = {
 
         helper_twitter_card: function(options) {
-            var twitterCard = new TwitterCardFactoryBuilder(null, null, null, this.page).build();
+            var twitterCard = new TwitterCardFactoryBuilder({page: this.page}).build();
             return options.fn(twitterCard.get());
         }
 
