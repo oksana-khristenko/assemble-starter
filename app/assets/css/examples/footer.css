@@ -1,8 +1,5 @@
-@import "../_normalize";
-@import "../_base";
-
-@import "../_container";
-@import "../_side";
+@import "../components/_container";
+@import "../components/_side";
 
 .footer {
     padding-top: 20px;
