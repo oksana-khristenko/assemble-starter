@@ -28,7 +28,7 @@
 
     /* grid gutter sizes */
 
-    $(breakpoint)grid_gutter-large {
+    $(breakpoint)grid_gutter-extra-large {
         margin-left: -40px;
 
         > $(breakpoint)grid__item {
@@ -36,7 +36,7 @@
         }
     }
 
-    $(breakpoint)grid_gutter-medium {
+    $(breakpoint)grid_gutter-large {
         margin-left: -30px;
 
         > $(breakpoint)grid__item {
@@ -44,7 +44,7 @@
         }
     }
 
-    $(breakpoint)grid_gutter-regular {
+    $(breakpoint)grid_gutter-medium {
         margin-left: -20px;
 
         > $(breakpoint)grid__item {
@@ -227,7 +227,7 @@
         text-align: right;
     }
 
-    /* vertical alignment of grid items */
+    /* vertical alignment of all grid items */
 
     $(breakpoint)grid_vertical-center {
         > $(breakpoint)grid__item {

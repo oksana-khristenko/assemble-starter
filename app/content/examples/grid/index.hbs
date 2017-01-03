@@ -9,13 +9,263 @@ short_summary: Grid
 css_file: examples/grid
 ---
 
+<style>
+    .example-box {
+        background: #eee;
+        padding: 20px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
+</style>
+
 <h1>Grid</h1>
 
-<div class="grid  grid_gutter-regular  media-600--grid  media-600--grid_gutter-regular">
-    <div class="grid__item  media-600--grid__item_1-2">
-        <div style="background: #eee; padding: 10px; margin-bottom: 10px;">Item 1</div>
+<h3>Gutters</h3>
+
+<h4>No gutter (default)</h4>
+
+<div class="grid  grid_gutter-none">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
     </div>
-    <div class="grid__item  media-600--grid__item_1-2">
-        <div style="background: #eee; padding: 10px; margin-bottom: 20px;">Item 2</div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>Extra small gutter</h4>
+
+<div class="grid  grid_gutter-extra-small">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>Small gutter</h4>
+
+<div class="grid  grid_gutter-small">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>Medium gutter</h4>
+
+<div class="grid  grid_gutter-medium">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>Large gutter</h4>
+
+<div class="grid  grid_gutter-large">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>Extra large gutter</h4>
+
+<div class="grid  grid_gutter-extra-large">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h3>Order</h3>
+
+<h4>Regular order (default)</h4>
+
+<div class="grid  grid_gutter-medium  grid_order-regular">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>Reversed order</h4>
+
+<div class="grid  grid_gutter-medium  grid_order-reversed">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h3>Horizontal alignment of items when items do not fill the entire grid</h3>
+
+<h4>Horizontal left items (default)</h4>
+
+<div class="grid  grid_gutter-medium  grid_horizontal-left">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+</div>
+
+<h4>Horizontal center items</h4>
+
+<div class="grid  grid_gutter-medium  grid_horizontal-center">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+</div>
+
+<h4>Horizontal right items</h4>
+
+<div class="grid  grid_gutter-medium  grid_horizontal-right">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+</div>
+
+<h3>Vertical alignment of all items (when items have different heights)</h3>
+
+<h4>Vertical top all items (default)</h4>
+
+<div class="grid  grid_gutter-medium  grid_vertical-top">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box" style="height: 200px;">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>Vertical center all items</h4>
+
+<div class="grid  grid_gutter-medium  grid_vertical-center">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box" style="height: 200px;">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>Vertical bottom all items</h4>
+
+<div class="grid  grid_gutter-medium  grid_vertical-bottom">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box" style="height: 200px;">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h3>Items widths</h3>
+
+<h4>1 of 1 (default)</h4>
+
+<div class="grid  grid_gutter-medium">
+    <div class="grid__item  grid__item_1-1">
+        <div class="example-box">1 (1/1)</div>
+    </div>
+    <div class="grid__item  grid__item_1-1">
+        <div class="example-box">2 (1/1)</div>
+    </div>
+</div>
+
+<h4>1 of 2</h4>
+
+<div class="grid  grid_gutter-medium">
+    <div class="grid__item  grid__item_1-2">
+        <div class="example-box">1 (1/2)</div>
+    </div>
+    <div class="grid__item  grid__item_1-2">
+        <div class="example-box">2 (1/2)</div>
+    </div>
+</div>
+
+<h4>1 of 3</h4>
+
+<div class="grid  grid_gutter-medium">
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">1 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">2 (1/3)</div>
+    </div>
+    <div class="grid__item  grid__item_1-3">
+        <div class="example-box">3 (1/3)</div>
+    </div>
+</div>
+
+<h4>1 of 4</h4>
+
+<div class="grid  grid_gutter-medium">
+    <div class="grid__item  grid__item_1-4">
+        <div class="example-box">1 (1/4)</div>
+    </div>
+    <div class="grid__item  grid__item_1-4">
+        <div class="example-box">2 (1/4)</div>
+    </div>
+    <div class="grid__item  grid__item_1-4">
+        <div class="example-box">3 (1/4)</div>
+    </div>
+    <div class="grid__item  grid__item_1-4">
+        <div class="example-box">4 (1/4)</div>
     </div>
 </div>
