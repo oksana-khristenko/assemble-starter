@@ -10,9 +10,7 @@
         display: inline-block;
         font-size: 0;
         margin-left: 5px;
-    }
 
-    &__link {
         &:first-child {
             margin-left: 0;
         }
