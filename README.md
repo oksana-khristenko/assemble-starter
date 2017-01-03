@@ -20,7 +20,7 @@ Assemble starter kit for generating static sites (landing pages, brochure sites,
 Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 
 - [x] [Sticky footer](http://localhost:4001/examples/sticky-footer)
-- [ ] Grid
+- [x] [Grid](http://localhost:4001/examples/grid)
 - [x] [Aspect ratio box](http://localhost:4001/examples/aspect-ratio)
 - [ ] Images lazy load
 - [ ] Scroll to content
