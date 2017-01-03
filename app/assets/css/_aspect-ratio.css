@@ -1,3 +1,31 @@
 .aspect-ratio {
+    position: relative;
+    overflow: hidden;
+}
 
+.aspect-ratio__content {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.aspect-ratio_16-9 {
+    padding-top: calc(9/16*100%);
+}
+
+.aspect-ratio_square {
+    padding-top: 100%;
+}
+
+.aspect-ratio_circle {
+    padding-top: 100%;
+    border-radius: 100%;
+
+    .aspect-ratio__content {
+        border-radius: 100%;
+    }
 }
