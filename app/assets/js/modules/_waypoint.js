@@ -11,17 +11,8 @@ export default class Waypoint {
 
     set(waypoints) {
         waypoints.forEach((waypoint) => {
-            this.add(
-                this.getWaypointInstance(waypoint)
-            );
-        });
-    }
-
-    getWaypointInstance(waypoint) {
-        return new this.Waypoint({
-            element: waypoint.el,
-            handler: waypoint.handler,
-            offset: waypoint.offset
+            var instance = new this.Waypoint(waypoint);
+            this.add(instance);
         });
     }
 

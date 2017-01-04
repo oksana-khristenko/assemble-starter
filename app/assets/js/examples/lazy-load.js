@@ -54,7 +54,7 @@ function initWaypoints() {
             };
 
             var obj = {
-                el: el,
+                element: el,
                 handler: handler,
                 offset: '90%'
             };
