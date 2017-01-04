@@ -6,20 +6,27 @@ export default class Waypoint {
 
     constructor() {
         this.Waypoint = window.Waypoint;
+        this.waypoints = [];
     }
 
-    set(arr) {
-        var waypoints = [];
+    set(waypoints) {
+        waypoints.forEach((waypoint) => {
+            this.add(
+                this.getWaypointInstance(waypoint)
+            );
+        });
+    }
 
-        for (let i = 0; i < arr.length; i++) {
-            waypoints[i] = new window.Waypoint({
-                element: arr[i].el,
-                handler: arr[i].handler,
-                offset: arr[i].offset
-            });
-        }
+    getWaypointInstance(waypoint) {
+        return new this.Waypoint({
+            element: waypoint.el,
+            handler: waypoint.handler,
+            offset: waypoint.offset
+        });
+    }
 
-        this.waypoints = waypoints;
+    add(waypoint) {
+        this.waypoints.push(waypoint);
     }
 
     disable() {
