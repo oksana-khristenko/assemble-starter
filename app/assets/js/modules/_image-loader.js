@@ -34,8 +34,7 @@ export default class ImageLoader {
         }
     }
 
-    loadImage($image) {
-
+    load($image) {
         return new Promise((resolve, reject) => {
             var img = new Image(),
                 src = this.getDataSrc($image);
@@ -53,13 +52,14 @@ export default class ImageLoader {
         });
     }
 
-    loadImages($images) {
+    loadAll($images) {
         var len = $images.length,
             promises = [];
 
         for (let i = 0; i < len; i++) {
-            let $image = $($images[i]);
-            var promise = this.loadImage($image);
+            let $image = $($images[i]),
+                promise = this.load($image);
+
             promises.push(promise);
         }
 
