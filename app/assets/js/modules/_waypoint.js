@@ -12,12 +12,8 @@ export default class Waypoint {
     set(waypoints) {
         waypoints.forEach((waypoint) => {
             var instance = new this.Waypoint(waypoint);
-            this.add(instance);
+            this.waypoints.push(instance);
         });
-    }
-
-    add(waypoint) {
-        this.waypoints.push(waypoint);
     }
 
     disable() {
