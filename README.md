@@ -32,6 +32,8 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [x] [Follow buttons](http://localhost:4001/examples/follow)
 - [ ] Share buttons
 - [ ] Google Analytics events
+- [ ] Lightbox
+- [ ] Slider
 
 ## Tech stack
 
