@@ -9,6 +9,8 @@ export default class Scroll {
     }
 
     to(obj) {
+        obj.event.preventDefault();
+
         var offset = obj.$el.offset().top,
             speed = obj.speed || this.speed;
 
