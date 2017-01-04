@@ -44,7 +44,7 @@ export default class ImageLoader {
 
             img.addEventListener('load', () => {
                 this.setSrc($image, src);
-                resolve();
+                resolve($image);
             });
 
             img.addEventListener('error', () => {
