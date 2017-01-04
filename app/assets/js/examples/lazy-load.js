@@ -7,39 +7,61 @@ import Waypoint from '../modules/_waypoint';
 var imageLoader = new ImageLoader();
 var waypoint = new Waypoint();
 
-function doSomething() {
-    console.log('loaded');
+function onResolved($els) {
+    function callback($els) {
+        if (Array.isArray($els)) {
+            $els.forEach(($el) => {
+                $el.addClass('lazy-load__image_loaded');
+            });
+        }
+        else {
+            $els.addClass('lazy-load__image_loaded');
+        }
+    }
+
+    window.setTimeout(function() { callback($els); }, 200);
 }
 
-function errorFn(error) {
+function onError(error) {
     console.log(error);
 }
 
 $(document).on('click', '#btn', function() {
     imageLoader
-        .loadImage($('#image'))
-        .then(doSomething)
-        .catch(errorFn);
+        .load($('[data-lazy-load]'))
+        .then(onResolved)
+        .catch(onError);
+});
+
+$(document).on('click', '#btn1', function() {
+    imageLoader
+        .loadAll($('[data-lazy-load-multiple]'))
+        .then(onResolved)
+        .catch(onError);
 });
 
 $(document).on('click', '#btn2', function() {
     imageLoader
-        .loadImages($('.image'))
-        .then(doSomething)
-        .catch(errorFn);
+        .loadAll($('[data-lazy-load-background]'))
+        .then(onResolved)
+        .catch(onError);
 });
 
 function initWaypoints() {
 
-    function waypointReached() {
-        console.log('waypoint reached');
+    function onResolved($el) {
+        function callback($el) {
+            $el.addClass('waypoint-image_loaded');
+        }
+
+        window.setTimeout(function() { callback($el); }, 200);
     }
 
-    function errorFn(error) {
+    function onError(error) {
         console.log(error);
     }
 
-    var $images = $('.waypoint-image'),
+    var $images = $('[data-lazy-load-waypoint]'),
         arr = [];
 
     for (let i = 0; i < $images.length; i++) {
@@ -48,9 +70,9 @@ function initWaypoints() {
 
             var handler = function(direction) {
                 imageLoader
-                    .loadImage($(el))
-                    .then(waypointReached)
-                    .catch(errorFn);
+                    .load($(el))
+                    .then(onResolved)
+                    .catch(onError);
             };
 
             var obj = {

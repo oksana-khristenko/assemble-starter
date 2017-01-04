@@ -6,78 +6,74 @@ title: Lazy load
 summary: Lazy load
 short_summary: Lazy load
 
+css_file: examples/lazy-load
 js_file: examples/lazy-load
 
 ---
 
 <h1>Images lazy load</h1>
 
-<h2>Lazy load individual image on click</h2>
+<h2>Lazy load an inline image on click</h2>
 
-<div>
-    <img
-        data-preload-src="/assets/img/examples/300x300-06.png"
-        src=""
-        alt=""
-        id="image"
-    />
+<div class="lazy-load">
+    <div class="aspect-ratio  aspect-ratio_square">
+        <img data-preload-src="/assets/img/examples/300x300-06.png" src="" alt="" data-lazy-load="" class="aspect-ratio__content  lazy-load__image"/>
+    </div>
 </div>
-<button id="btn">Load image</button>
+
+<button id="btn">Load</button>
+
+<h2>Lazy load a background image on click</h2>
+
+<div class="lazy-load">
+    <div class="aspect-ratio  aspect-ratio_square">
+        <div data-preload-src="/assets/img/examples/300x300-06.png" data-lazy-load-background="" class="aspect-ratio__content  lazy-load__image"></div>
+    </div>
+</div>
+
+<button id="btn2">Load</button>
 
 <h2>Lazy load multiple images on click</h2>
 
-<div>
-    <img
-        data-preload-src="/assets/img/examples/300x300-07.png"
-        src=""
-        alt=""
-        class="image"
-    />
-    <img
-        data-preload-src="/assets/img/examples/300x300-08.png"
-        src=""
-        alt=""
-        class="image"
-    />
+<div class="lazy-load">
+    <div class="aspect-ratio  aspect-ratio_square">
+        <img data-preload-src="/assets/img/examples/300x300-07.png" src="" alt="" data-lazy-load-multiple="" class="aspect-ratio__content  lazy-load__image"/>
+    </div>
 </div>
-<button id="btn2">Load images</button>
+<div class="lazy-load">
+    <div class="aspect-ratio  aspect-ratio_square">
+        <div data-preload-src="/assets/img/examples/300x300-08.png" data-lazy-load-multiple="" class="aspect-ratio__content  lazy-load__image"></div>
+    </div>
+</div>
 
-<h2>Lazy load individual images on waypoints</h2>
+<button id="btn1">Load</button>
+
+<h2>Lazy load images on waypoints</h2>
 
 <div>
-    <img
-        data-preload-src="/assets/img/examples/300x300-01.png"
-        src=""
-        alt=""
-        class="waypoint-image"
-        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
-    />
-    <img
-        data-preload-src="/assets/img/examples/300x300-02.png"
-        src=""
-        alt=""
-        class="waypoint-image"
-        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
-    />
-    <img
-        data-preload-src="/assets/img/examples/300x300-03.png"
-        src=""
-        alt=""
-        class="waypoint-image"
-        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
-    />
-    <img
-        data-preload-src="/assets/img/examples/300x300-04.png"
-        src=""
-        alt=""
-        class="waypoint-image"
-        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
-    />
-    <img
-        data-preload-src="/assets/img/examples/300x300-05.png"
-        src=""
-        alt=""
-        class="waypoint-image"
-        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
-    />
+    <div class="lazy-load">
+        <div class="aspect-ratio  aspect-ratio_square">
+            <img data-preload-src="/assets/img/examples/300x300-01.png" src="" alt="" data-lazy-load-waypoint="" class="aspect-ratio__content  lazy-load__image"/>
+        </div>
+    </div>
+    <div class="lazy-load">
+        <div class="aspect-ratio  aspect-ratio_square">
+            <img data-preload-src="/assets/img/examples/300x300-02.png" src="" alt="" data-lazy-load-waypoint="" class="aspect-ratio__content  lazy-load__image"/>
+        </div>
+    </div>
+    <div class="lazy-load">
+        <div class="aspect-ratio  aspect-ratio_square">
+            <img data-preload-src="/assets/img/examples/300x300-03.png" src="" alt="" data-lazy-load-waypoint="" class="aspect-ratio__content  lazy-load__image"/>
+        </div>
+    </div>
+    <div class="lazy-load">
+        <div class="aspect-ratio  aspect-ratio_square">
+            <img data-preload-src="/assets/img/examples/300x300-04.png" src="" alt="" data-lazy-load-waypoint="" class="aspect-ratio__content  lazy-load__image"/>
+        </div>
+    </div>
+    <div class="lazy-load">
+        <div class="aspect-ratio  aspect-ratio_square">
+            <img data-preload-src="/assets/img/examples/300x300-05.png" src="" alt="" data-lazy-load-waypoint="" class="aspect-ratio__content  lazy-load__image"/>
+        </div>
+    </div>
 </div>

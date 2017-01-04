@@ -1,0 +1,24 @@
+@import "../components/_aspect-ratio";
+
+.lazy-load {
+    background: #efefef;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.lazy-load__image {
+    opacity: 0;
+    transition: opacity .5s ease-out;
+}
+
+.lazy-load__image_loaded {
+    opacity: 1;
+}
+
+.waypoint-image {
+    opacity: 0;
+    transition: opacity .5s ease-out;
+}
+.waypoint-image_loaded {
+    opacity: 1;
+}
