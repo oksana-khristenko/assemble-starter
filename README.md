@@ -21,7 +21,7 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 
 - [x] [Sticky footer](http://localhost:4001/examples/sticky-footer)
 - [x] [Grid](http://localhost:4001/examples/grid)
-- [x] [Aspect ratio box](http://localhost:4001/examples/aspect-ratio)
+- [x] [Aspect ratio](http://codepen.io/oksana-khristenko/pen/egmpBw)
 - [ ] Images lazy load
 - [x] [Scroll to content](http://localhost:4001/examples/scroll)
 - [x] [Copyright](http://localhost:4001/examples/copyright)

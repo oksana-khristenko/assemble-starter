@@ -1,3 +1,5 @@
+/* See example at http://codepen.io/oksana-khristenko/pen/egmpBw */
+
 .aspect-ratio {
     position: relative;
     overflow: hidden;
@@ -17,15 +19,19 @@
     padding-top: calc(9/16*100%);
 }
 
-.aspect-ratio_square {
+.aspect-ratio_5-4 {
+    padding-top: calc(4/5*100%);
+}
+
+.aspect-ratio_4-3 {
+    padding-top: calc(3/4*100%);
+}
+
+.aspect-ratio_1-1 {
     padding-top: 100%;
 }
 
 .aspect-ratio_circle {
     padding-top: 100%;
     border-radius: 100%;
-
-    .aspect-ratio__content {
-        border-radius: 100%;
-    }
 }
