@@ -10,9 +10,13 @@ js_file: examples/lazy-load
 
 ---
 
+<h1>Images lazy load</h1>
+
+<h2>Lazy load individual image on click</h2>
+
 <div>
     <img
-        data-preload-src="https://placehold.it/100x100"
+        data-preload-src="/assets/img/examples/300x300-06.png"
         src=""
         alt=""
         id="image"
@@ -20,18 +24,60 @@ js_file: examples/lazy-load
 </div>
 <button id="btn">Load image</button>
 
+<h2>Lazy load multiple images on click</h2>
+
 <div>
     <img
-        data-preload-src="https://placehold.it/70x30"
+        data-preload-src="/assets/img/examples/300x300-07.png"
         src=""
         alt=""
         class="image"
     />
     <img
-        data-preload-src="https://placehold.it/50x30"
+        data-preload-src="/assets/img/examples/300x300-08.png"
         src=""
         alt=""
         class="image"
     />
 </div>
 <button id="btn2">Load images</button>
+
+<h2>Lazy load individual images on waypoints</h2>
+
+<div>
+    <img
+        data-preload-src="/assets/img/examples/300x300-01.png"
+        src=""
+        alt=""
+        class="waypoint-image"
+        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
+    />
+    <img
+        data-preload-src="/assets/img/examples/300x300-02.png"
+        src=""
+        alt=""
+        class="waypoint-image"
+        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
+    />
+    <img
+        data-preload-src="/assets/img/examples/300x300-03.png"
+        src=""
+        alt=""
+        class="waypoint-image"
+        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
+    />
+    <img
+        data-preload-src="/assets/img/examples/300x300-04.png"
+        src=""
+        alt=""
+        class="waypoint-image"
+        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
+    />
+    <img
+        data-preload-src="/assets/img/examples/300x300-05.png"
+        src=""
+        alt=""
+        class="waypoint-image"
+        style="margin-bottom: 20px; width: 300px; height: 300px; display: block;"
+    />
+</div>
