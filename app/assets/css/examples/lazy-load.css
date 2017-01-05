@@ -9,16 +9,8 @@
 .lazy-load__image {
     opacity: 0;
     transition: opacity .5s ease-out;
-}
 
-.lazy-load__image_loaded {
-    opacity: 1;
-}
-
-.waypoint-image {
-    opacity: 0;
-    transition: opacity .5s ease-out;
-}
-.waypoint-image_loaded {
-    opacity: 1;
+    &.is-loaded {
+        opacity: 1;
+    }
 }
