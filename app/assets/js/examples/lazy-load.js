@@ -7,19 +7,18 @@ import Waypoint from '../modules/_waypoint';
 var imageLoader = new ImageLoader();
 var waypoint = new Waypoint();
 
-function onResolved($els) {
-    function callback($els) {
-        if (Array.isArray($els)) {
-            $els.forEach(($el) => {
-                $el.addClass('lazy-load__image_loaded');
-            });
-        }
-        else {
-            $els.addClass('lazy-load__image_loaded');
-        }
-    }
+function addCssClassOnLoaded($el, className) {
+    $el.addClass(className);
+}
 
-    window.setTimeout(function() { callback($els); }, 200);
+function onResolved(obj) {
+    if (!obj.loaded) {
+        window.setTimeout(function() { addCssClassOnLoaded(obj.$el, 'lazy-load__image_loaded'); }, 200);
+    }
+}
+
+function onMultipleResolved(arr) {
+    arr.forEach((obj) => onResolved(obj));
 }
 
 function onError(error) {
@@ -36,29 +35,27 @@ $(document).on('click', '#btn', function() {
 $(document).on('click', '#btn1', function() {
     imageLoader
         .loadAll($('[data-lazy-load-multiple]'))
-        .then(onResolved)
+        .then(onMultipleResolved)
         .catch(onError);
 });
 
 $(document).on('click', '#btn2', function() {
     imageLoader
-        .loadAll($('[data-lazy-load-background]'))
+        .load($('[data-lazy-load-background]'))
         .then(onResolved)
         .catch(onError);
 });
 
 function initWaypoints() {
 
-    function onResolved($el) {
+    function onResolved(obj) {
         function callback($el) {
             $el.addClass('waypoint-image_loaded');
         }
 
-        window.setTimeout(function() { callback($el); }, 200);
-    }
-
-    function onError(error) {
-        console.log(error);
+        if (!obj.loaded) {
+            window.setTimeout(function() { callback(obj.$el); }, 200);
+        }
     }
 
     var $images = $('[data-lazy-load-waypoint]'),

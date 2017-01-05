@@ -31,31 +31,43 @@ export default class ImageLoader {
             this.setBackgroundImageUrl($el, src);
     }
 
-    load($image) {
-        return new Promise((resolve, reject) => {
-            var img = new Image(),
-                src = this.getDataSrc($image);
-
-            img.src = src;
-
-            img.addEventListener('load', () => {
-                this.setSrc($image, src);
-                resolve($image);
-            });
-
-            img.addEventListener('error', () => {
-                reject(`Error loading image src ${src}`);
-            });
-        });
+    getSrc($el) {
+        return this.isInlineImage($el) ?
+            $el.attr('src') :
+            $el.css('background-image').replace(/(url\(|\)|")/g, '');
     }
 
-    loadAll($images) {
-        var len = $images.length,
+    isLoaded($el) {
+        return this.getSrc($el) === this.getDataSrc($el);
+    }
+
+    load($el) {
+        return this.isLoaded($el) ?
+            Promise.resolve({$el: $el, loaded: true}) :
+            new Promise((resolve, reject) => {
+                var img = new Image(),
+                    src = this.getDataSrc($el);
+
+                img.src = src;
+
+                img.addEventListener('load', () => {
+                    this.setSrc($el, src);
+                    resolve({$el: $el});
+                });
+
+                img.addEventListener('error', () => {
+                    reject(`Error loading image src ${src}`);
+                });
+            });
+    }
+
+    loadAll($els) {
+        var len = $els.length,
             promises = [];
 
         for (let i = 0; i < len; i++) {
-            let $image = $($images[i]),
-                promise = this.load($image);
+            let $el = $($els[i]),
+                promise = this.load($el);
 
             promises.push(promise);
         }
