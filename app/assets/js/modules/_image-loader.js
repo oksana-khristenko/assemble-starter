@@ -72,7 +72,7 @@ export default class ImageLoader {
             promises = [];
 
         for (let i = 0; i < len; i++) {
-            let promise = this.loadSingle($($els[i]));
+            let promise = this.loadOne($($els[i]));
             promises.push(promise);
         }
 

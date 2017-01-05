@@ -59,13 +59,12 @@ function initWaypoints() {
                     .catch(onError);
             };
 
-            var obj = {
+            arr.push({
                 element: el,
                 handler: handler,
                 offset: '90%'
-            };
+            });
 
-            arr.push(obj);
         })(i);
     }
 
