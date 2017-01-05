@@ -43,11 +43,11 @@ export default class ImageLoader {
 
     load($el) {
         return $el.length === 1 ?
-            this.loadSingle($el) :
-            this.loadMultiple($el);
+            this.loadOne($el) :
+            this.loadMany($el);
     }
 
-    loadSingle($el) {
+    loadOne($el) {
         return this.isLoaded($el) ?
             Promise.resolve({$el: $el, loaded: true}) :
             new Promise((resolve, reject) => {
@@ -67,7 +67,7 @@ export default class ImageLoader {
             });
     }
 
-    loadMultiple($els) {
+    loadMany($els) {
         var len = $els.length,
             promises = [];
 

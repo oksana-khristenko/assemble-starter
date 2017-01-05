@@ -5,7 +5,6 @@ import ImageLoader from '../modules/_image-loader';
 import Waypoint from '../modules/_waypoint';
 
 var imageLoader = new ImageLoader();
-var waypoint = new Waypoint();
 
 function onResolved(obj) {
     if (!obj.loaded) {
@@ -70,6 +69,7 @@ function initWaypoints() {
         })(i);
     }
 
+    var waypoint = new Waypoint();
     waypoint.set(arr);
 }
 
