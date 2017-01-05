@@ -26,12 +26,9 @@ export default class ImageLoader {
     }
 
     setSrc($el, src) {
-        if (this.isInlineImage($el)) {
-            this.setInlineImageSrc($el, src);
-        }
-        else {
+        return this.isInlineImage($el) ?
+            this.setInlineImageSrc($el, src) :
             this.setBackgroundImageUrl($el, src);
-        }
     }
 
     load($image) {
