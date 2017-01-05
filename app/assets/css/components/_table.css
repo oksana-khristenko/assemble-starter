@@ -1,0 +1,49 @@
+@import "../config/_media-query";
+
+@define-mixin table $breakpoint {
+
+    $(breakpoint)table {
+        display: table;
+    }
+
+    $(breakpoint)table_width-full {
+        width: 100%;
+    }
+
+    $(breakpoint)table_width-auto {
+        width: auto;
+    }
+
+    $(breakpoint)table_layout-fixed {
+        layout: fixed;
+    }
+
+    $(breakpoint)table_layout-auto {
+        layout: auto;
+    }
+
+    $(breakpoint)table__row {
+        display: table-row-group;
+    }
+
+    $(breakpoint)table__cell {
+        display: table-cell;
+    }
+
+    $(breakpoint)table__foot {
+        display: table-footer-group;
+    }
+
+    $(breakpoint)table__head {
+        display: table-header-group;
+    }
+
+}
+
+@mixin table .;
+
+@each $val in media-400, media-500, media-600, media-700, media-800, media-900, media-1024 {
+    @media (--$(val)) {
+        @mixin table .$(val)--;
+    }
+}
