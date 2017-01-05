@@ -1,0 +1,132 @@
+/*
+    Adapted from https://github.com/suitcss/components-arrange/blob/master/lib/arrange.css
+
+    Copyright (c) Nicolas Gallagher
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+@import "../config/_media-query";
+
+@define-mixin arrange $breakpoint {
+
+    /**
+     * 1. Protect against the component expanding beyond the confines of its
+     *    container if properties affecting the box-model are applied to the
+     *    component. Mainly necessary because of (5).
+     * 2. Rely on table layout.
+     * 3. Zero out the default spacing that might be on an element (e.g., `ul`).
+     * 4. Make sure the component fills at least the full width of its parent.
+     * 5. Reset the table-layout algorithm in case a component is nested.
+     */
+
+    $(breakpoint)arrange {
+        box-sizing: border-box; /* 1 */
+        display: table; /* 2 */
+        margin: 0; /* 3 */
+        min-width: 100%; /* 4 */
+        padding: 0; /* 3 */
+        table-layout: auto; /* 5 */
+
+        > $(breakpoint)arrange__size-fill,
+        > $(breakpoint)arrange__size-fit {
+            display: table-cell;
+            padding: 0; /* 1 */
+            vertical-align: top; /* 2 */
+        }
+    }
+
+    /**
+     * Where possible, protect against large images breaking the layout. Prevent them from
+     * exceeding the width of the main content block by making them fluid.
+     *
+     * Only work for all browsers with the `Arrange--equally` variant. For Firefox
+     * and IE to constrain image dimensions for other layouts, large images will
+     * need their width set to `100%`.
+     */
+
+    $(breakpoint)arrange_size-fill img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    /**
+     * Defend against a side-effect of this layout pattern: images in
+     * 'Arrange-sizeFit' cannot be fluid, otherwise they lose their ability to
+     * provide size to a cell.
+     */
+
+    $(breakpoint)arrange_size-fit img {
+        max-width: none !important;
+        width: auto !important;
+    }
+
+    /**
+     * Start a new row context.
+     */
+
+    $(breakpoint)arrange__row {
+      display: table-row;
+    }
+
+    /* Vertical alignment modifiers
+       ========================================================================== */
+
+    $(breakpoint)arrange_middle {
+        > $(breakpoint)arrange_size-fill,
+        > $(breakpoint)arrange_size-fit {
+            vertical-align: middle;
+        }
+    }
+
+    $(breakpoint)arrange_bottom {
+        > $(breakpoint)arrange__size-fill,
+        > $(breakpoint)arrange__size-fit {
+            vertical-align: bottom;
+        }
+    }
+
+    /* Equal-width modifier
+       ========================================================================== */
+
+    /**
+     * This layout algorithm will create equal-width table cells, irrespective of
+     * the width of their content.
+     *
+     * 1. The layout algorithm requires a set width to correctly calculate table
+     *    cell width.
+     */
+
+    $(breakpoint)arrange_equal {
+      table-layout: fixed;
+      width: 100%; /* 1 */
+    }
+
+    /**
+     * Give the cells an equal width. This value ensures that Arrange is still 100%
+     * wide when gutters are used in conjunctions with equal-width cells.
+     *
+     * It's recommended that only 'Arrange-sizeFill' be used for equal width cells.
+     * Their inner images will automatically be responsive.
+     */
+
+    $(breakpoint)arrange_equal > $(breakpoint)arrange__size-fill,
+    $(breakpoint)arrange_equal > $(breakpoint)arrange__size-fit,
+    $(breakpoint)arrange_equal > $(breakpoint)arrange__row > $(breakpoint)arrange__size-fill,
+    $(breakpoint)arrange_equal > $(breakpoint)arrange__row > $(breakpoint)arrange__size-fit {
+      width: 1%;
+    }
+
+}
+
+@mixin arrange .;
+
+@each $val in media-400, media-500, media-600, media-700, media-800, media-900, media-1024 {
+    @media (--$(val)) {
+        @mixin arrange .$(val)-;
+    }
+}
