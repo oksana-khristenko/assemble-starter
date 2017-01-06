@@ -60,8 +60,7 @@
       "catch",
       "while",
       "with",
-      "typeof",
-      "function"
+      "typeof"
   ],
   "requirePaddingNewLinesBeforeLineComments": false,
   "requirePaddingNewlinesInBlocks": false,
