@@ -47,7 +47,7 @@ describe('Url', function() {
             PageProperty.prototype.get.restore();
         });
 
-        it('should return correct url when filename is index.html', function() {
+        it('should return correct url when filename is index.html and file is NOT in the root directory', function() {
             var url = 'http://test-project-url.com/';
 
             var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
