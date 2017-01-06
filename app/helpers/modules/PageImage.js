@@ -16,7 +16,11 @@ class PageImage {
     }
 
     getAbsoluteUrl() {
-        return `${this.url}${this.imageUrl}`;
+        if (this.imageUrl && this.siteUrl) {
+            return `${this.url}${this.imageUrl}`;
+        }
+
+        return false;
     }
 
 }

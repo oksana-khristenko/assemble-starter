@@ -43,6 +43,32 @@ describe('PageImage', function() {
             PageProperty.prototype.get.restore();
         });
 
+        it('should return false when PageProperty returns a falsy value', function() {
+            var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+            pagePropertyStub.withArgs('image_url').returns(undefined);
+
+            var actual = pageImage.getAbsoluteUrl();
+
+            var expected = false;
+
+            expect(actual).to.equal(expected);
+
+            PageProperty.prototype.get.restore();
+        });
+
+        it('should return false when SiteUrl returns a falsy value', function() {
+            var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+            siteUrlStub.returns(undefined);
+
+            var actual = pageImage.getAbsoluteUrl();
+
+            var expected = false;
+
+            expect(actual).to.equal(expected);
+
+            SiteUrl.prototype.get.restore();
+        });
+
     });
 
 });
