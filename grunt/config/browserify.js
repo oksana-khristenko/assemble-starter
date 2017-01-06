@@ -6,7 +6,7 @@ var getFiles = dest => {
   return [{
     expand: true,
     cwd: 'app/assets/js/',
-    src: ['**/*.js', '!**/_*.js'],
+    src: ['**/*.js', '!modules/**/*.js', '!vendor/**/*.js'],
     dest: `${dest}/assets/js`
   }];
 };
