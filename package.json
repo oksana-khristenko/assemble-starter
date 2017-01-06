@@ -4,9 +4,10 @@
   "description": "Assemble starter kit for brochure sites, landing pages, blogs etc.",
   "author": "https://github.com/oksana-khristenko",
   "scripts": {
-    "start": "grunt",
-    "dist": "grunt dist",
+    "start": "npm run test && grunt",
+    "dist": "npm run test && grunt dist",
     "test": "./node_modules/.bin/mocha app/helpers-tests/**/*.test.js app/helpers-tests/**/**/*.test.js",
+    "test:watch": "npm run test -- -w",
     "removeExamples": "grunt clean:examples"
   },
   "devDependencies": {

@@ -61,21 +61,19 @@ Update project settings in `app/config.js`.
 
 ### Build
 
-Compiles HTML files and assets into `public` folder and makes them available at `http://localhost:4001`.
+Runs tests, compiles HTML files and assets into `public` folder, makes them available at `http://localhost:4001` and watches for file changes.
 
 Run `npm start` from project root.
 
+Runs tests and watches for test file changes:
+
+In a new terminal tab, run `npm run test:watch` from project root.
+
 ### Dist
 
-Compiles and minifies HTML files and assets into `dist` folder.
+Runs tests, compiles and minifies HTML files and assets into `dist` folder.
 
 Run `npm run dist` from project root.
-
-### Test
-
-Tests helper files.
-
-Run `npm test` from project root.
 
 ### Remove examples
 
