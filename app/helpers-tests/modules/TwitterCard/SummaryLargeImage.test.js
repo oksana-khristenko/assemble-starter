@@ -31,7 +31,7 @@ describe('TwitterCardSummaryLargeImage', function() {
 
         describe('twitter card is disabled', function() {
 
-            it('should return false if twitter card is disabled', function() {
+            it('should return false', function() {
                 var stub = sinon.stub(Config.prototype, 'get');
                 stub.withArgs('twitterCardEnabled').returns(false);
 
