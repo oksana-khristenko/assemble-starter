@@ -22,7 +22,7 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [x] [Sticky footer](http://localhost:4001/examples/sticky-footer)
 - [x] [Grid](http://localhost:4001/examples/grid)
 - [x] [Aspect ratio](http://codepen.io/oksana-khristenko/pen/egmpBw)
-- [ ] Images lazy load
+- [x] Image lazy loading
 - [x] [Scroll to content](http://localhost:4001/examples/scroll)
 - [x] [Copyright](http://localhost:4001/examples/copyright)
 - [x] Twitter card (summary large image only)
