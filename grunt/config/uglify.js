@@ -1,3 +1,14 @@
+'use strict';
+
+var getFiles = dest => {
+  return [{
+    expand: true,
+    cwd: `${dest}/assets/js`,
+    src: '**/*.js',
+    dest: `${dest}/assets/js`
+  }];
+};
+
 module.exports = {
   dist: {
     options: {
@@ -8,10 +19,7 @@ module.exports = {
       mangle: {
         except: ['jQuery']
       },
-      preserveComments: 'some'
     },
-    files: {
-      'dist/assets/js/main.js': ['dist/assets/js/main.js']
-    }
+    files: getFiles('dist')
   }
 };
