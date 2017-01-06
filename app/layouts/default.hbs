@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{{title}} - {{helper_config 'siteName'}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="{{#if robots_tag}}{{robots_tag}}{{else}}index,follow{{/if}}" name="robots">
         <meta name="description" content="{{summary}}">
         {{#if css_file}}<link rel="stylesheet" href="{{assets}}/css/{{css_file}}.css">{{/if}}
         {{> open-graph-markup }}
