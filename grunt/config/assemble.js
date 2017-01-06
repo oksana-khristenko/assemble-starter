@@ -1,3 +1,5 @@
+'use strict';
+
 var getAssembleFiles = function(dest) {
   return [
     {

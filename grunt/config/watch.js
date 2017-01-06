@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   configFiles: {
     files: [ 'Gruntfile.js', 'grunt/**/*'],

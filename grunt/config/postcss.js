@@ -1,3 +1,5 @@
+'use strict';
+
 var getFiles = dest => {
   return [{
     expand: true,

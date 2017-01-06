@@ -1,3 +1,5 @@
+'use strict';
+
 var babelConfig = require('../rc/.babelrc');
 
 var getFiles = dest => {

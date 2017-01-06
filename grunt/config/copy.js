@@ -1,3 +1,5 @@
+'use strict';
+
 var getImageFiles = dest => {
   return {
     cwd: 'app/assets/img',
