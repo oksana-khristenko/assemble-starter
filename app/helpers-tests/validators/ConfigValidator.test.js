@@ -27,7 +27,7 @@ describe('ConfigValidator', function() {
             expect(fn).to.throw(ReferenceError, 'config key is undefined');
         });
 
-        it('should throw TypeError if currentYear is not a string', function() {
+        it('should throw TypeError if config key is not a string', function() {
             var fn = function(){
                 configValidator.validateKey([]);
             };
@@ -35,7 +35,7 @@ describe('ConfigValidator', function() {
             expect(fn).to.throw(TypeError, 'config key must be a string');
         });
 
-        it('should not throw if currentYear is a string', function() {
+        it('should not throw if config key is a string', function() {
             var fn = function(){
                 configValidator.validateKey('testKey');
             };
