@@ -31,6 +31,7 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [x] Canonical URL in HTML head
 - [x] [Follow buttons](http://localhost:4001/examples/follow)
 - [ ] Share buttons
+- [ ] Burger menu
 - [ ] Google Analytics events
 - [ ] Lightbox
 - [ ] Slider
