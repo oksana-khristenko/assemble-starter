@@ -1,5 +1,5 @@
-Assemble starter kit
-====================
+Assemble Starter
+================
 
 Assemble starter kit for generating static sites (landing pages, brochure sites, blogs etc).
 
