@@ -11,7 +11,7 @@ module.exports = {
 
     facebookAppId: '',
 
-    openGraphMarkupEnabled: false, // e.g. false
+    openGraphMarkupEnabled: true, // e.g. false
 
     facebookPageUrl: 'Facebook Page Url', // e.g. https://facebook.com/twitter,
     pintrestPageUrl: 'Pintrest Page Url', // e.g. https://www.pinterest.com/dan330
