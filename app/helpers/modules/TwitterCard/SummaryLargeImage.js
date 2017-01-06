@@ -5,6 +5,7 @@ class TwitterCardSummaryLargeImage {
     constructor(obj) {
         this.config = obj && obj.config;
         this.pageProperty = obj && obj.pageProperty;
+        this.pageImage = obj && obj.pageImage;
     }
 
     get tags() {
@@ -44,7 +45,7 @@ class TwitterCardSummaryLargeImage {
     }
 
     get imageUrl() {
-        return this.pageProperty.get('image_url');
+        return this.pageImage.getAbsoluteUrl();
     }
 
     get imageAlt() {

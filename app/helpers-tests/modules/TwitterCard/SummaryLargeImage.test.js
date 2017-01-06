@@ -9,6 +9,7 @@ chai.use(sinonChai);
 var TwitterCardSummaryLargeImage = require('../../../helpers/modules/TwitterCard/SummaryLargeImage');
 var Config = require('../../doubles/modules/Config');
 var PageProperty = require('../../doubles/modules/PageProperty');
+var PageImage = require('../../doubles/modules/PageImage');
 
 describe('TwitterCardSummaryLargeImage', function() {
 
@@ -17,7 +18,8 @@ describe('TwitterCardSummaryLargeImage', function() {
     beforeEach(function() {
         twitterCardSummaryLargeImage = new TwitterCardSummaryLargeImage({
             config: new Config(),
-            pageProperty: new PageProperty()
+            pageProperty: new PageProperty(),
+            pageImage: new PageImage()
         });
     });
 
@@ -54,8 +56,11 @@ describe('TwitterCardSummaryLargeImage', function() {
 
                 pagePropertyStub.withArgs('title').returns('title test');
                 pagePropertyStub.withArgs('short_summary').returns('desc test');
-                pagePropertyStub.withArgs('image_url').returns('image url test');
                 pagePropertyStub.withArgs('image_alt').returns('image alt test');
+
+                var pageImageStub = sinon.stub(PageImage.prototype, 'getAbsoluteUrl');
+
+                pageImageStub.returns('image url test');
 
                 var actual = twitterCardSummaryLargeImage.get();
 
@@ -75,6 +80,7 @@ describe('TwitterCardSummaryLargeImage', function() {
 
                 Config.prototype.get.restore();
                 PageProperty.prototype.get.restore();
+                PageImage.prototype.getAbsoluteUrl.restore();
             });
 
         });
