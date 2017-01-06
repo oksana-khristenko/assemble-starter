@@ -6,7 +6,7 @@ module.exports.register = function(Handlebars, options) {
 
     var helpers = {
 
-        helper_google_analytics_tracking: function(options) {
+        helper_google_analytics_tracking_code: function(options) {
             var googleAnalyticsTrackingCodeBuilder = new GoogleAnalyticsTrackingCodeBuilder().build();
             return options.fn(googleAnalyticsTrackingCodeBuilder.get());
         }

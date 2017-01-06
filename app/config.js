@@ -21,5 +21,5 @@ module.exports = {
 
     googleAnalyticsId: 'Google Analytics Id', // e.g. UA-000000-01
     googleAnalyticsDomain: 'Google Analytics Domain', // e.g. twitter.com
-    googleAnalyticsEnabled: false // e.g. false
+    googleAnalyticsEnabled: true // e.g. false
 }
