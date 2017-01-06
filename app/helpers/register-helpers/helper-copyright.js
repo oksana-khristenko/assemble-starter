@@ -11,7 +11,7 @@ module.exports.register = function(Handlebars, options) {
             var date = new Date(),
                 currentYear = date.getFullYear(),
                 config = new ConfigBuilder().build(),
-                startYear = Number(config.get('projectStartYear')),
+                startYear = Number(config.get('startYear')),
                 copyright = new CopyrightBuilder().build();
 
             return copyright.get(startYear, currentYear, format);

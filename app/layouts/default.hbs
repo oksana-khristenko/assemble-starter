@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{title}} - {{helper_config 'projectName'}}</title>
+        <title>{{title}} - {{helper_config 'siteName'}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="{{summary}}">
         {{#if css_file}}<link rel="stylesheet" href="{{assets}}/css/{{css_file}}.css">{{/if}}
-        {{> meta-og-tags }}
-        {{> meta-twitter-card }}
+        {{> open-graph-markup }}
+        {{> twitter-card }}
         {{#helper_page_absolute_url}}<link rel="canonical" href="{{.}}">{{/helper_page_absolute_url}}
         <link href="{{assets}}/img/favicon.png" rel="shortcut icon">
         <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
@@ -19,7 +19,7 @@
         {{> body }}
 
         {{#if js_file}}<script src="{{assets}}/js/{{js_file}}.js"></script>{{/if}}
-        {{> js-google-analytics }}
+        {{> google-analytics-tag }}
 
     </body>
 </html>
