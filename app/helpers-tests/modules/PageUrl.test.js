@@ -28,65 +28,61 @@ describe('Url', function() {
             pageUrl = null;
         });
 
-        describe('project url ends with a slash', function() {
+        it('should return correct url when filename is index.html and file is in the root directory', function() {
+            var url = 'http://test-project-url.com/';
 
-            it('should return correct url when filename is index.html and file is in the root directory', function() {
-                var url = 'http://test-project-url.com/';
+            var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+            siteUrlStub.returns(url);
 
-                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
-                siteUrlStub.returns(url);
+            var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+            pagePropertyStub.withArgs('dest').returns('public/index.html');
 
-                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('public/index.html');
+            var actual = pageUrl.getAbsoluteUrl();
 
-                var actual = pageUrl.getAbsoluteUrl();
+            var expected = `${url}`;
 
-                var expected = `${url}`;
+            expect(actual).to.equal(expected);
 
-                expect(actual).to.equal(expected);
+            SiteUrl.prototype.get.restore();
+            PageProperty.prototype.get.restore();
+        });
 
-                SiteUrl.prototype.get.restore();
-                PageProperty.prototype.get.restore();
-            });
+        it('should return correct url when filename is index.html', function() {
+            var url = 'http://test-project-url.com/';
 
-            it('should return correct url when filename is index.html', function() {
-                var url = 'http://test-project-url.com/';
+            var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+            siteUrlStub.returns(url);
 
-                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
-                siteUrlStub.returns(url);
+            var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+            pagePropertyStub.withArgs('dest').returns('public/test/index.html');
 
-                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('public/test/index.html');
+            var actual = pageUrl.getAbsoluteUrl();
 
-                var actual = pageUrl.getAbsoluteUrl();
+            var expected = `${url}test/`;
 
-                var expected = `${url}test/`;
+            expect(actual).to.equal(expected);
 
-                expect(actual).to.equal(expected);
+            SiteUrl.prototype.get.restore();
+            PageProperty.prototype.get.restore();
+        });
 
-                SiteUrl.prototype.get.restore();
-                PageProperty.prototype.get.restore();
-            });
+        it('should return correct url when filename is NOT index.html', function() {
+            var url = 'http://test-project-url.com/';
 
-            it('should return correct url when filename is NOT index.html', function() {
-                var url = 'http://test-project-url.com/';
+            var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+            siteUrlStub.returns(url);
 
-                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
-                siteUrlStub.returns(url);
+            var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+            pagePropertyStub.withArgs('dest').returns('public/test/test-page.html');
 
-                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('public/test/test-page.html');
+            var actual = pageUrl.getAbsoluteUrl();
 
-                var actual = pageUrl.getAbsoluteUrl();
+            var expected = `${url}test/test-page.html`;
 
-                var expected = `${url}test/test-page.html`;
+            expect(actual).to.equal(expected);
 
-                expect(actual).to.equal(expected);
-
-                SiteUrl.prototype.get.restore();
-                PageProperty.prototype.get.restore();
-            });
-
+            SiteUrl.prototype.get.restore();
+            PageProperty.prototype.get.restore();
         });
 
     });
