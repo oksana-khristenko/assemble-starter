@@ -8,16 +8,32 @@ class TwitterCardSummaryLargeImage {
         this.pageImage = obj && obj.pageImage;
     }
 
+    get imageUrlTag() {
+        return {name: 'twitter:image', method: 'imageUrl'};
+    }
+
+    get imageAltTag() {
+        return {name: 'twitter:image:alt', method: 'imageAlt'};
+    }
+
     get tags() {
-        return [
+        var tags = [
             {name: 'twitter:card', method: 'card', mandatory: true},
             {name: 'twitter:site', method: 'site', mandatory: true},
             {name: 'twitter:creator', method: 'creator'},
             {name: 'twitter:title', method: 'title', mandatory: true},
-            {name: 'twitter:description', method: 'description', mandatory: true},
-            {name: 'twitter:image', method: 'imageUrl'},
-            {name: 'twitter:image:alt', method: 'imageAlt'}
+            {name: 'twitter:description', method: 'description', mandatory: true}
         ];
+
+        if (this.imageUrl) {
+            tags = tags.concat(this.imageUrlTag);
+
+            if (this.imageAlt) {
+                tags = tags.concat(this.imageAltTag);
+            }
+        }
+
+        return tags;
     }
 
     get card() {

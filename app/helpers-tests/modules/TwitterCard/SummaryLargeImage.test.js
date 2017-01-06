@@ -83,6 +83,75 @@ describe('TwitterCardSummaryLargeImage', function() {
                 PageImage.prototype.getAbsoluteUrl.restore();
             });
 
+            it('should not have "twitter:image" or "twitter:image:alt" if page image url is falsy', function() {
+                var configStub = sinon.stub(Config.prototype, 'get');
+
+                configStub.withArgs('twitterCardEnabled').returns(true);
+                configStub.withArgs('twitterUserName').returns('twitter user name test');
+
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+
+                pagePropertyStub.withArgs('title').returns('title test');
+                pagePropertyStub.withArgs('short_summary').returns('desc test');
+                pagePropertyStub.withArgs('image_alt').returns('image alt test');
+
+                var pageImageStub = sinon.stub(PageImage.prototype, 'getAbsoluteUrl');
+
+                pageImageStub.returns(false);
+
+                var actual = twitterCardSummaryLargeImage.get();
+
+                var expected = {
+                    data: [
+                        {name: 'twitter:card', description: 'summary_large_image'},
+                        {name: 'twitter:site', description: 'twitter user name test'},
+                        {name: 'twitter:creator', description: 'twitter user name test'},
+                        {name: 'twitter:title', description: 'title test'},
+                        {name: 'twitter:description', description: 'desc test'}
+                    ]
+                }
+
+                expect(actual).to.deep.equal(expected);
+
+                Config.prototype.get.restore();
+                PageProperty.prototype.get.restore();
+                PageImage.prototype.getAbsoluteUrl.restore();
+            });
+
+            it('should not have "twitter:image:alt" if page image alt is falsy', function() {
+                var configStub = sinon.stub(Config.prototype, 'get');
+
+                configStub.withArgs('twitterCardEnabled').returns(true);
+                configStub.withArgs('twitterUserName').returns('twitter user name test');
+
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+
+                pagePropertyStub.withArgs('title').returns('title test');
+                pagePropertyStub.withArgs('short_summary').returns('desc test');
+
+                var pageImageStub = sinon.stub(PageImage.prototype, 'getAbsoluteUrl');
+                pageImageStub.returns('image url test');
+
+                var actual = twitterCardSummaryLargeImage.get();
+
+                var expected = {
+                    data: [
+                        {name: 'twitter:card', description: 'summary_large_image'},
+                        {name: 'twitter:site', description: 'twitter user name test'},
+                        {name: 'twitter:creator', description: 'twitter user name test'},
+                        {name: 'twitter:title', description: 'title test'},
+                        {name: 'twitter:description', description: 'desc test'},
+                        {name: 'twitter:image', description: 'image url test'}
+                    ]
+                }
+
+                expect(actual).to.deep.equal(expected);
+
+                Config.prototype.get.restore();
+                PageProperty.prototype.get.restore();
+                PageImage.prototype.getAbsoluteUrl.restore();
+            });
+
         });
 
     });
