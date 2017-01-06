@@ -3,14 +3,13 @@
 class PageUrl {
 
     constructor(obj) {
-        this.config = obj.config;
+        this.siteUrl = obj.siteUrl;
         this.page = obj.page;
         this.pageProperty = obj.pageProperty;
     }
 
-    get projectUrl() {
-        var url = this.config.get('projectUrl');
-        return url && url.replace(/\/$/, '');
+    get url() {
+        return this.siteUrl.get();
     }
 
     get dest() {
@@ -22,11 +21,7 @@ class PageUrl {
     }
 
     getAbsoluteUrl() {
-        if (!this.projectUrl) {
-            throw new ReferenceError('projectUrl must be provided');
-        }
-
-        return `${this.projectUrl}/${this.slug}`;
+        return `${this.url}${this.slug}`;
     }
 
 }
