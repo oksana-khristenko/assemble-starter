@@ -3,25 +3,25 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-var GoogleAnalyticsTagValidator = require('../../helpers/validators/GoogleAnalyticsTagValidator');
+var GoogleAnalyticsTrackingCodeValidator = require('../../helpers/validators/GoogleAnalyticsTrackingCodeValidator');
 
-describe('GoogleAnalyticsTagValidator', function() {
+describe('GoogleAnalyticsTrackingCodeValidator', function() {
 
-    var googleAnalyticsTagValidator;
+    var googleAnalyticsTrackingCodeValidator;
 
     beforeEach(function() {
-        googleAnalyticsTagValidator = new GoogleAnalyticsTagValidator();
+        googleAnalyticsTrackingCodeValidator = new GoogleAnalyticsTrackingCodeValidator();
     });
 
     afterEach(function() {
-        googleAnalyticsTagValidator = null;
+        googleAnalyticsTrackingCodeValidator = null;
     });
 
     describe('validate', function() {
 
         it('should throw ReferenceError if argument is not provided', function() {
             var fn = function(){
-                googleAnalyticsTagValidator.validate();
+                googleAnalyticsTrackingCodeValidator.validate();
             };
 
             expect(fn).to.throw(ReferenceError, 'argument is undefined');
@@ -29,7 +29,7 @@ describe('GoogleAnalyticsTagValidator', function() {
 
         it('should throw TypeError if argument is not an object', function() {
             var fn = function(){
-                googleAnalyticsTagValidator.validate(4);
+                googleAnalyticsTrackingCodeValidator.validate(4);
             };
 
             expect(fn).to.throw(TypeError, 'argument must be an object');
@@ -41,7 +41,7 @@ describe('GoogleAnalyticsTagValidator', function() {
                     domain: 'test',
                     enabled: true
                 };
-                googleAnalyticsTagValidator.validate(obj);
+                googleAnalyticsTrackingCodeValidator.validate(obj);
             };
 
             expect(fn).to.throw(ReferenceError, 'google analytics id is undefined');
@@ -54,7 +54,7 @@ describe('GoogleAnalyticsTagValidator', function() {
                     id: 5,
                     enabled: true
                 };
-                googleAnalyticsTagValidator.validate(obj);
+                googleAnalyticsTrackingCodeValidator.validate(obj);
             };
 
             expect(fn).to.throw(TypeError, 'google analytics id must be a string');
@@ -66,7 +66,7 @@ describe('GoogleAnalyticsTagValidator', function() {
                     id: 'test',
                     enabled: true
                 };
-                googleAnalyticsTagValidator.validate(obj);
+                googleAnalyticsTrackingCodeValidator.validate(obj);
             };
 
             expect(fn).to.throw(ReferenceError, 'google analytics domain is undefined');
@@ -79,7 +79,7 @@ describe('GoogleAnalyticsTagValidator', function() {
                     id: 'test',
                     enabled: true
                 };
-                googleAnalyticsTagValidator.validate(obj);
+                googleAnalyticsTrackingCodeValidator.validate(obj);
             };
 
             expect(fn).to.throw(TypeError, 'google analytics domain must be a string');
@@ -91,7 +91,7 @@ describe('GoogleAnalyticsTagValidator', function() {
                     domain: 'test',
                     id: 'test'
                 };
-                googleAnalyticsTagValidator.validate(obj);
+                googleAnalyticsTrackingCodeValidator.validate(obj);
             };
 
             expect(fn).to.throw(ReferenceError, 'google analytics enabled is undefined');
@@ -104,7 +104,7 @@ describe('GoogleAnalyticsTagValidator', function() {
                     id: 'test',
                     enabled: 'true'
                 };
-                googleAnalyticsTagValidator.validate(obj);
+                googleAnalyticsTrackingCodeValidator.validate(obj);
             };
 
             expect(fn).to.throw(TypeError, 'google analytics enabled must be a boolean');
@@ -117,7 +117,7 @@ describe('GoogleAnalyticsTagValidator', function() {
                     id: 'test',
                     enabled: true
                 };
-                googleAnalyticsTagValidator.validate(obj);
+                googleAnalyticsTrackingCodeValidator.validate(obj);
             };
 
             expect(fn).to.not.throw();

@@ -1,6 +1,6 @@
 'use strict';
 
-class GoogleAnalyticsTagValidator {
+class GoogleAnalyticsTrackingCodeValidator {
 
     validateEnabled(enabled) {
         if (typeof enabled == 'undefined') {
@@ -51,4 +51,4 @@ class GoogleAnalyticsTagValidator {
 
 }
 
-module.exports = GoogleAnalyticsTagValidator;
+module.exports = GoogleAnalyticsTrackingCodeValidator;

@@ -1,9 +1,10 @@
 'use strict';
 
-class GoogleAnalyticsTag {
+class GoogleAnalyticsTrackingCode {
 
-    constructor(config) {
-        this.config = config;
+    constructor(obj) {
+        this.config = obj && obj.config;
+        this.validator = obj && obj.validator;
     }
 
     isEnabled() {
@@ -45,4 +46,4 @@ class GoogleAnalyticsTag {
 
 }
 
-module.exports = GoogleAnalyticsTag;
+module.exports = GoogleAnalyticsTrackingCode;

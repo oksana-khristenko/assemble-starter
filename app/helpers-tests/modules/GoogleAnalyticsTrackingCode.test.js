@@ -6,21 +6,21 @@ var sinonChai = require('sinon-chai');
 var expect = chai.expect;
 chai.use(sinonChai);
 
-var GoogleAnalyticsTag = require('../../helpers/modules/GoogleAnalyticsTag');
+var GoogleAnalyticsTrackingCode = require('../../helpers/modules/GoogleAnalyticsTrackingCode');
 var Config = require('../doubles/modules/Config');
 
-describe('GoogleAnalyticsTag', function() {
+describe('GoogleAnalyticsTrackingCode', function() {
 
-    var googleAnalyticsTag;
+    var googleAnalyticsTrackingCode;
 
     beforeEach(function() {
-        googleAnalyticsTag = new GoogleAnalyticsTag(
-            new Config()
-        );
+        googleAnalyticsTrackingCode = new GoogleAnalyticsTrackingCode({
+            config: new Config()
+        });
     });
 
     afterEach(function() {
-        googleAnalyticsTag = null;
+        googleAnalyticsTrackingCode = null;
     });
 
     describe('get', function() {
@@ -31,7 +31,7 @@ describe('GoogleAnalyticsTag', function() {
                 var stub = sinon.stub(Config.prototype, 'get');
                 stub.withArgs('googleAnalyticsEnabled').returns(false);
 
-                var actual = googleAnalyticsTag.get();
+                var actual = googleAnalyticsTrackingCode.get();
 
                 expect(actual).to.be.false;
 
@@ -49,7 +49,7 @@ describe('GoogleAnalyticsTag', function() {
                 stub.withArgs('googleAnalyticsId').returns(undefined);
                 stub.withArgs('googleAnalyticsDomain').returns('test domain');
 
-                var actual = googleAnalyticsTag.get();
+                var actual = googleAnalyticsTrackingCode.get();
 
                 expect(actual).to.be.false;
 
@@ -63,7 +63,7 @@ describe('GoogleAnalyticsTag', function() {
                 stub.withArgs('googleAnalyticsId').returns('test id');
                 stub.withArgs('googleAnalyticsDomain').returns(undefined);
 
-                var actual = googleAnalyticsTag.get();
+                var actual = googleAnalyticsTrackingCode.get();
 
                 expect(actual).to.be.false;
 
@@ -77,7 +77,7 @@ describe('GoogleAnalyticsTag', function() {
                 stub.withArgs('googleAnalyticsId').returns('test id');
                 stub.withArgs('googleAnalyticsDomain').returns('test domain');
 
-                var actual = googleAnalyticsTag.get();
+                var actual = googleAnalyticsTrackingCode.get();
 
                 var expected = {
                     data: {
