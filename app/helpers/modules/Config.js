@@ -9,12 +9,7 @@ class Config {
 
     exists(key) {
         this.validator.validateKey(key);
-
-        if (this.config.hasOwnProperty(key)) {
-            return true;
-        }
-
-        return false;
+        return this.config.hasOwnProperty(key);
     }
 
     get(key) {
