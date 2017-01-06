@@ -19,7 +19,6 @@ describe('Url', function() {
         beforeEach(function() {
             pageUrl = new PageUrl({
                 siteUrl: new SiteUrl(),
-                page: {},
                 pageProperty: new PageProperty()
             });
         });
@@ -28,61 +27,124 @@ describe('Url', function() {
             pageUrl = null;
         });
 
-        it('should return correct url when filename is index.html and file is in the root directory', function() {
-            var url = 'http://test-project-url.com/';
+        describe('public', function() {
 
-            var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
-            siteUrlStub.returns(url);
+            it('should return correct url when filename is index.html and file is in the root directory', function() {
+                var url = 'http://test-project-url.com/';
 
-            var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-            pagePropertyStub.withArgs('dest').returns('public/index.html');
+                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+                siteUrlStub.returns(url);
 
-            var actual = pageUrl.getAbsoluteUrl();
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs('dest').returns('public/index.html');
 
-            var expected = `${url}`;
+                var actual = pageUrl.getAbsoluteUrl();
 
-            expect(actual).to.equal(expected);
+                var expected = `${url}`;
 
-            SiteUrl.prototype.get.restore();
-            PageProperty.prototype.get.restore();
+                expect(actual).to.equal(expected);
+
+                SiteUrl.prototype.get.restore();
+                PageProperty.prototype.get.restore();
+            });
+
+            it('should return correct url when filename is index.html and file is NOT in the root directory', function() {
+                var url = 'http://test-project-url.com/';
+
+                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+                siteUrlStub.returns(url);
+
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs('dest').returns('public/test/index.html');
+
+                var actual = pageUrl.getAbsoluteUrl();
+
+                var expected = `${url}test/`;
+
+                expect(actual).to.equal(expected);
+
+                SiteUrl.prototype.get.restore();
+                PageProperty.prototype.get.restore();
+            });
+
+            it('should return correct url when filename is NOT index.html', function() {
+                var url = 'http://test-project-url.com/';
+
+                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+                siteUrlStub.returns(url);
+
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs('dest').returns('public/test/test-page.html');
+
+                var actual = pageUrl.getAbsoluteUrl();
+
+                var expected = `${url}test/test-page.html`;
+
+                expect(actual).to.equal(expected);
+
+                SiteUrl.prototype.get.restore();
+                PageProperty.prototype.get.restore();
+            });
+
         });
 
-        it('should return correct url when filename is index.html and file is NOT in the root directory', function() {
-            var url = 'http://test-project-url.com/';
+        describe('dist', function() {
+            it('should return correct url when filename is index.html and file is in the root directory', function() {
+                var url = 'http://test-project-url.com/';
 
-            var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
-            siteUrlStub.returns(url);
+                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+                siteUrlStub.returns(url);
 
-            var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-            pagePropertyStub.withArgs('dest').returns('public/test/index.html');
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs('dest').returns('dist/index.html');
 
-            var actual = pageUrl.getAbsoluteUrl();
+                var actual = pageUrl.getAbsoluteUrl();
 
-            var expected = `${url}test/`;
+                var expected = `${url}`;
 
-            expect(actual).to.equal(expected);
+                expect(actual).to.equal(expected);
 
-            SiteUrl.prototype.get.restore();
-            PageProperty.prototype.get.restore();
-        });
+                SiteUrl.prototype.get.restore();
+                PageProperty.prototype.get.restore();
+            });
 
-        it('should return correct url when filename is NOT index.html', function() {
-            var url = 'http://test-project-url.com/';
+            it('should return correct url when filename is index.html and file is NOT in the root directory', function() {
+                var url = 'http://test-project-url.com/';
 
-            var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
-            siteUrlStub.returns(url);
+                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+                siteUrlStub.returns(url);
 
-            var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-            pagePropertyStub.withArgs('dest').returns('public/test/test-page.html');
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs('dest').returns('dist/test/index.html');
 
-            var actual = pageUrl.getAbsoluteUrl();
+                var actual = pageUrl.getAbsoluteUrl();
 
-            var expected = `${url}test/test-page.html`;
+                var expected = `${url}test/`;
 
-            expect(actual).to.equal(expected);
+                expect(actual).to.equal(expected);
 
-            SiteUrl.prototype.get.restore();
-            PageProperty.prototype.get.restore();
+                SiteUrl.prototype.get.restore();
+                PageProperty.prototype.get.restore();
+            });
+
+            it('should return correct url when filename is NOT index.html', function() {
+                var url = 'http://test-project-url.com/';
+
+                var siteUrlStub = sinon.stub(SiteUrl.prototype, 'get');
+                siteUrlStub.returns(url);
+
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs('dest').returns('dist/test/test-page.html');
+
+                var actual = pageUrl.getAbsoluteUrl();
+
+                var expected = `${url}test/test-page.html`;
+
+                expect(actual).to.equal(expected);
+
+                SiteUrl.prototype.get.restore();
+                PageProperty.prototype.get.restore();
+            });
         });
 
     });
