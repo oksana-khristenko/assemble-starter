@@ -2,7 +2,8 @@
 
 class Config {
 
-    get(key) {}
+    get() {}
+    exists() {}
 
 };
 
