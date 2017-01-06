@@ -2,9 +2,9 @@
 
 class PageProperty {
 
-    isTrue(propertyName) {}
-    exists(propertyName) {}
-    get(propertyName) {}
+    isTrue() {}
+    exists() {}
+    get() {}
 
 };
 
