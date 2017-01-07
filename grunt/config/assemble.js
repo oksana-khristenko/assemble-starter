@@ -16,7 +16,8 @@ module.exports = {
     layoutdir: 'app/layouts',
     partials: ['app/partials/**/*.hbs'],
     data: ['app/data/**/*.{json,yml}'],
-    helpers: 'app/helpers/register-helpers/**/*.js'
+    helpers: 'app/helpers/register-helpers/**/*.js',
+    enviromentConfig: '<%= enviromentConfig %>'
   },
   build: {
     options: {

@@ -6,6 +6,9 @@ module.exports = function(grunt) {
   require('load-grunt-config')(grunt, {
     build: 'grunt/tasks/build.js',
     configPath: path.join(process.cwd(), 'grunt/config'),
+    config: {
+      enviromentConfig: '<%= enviromentConfig %>'
+    },
     jitGrunt: {
       customTasksDir: 'grunt/tasks'
     }
