@@ -4,10 +4,12 @@ module.exports.register = function(Handlebars, options) {
 
     options = options || {};
 
+    var helperName = 'helper_google_analytics_tracking_code';
+
     var helpers = {
 
-        helper_google_analytics_tracking_code: function(options) {
-            var googleAnalyticsTrackingCodeBuilder = new GoogleAnalyticsTrackingCodeBuilder().build();
+        [helperName]: function(options) {
+            var googleAnalyticsTrackingCodeBuilder = new GoogleAnalyticsTrackingCodeBuilder({helperName: helperName}).build();
             return options.fn(googleAnalyticsTrackingCodeBuilder.get());
         }
 

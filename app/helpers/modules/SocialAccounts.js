@@ -2,9 +2,10 @@
 
 class SocialAccounts {
 
-    constructor(config, validator) {
-        this.config = config;
-        this.validator = validator;
+    constructor(obj) {
+        this.config = obj && obj.config;
+        this.validator = obj && obj.validator;
+        this.helperName = obj && obj.helperName;
     }
 
     getData(accounts) {

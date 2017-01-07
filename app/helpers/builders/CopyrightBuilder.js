@@ -5,12 +5,16 @@ var CopyrightValidator = require('../validators/CopyrightValidator');
 
 class CopyrightBuilder {
 
-    constructor(validator) {
-        this.validator = validator || new CopyrightValidator();
+    constructor(obj) {
+        this.helperName = obj && obj.helperName;
+        this.validator = (obj && obj.validator) || new CopyrightValidator({helperName: this.helperName});
     }
 
     build() {
-        return new Copyright(this.validator);
+        return new Copyright({
+            validator: this.validator,
+            helperName: this.helperName
+        });
     }
 
 }

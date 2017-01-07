@@ -2,7 +2,7 @@
 
 class SocialAccountsValidator {
 
-    validate(accounts) {}
+    validate() {}
 
 }
 

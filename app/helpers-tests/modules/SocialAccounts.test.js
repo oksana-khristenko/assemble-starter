@@ -15,10 +15,10 @@ describe('SocialAccounts', function() {
     var socialAccounts;
 
     beforeEach(function() {
-        socialAccounts = new SocialAccounts(
-            new Config(),
-            new SocialAccountsValidator()
-        );
+        socialAccounts = new SocialAccounts({
+            config: new Config(),
+            validator: new SocialAccountsValidator()
+        });
     });
 
     afterEach(function() {

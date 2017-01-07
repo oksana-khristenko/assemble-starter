@@ -5,6 +5,7 @@ class PageConfig {
     constructor(obj) {
         this.config = obj.config;
         this.pageProperty = obj.pageProperty;
+        this.helperName = obj.helperName;
     }
 
     get(key) {

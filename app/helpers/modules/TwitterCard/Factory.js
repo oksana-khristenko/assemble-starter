@@ -2,9 +2,10 @@
 
 class TwitterCardFactory {
 
-    constructor(config, twitterCard) {
-        this.config = config;
-        this.twitterCard = twitterCard;
+    constructor(obj) {
+        this.config = obj && obj.config;
+        this.twitterCard = obj && obj.twitterCard;
+        this.helperName = obj && obj.helperName;
     }
 
     get() {

@@ -14,9 +14,9 @@ describe('Copyright', function() {
     var copyright;
 
     beforeEach(function() {
-        copyright = new Copyright(
-            new CopyrightValidator()
-        );
+        copyright = new Copyright({
+            validator: new CopyrightValidator()
+        });
     });
 
     afterEach(function() {

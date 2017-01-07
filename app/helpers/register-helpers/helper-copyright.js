@@ -5,14 +5,16 @@ module.exports.register = function(Handlebars, options) {
 
     options = options || {};
 
+    var helperName = 'helper_copyright';
+
     var helpers = {
 
-        helper_copyright: function(format, options) {
+        [helperName]: function(format, options) {
             var date = new Date(),
                 currentYear = date.getFullYear(),
-                config = new ConfigBuilder().build(),
+                config = new ConfigBuilder({helperName: helperName}).build(),
                 startYear = Number(config.get('startYear')),
-                copyright = new CopyrightBuilder().build();
+                copyright = new CopyrightBuilder({helperName: helperName}).build();
 
             return copyright.get(startYear, currentYear, format);
         }

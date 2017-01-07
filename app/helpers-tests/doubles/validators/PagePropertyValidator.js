@@ -2,8 +2,8 @@
 
 class PagePropertyValidator {
 
-    validatePage(page) {}
-    validatePropertyName(propertyName) {}
+    validatePage() {}
+    validatePropertyName() {}
 
 }
 

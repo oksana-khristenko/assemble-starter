@@ -2,7 +2,7 @@
 
 class GoogleAnalyticsTrackingCodeValidator {
 
-    validate(obj) {}
+    validate() {}
 
 }
 

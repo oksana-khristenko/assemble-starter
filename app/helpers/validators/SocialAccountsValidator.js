@@ -4,8 +4,9 @@ require("babel-polyfill");
 
 class SocialAccountsValidator {
 
-    constructor(validAccounts) {
-        this.validAccounts = validAccounts || this.defaultValidAccounts;
+    constructor(obj) {
+        this.validAccounts = (obj && obj.validAccounts) || this.defaultValidAccounts;
+        this.helperName = obj && obj.helperName;
     }
 
     get defaultValidAccounts() {
@@ -38,7 +39,7 @@ class SocialAccountsValidator {
 
         if (invalidAccounts.length > 0) {
             invalidAccounts = invalidAccounts.join(', ');
-            throw new TypeError(`Invalid social accounts: ${invalidAccounts}`);
+            throw new TypeError(`${this.helperName}: Invalid social accounts: ${invalidAccounts}`);
         }
     }
 

@@ -13,10 +13,15 @@ describe('Url', function() {
 
     describe('get', function() {
 
-        var siteUrl;
+        var siteUrl,
+            helperName;
 
         beforeEach(function() {
-            siteUrl = new SiteUrl({config: new Config()});
+            helperName = 'testHelperName';
+            siteUrl = new SiteUrl({
+                config: new Config(),
+                helperName: helperName
+            });
         });
 
         it('should throw ReferenceError when site URL is not provided', function() {
@@ -27,7 +32,7 @@ describe('Url', function() {
                 siteUrl.get();
             };
 
-            expect(fn).to.throw(ReferenceError, 'siteUrl must be provided');
+            expect(fn).to.throw(ReferenceError, `${helperName}: siteUrl must be provided`);
 
             Config.prototype.get.restore();
         });

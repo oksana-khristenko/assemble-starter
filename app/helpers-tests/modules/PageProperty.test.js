@@ -27,7 +27,11 @@ describe('PageProperty', function() {
             var page = {'prop': ''};
             var spy = sinon.spy(PagePropertyValidator.prototype, 'validatePage');
 
-            var pageProperty = new PageProperty(page, validator);
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             pageProperty.exists('prop');
 
             expect(spy.withArgs(page)).calledOnce;
@@ -39,7 +43,11 @@ describe('PageProperty', function() {
             var page = {'prop': ''};
             var spy = sinon.spy(PagePropertyValidator.prototype, 'validatePropertyName');
 
-            var pageProperty = new PageProperty(page, validator);
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             pageProperty.exists('prop');
 
             expect(spy.withArgs('prop')).calledOnce;
@@ -49,21 +57,36 @@ describe('PageProperty', function() {
 
         it('should return true if propertyName exists in the page object', function() {
             var page = { testPropName: '' };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyExists = pageProperty.exists('testPropName');
             expect(propertyExists).to.equal(true);
         });
 
         it('should return true if propertyName exists in the page.data object', function() {
             var page = { data: { testPropName: '' } };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyExists = pageProperty.exists('testPropName');
             expect(propertyExists).to.equal(true);
         });
 
         it('should return false if propertyName does not exist in both page and page.data objects', function() {
             var page = {data: {}};
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyExists = pageProperty.exists('testPropName');
             expect(propertyExists).to.equal(false);
         });
@@ -74,14 +97,24 @@ describe('PageProperty', function() {
 
         it('should return true if propertyName exists in the page object and is true', function() {
             var page = { testPropName: true };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(true);
         });
 
         it('should return true if propertyName exists in the page.data object and is true', function() {
             var page = { data: { testPropName: true }};
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(true);
         });
@@ -91,7 +124,12 @@ describe('PageProperty', function() {
                 testPropName: true,
                 data: { testPropName: false }
             };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(true);
         });
@@ -101,14 +139,24 @@ describe('PageProperty', function() {
                 testPropName: false,
                 data: { testPropName: true }
             };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(true);
         });
 
         it('should return false if propertyName does not exist in both page and page.data objects', function() {
             var page = {data: {}};
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(false);
         });
@@ -118,7 +166,12 @@ describe('PageProperty', function() {
                 testPropName: false,
                 data: { testPropName: false }
             };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyEqualTrue = pageProperty.isTrue('testPropName');
             expect(propertyEqualTrue).to.equal(false);
         });
@@ -131,7 +184,12 @@ describe('PageProperty', function() {
             var page = {
                 data: {}
             };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyValue = pageProperty.get('testPropName');
             expect(propertyValue).to.equal(false);
         });
@@ -141,7 +199,12 @@ describe('PageProperty', function() {
                 testPropName: 'testPropVal',
                 data: {}
             };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyValue = pageProperty.get('testPropName');
             expect(propertyValue).to.equal('testPropVal');
         });
@@ -150,7 +213,12 @@ describe('PageProperty', function() {
             var page = {
                 data: { testPropName: 'testPropVal' }
             };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyValue = pageProperty.get('testPropName');
             expect(propertyValue).to.equal('testPropVal');
         });
@@ -160,7 +228,12 @@ describe('PageProperty', function() {
                 testPropName: 'testPropVal_1',
                 data: { testPropName: 'testPropVal_2' }
             };
-            var pageProperty = new PageProperty(page, validator);
+
+            var pageProperty = new PageProperty({
+                page: page,
+                validator: validator
+            });
+
             var propertyValue = pageProperty.get('testPropName');
             expect(propertyValue).to.equal('testPropVal_1');
         });

@@ -6,13 +6,19 @@ var SocialAccountsValidator = require('../validators/SocialAccountsValidator');
 
 class SocialAccountsBuilder {
 
-    constructor(config, validator) {
-        this.config = config || new ConfigBuilder().build();
-        this.validator = validator || new SocialAccountsValidator();
+    constructor(obj) {
+        this.helperName = obj && obj.helperName;
+        this.config = (obj && obj.config) || new ConfigBuilder({helperName: this.helperName}).build();
+        this.validator = (obj && obj.validator) || new SocialAccountsValidator({helperName: this.helperName});
+        this.helperName = obj && obj.helperName;
     }
 
     build() {
-        return new SocialAccounts(this.config, this.validator);
+        return new SocialAccounts({
+            config: this.config,
+            validator: this.validator,
+            helperName: this.helperName
+        });
     }
 
 }

@@ -9,14 +9,15 @@ describe('SocialAccountsValidator', function() {
 
     var socialAccountsValidator,
         validSocialAccounts = ['test', 'test1'],
-        invalidSocialAccounts = ['sample', 'sample1'];
+        invalidSocialAccounts = ['sample', 'sample1'],
+        helperName;
 
     beforeEach(function() {
-        socialAccountsValidator = new SocialAccountsValidator(validSocialAccounts);
-    });
-
-    afterEach(function() {
-        socialAccountsValidator = null;
+        helperName = 'testHelperName';
+        socialAccountsValidator = new SocialAccountsValidator({
+            helperName: helperName,
+            validSocialAccounts: validSocialAccounts
+        });
     });
 
     describe('validate', function() {
@@ -26,7 +27,7 @@ describe('SocialAccountsValidator', function() {
                 socialAccountsValidator.validate(invalidSocialAccounts);
             };
 
-            expect(fn).to.throw(TypeError, `Invalid social accounts: ${invalidSocialAccounts.join(', ')}`);
+            expect(fn).to.throw(TypeError, `${helperName}: Invalid social accounts: ${invalidSocialAccounts.join(', ')}`);
         });
 
         it('should not throw when social accounts are valid', function() {

@@ -2,8 +2,9 @@
 
 class Copyright {
 
-    constructor(validator) {
-        this.validator = validator;
+    constructor(obj) {
+        this.validator = obj && obj.validator;
+        this.helperName = obj && obj.helperName;
     }
 
     getCurrentYearFormat(currentYear) {

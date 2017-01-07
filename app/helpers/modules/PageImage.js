@@ -3,8 +3,9 @@
 class PageImage {
 
     constructor(obj) {
-        this.siteUrl = obj.siteUrl;
-        this.pageProperty = obj.pageProperty;
+        this.siteUrl = obj && obj.siteUrl;
+        this.pageProperty = obj && obj.pageProperty;
+        this.helperName = obj && obj.helperName;
     }
 
     get url() {

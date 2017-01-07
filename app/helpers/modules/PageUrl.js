@@ -3,9 +3,10 @@
 class PageUrl {
 
     constructor(obj) {
-        this.siteUrl = obj.siteUrl;
-        this.page = obj.page;
-        this.pageProperty = obj.pageProperty;
+        this.siteUrl = obj && obj.siteUrl;
+        this.page = obj && obj.page;
+        this.pageProperty = obj && obj.pageProperty;
+        this.helperName = obj && obj.helperName;
     }
 
     get url() {

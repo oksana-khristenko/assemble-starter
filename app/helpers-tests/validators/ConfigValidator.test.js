@@ -7,14 +7,12 @@ var ConfigValidator = require('../../helpers/validators/ConfigValidator');
 
 describe('ConfigValidator', function() {
 
-    var configValidator;
+    var configValidator,
+        helperName;
 
     beforeEach(function() {
-        configValidator = new ConfigValidator();
-    });
-
-    afterEach(function() {
-        configValidator = null;
+        helperName = 'testHelperName';
+        configValidator = new ConfigValidator({helperName: helperName});
     });
 
     describe('validateKey', function() {
@@ -24,7 +22,7 @@ describe('ConfigValidator', function() {
                 configValidator.validateKey();
             };
 
-            expect(fn).to.throw(ReferenceError, 'config key is undefined');
+            expect(fn).to.throw(ReferenceError, `${helperName}: config key is undefined`);
         });
 
         it('should throw TypeError if config key is not a string', function() {
@@ -32,7 +30,7 @@ describe('ConfigValidator', function() {
                 configValidator.validateKey([]);
             };
 
-            expect(fn).to.throw(TypeError, 'config key must be a string');
+            expect(fn).to.throw(TypeError, `${helperName}: config key must be a string`);
         });
 
         it('should not throw if config key is a string', function() {

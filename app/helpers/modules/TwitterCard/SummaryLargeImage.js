@@ -6,6 +6,7 @@ class TwitterCardSummaryLargeImage {
         this.config = obj && obj.config;
         this.pageProperty = obj && obj.pageProperty;
         this.pageImage = obj && obj.pageImage;
+        this.helperName = obj && obj.helperName;
     }
 
     get imageUrlTag() {
@@ -71,7 +72,7 @@ class TwitterCardSummaryLargeImage {
     validate() {
         this.tags.forEach((tag) => {
             if (tag.mandatory && !this[tag.method]) {
-                throw new ReferenceError(`${tag.method} is required for twitter card type "${this.card}"`);
+                throw new ReferenceError(`${this.helperName}: ${tag.method} is required for twitter card type "${this.card}"`);
             }
         });
     }

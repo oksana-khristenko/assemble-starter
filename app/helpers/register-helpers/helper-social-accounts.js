@@ -4,12 +4,14 @@ module.exports.register = function(Handlebars, options) {
 
     options = options || {};
 
+    var helperName = 'helper_social_accounts';
+
     var helpers = {
 
-        helper_social_accounts: function(socialAccounts, options) {
+        [helperName]: function(socialAccounts, options) {
             socialAccounts = socialAccounts.split(',');
 
-            var socialAccountsBuilder = new SocialAccountsBuilder().build();
+            var socialAccountsBuilder = new SocialAccountsBuilder({helperName: helperName}).build();
             return options.fn(socialAccountsBuilder.get(socialAccounts));
         }
 

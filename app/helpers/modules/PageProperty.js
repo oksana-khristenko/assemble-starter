@@ -2,9 +2,10 @@
 
 class PageProperty {
 
-    constructor(page, validator) {
-        this.page = page;
-        this.validator = validator;
+    constructor(obj) {
+        this.helperName = obj && obj.helperName;
+        this.page = obj && obj.page;
+        this.validator = obj && obj.validator;
     }
 
     isTrue(propertyName) {

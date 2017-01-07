@@ -2,9 +2,9 @@
 
 class CopyrightValidator {
 
-    validateStartYear(startYear) {}
-    validateCurrentYear(currentYear) {}
-    validateRange(startYear, currentYear) {}
+    validateStartYear() {}
+    validateCurrentYear() {}
+    validateRange() {}
 
 }
 

@@ -7,14 +7,16 @@ var GoogleAnalyticsTrackingCodeValidator = require('../validators/GoogleAnalytic
 class GoogleAnalyticsTrackingCodeBuilder {
 
     constructor(obj) {
-        this.config = (obj && obj.config) || new ConfigBuilder().build();
-        this.validator = (obj && obj.validator) || new GoogleAnalyticsTrackingCodeValidator()
+        this.helperName = obj && obj.helperName;
+        this.config = (obj && obj.config) || new ConfigBuilder({helperName: this.helperName}).build();
+        this.validator = (obj && obj.validator) || new GoogleAnalyticsTrackingCodeValidator({helperName: this.helperName});
     }
 
     build() {
         return new GoogleAnalyticsTrackingCode({
             config: this.config,
-            validator: this.validator
+            validator: this.validator,
+            helperName: this.helperName
         });
     }
 

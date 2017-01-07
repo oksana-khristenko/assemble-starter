@@ -11,7 +11,7 @@ module.exports.register = function(Handlebars, options) {
         }
         if (arguments.length === 2 && typeof arguments[0] != 'string') {
             var argType = typeof arguments[0];
-            throw new TypeError(`${helperName}: config key must be a string when passed from template; ${argType} was passed`);
+            throw new TypeError(`${helperName}: config key passed from template must be a string; ${argType} was passed`);
         }
     }
 

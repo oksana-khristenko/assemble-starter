@@ -20,10 +20,10 @@ describe('TwitterCardFactory', function() {
     beforeEach(function() {
         var config = new PageConfig();
 
-        twitterCardFactory = new TwitterCardFactory(
-            config,
-            new TwitterCardSummaryLargeImage(config, new PageProperty())
-        );
+        twitterCardFactory = new TwitterCardFactory({
+            config: config,
+            twitterCard: new TwitterCardSummaryLargeImage(config, new PageProperty())
+        });
     });
 
     afterEach(function() {

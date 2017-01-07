@@ -7,14 +7,12 @@ var PagePropertyValidator = require('../../helpers/validators/PagePropertyValida
 
 describe('PagePropertyValidator', function() {
 
-    var pagePropertyValidator;
+    var pagePropertyValidator,
+        helperName;
 
     beforeEach(function() {
-        pagePropertyValidator = new PagePropertyValidator();
-    });
-
-    afterEach(function() {
-        pagePropertyValidator = null;
+        helperName = 'testHelperName';
+        pagePropertyValidator = new PagePropertyValidator({helperName: helperName});
     });
 
     describe('validatePage', function() {
@@ -24,7 +22,7 @@ describe('PagePropertyValidator', function() {
                 pagePropertyValidator.validatePage();
             };
 
-            expect(fn).to.throw(ReferenceError, 'page is undefined');
+            expect(fn).to.throw(ReferenceError, `${helperName}: page is undefined`);
         });
 
         it('should throw TypeError if page is not an object', function() {
@@ -32,7 +30,7 @@ describe('PagePropertyValidator', function() {
                 pagePropertyValidator.validatePage('');
             };
 
-            expect(fn).to.throw(TypeError, 'page must be an object');
+            expect(fn).to.throw(TypeError, `${helperName}: page must be an object`);
         });
 
         it('should not throw if page is an object', function() {
@@ -52,7 +50,7 @@ describe('PagePropertyValidator', function() {
                 pagePropertyValidator.validatePropertyName();
             };
 
-            expect(fn).to.throw(ReferenceError, 'propertyName is undefined');
+            expect(fn).to.throw(ReferenceError, `${helperName}: propertyName is undefined`);
         });
 
         it('should throw TypeError if propertyName is not a string', function() {
@@ -60,7 +58,7 @@ describe('PagePropertyValidator', function() {
                 pagePropertyValidator.validatePropertyName(7);
             };
 
-            expect(fn).to.throw(TypeError, 'propertyName must be a string');
+            expect(fn).to.throw(TypeError, `${helperName}: propertyName must be a string`);
         });
 
         it('should not throw if propertyName is a string', function() {

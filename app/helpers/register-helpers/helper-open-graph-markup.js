@@ -4,12 +4,14 @@ module.exports.register = function(Handlebars, options) {
 
     options = options || {};
 
+    var helperName = 'helper_open_graph_markup';
+
     var helpers = {
 
-        helper_open_graph_markup: function(options) {
+        [helperName]: function(options) {
             var obj = {
                 page: this.page,
-                helperName: options.name
+                helperName: helperName
             };
 
             var openGraphMarkup = new OpenGraphMarkupBuilder(obj).build();

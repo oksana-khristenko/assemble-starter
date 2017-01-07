@@ -4,6 +4,7 @@ class SiteUrl {
 
     constructor(obj) {
         this.config = obj.config;
+        this.helperName = obj.helperName;
     }
 
     get siteUrl() {
@@ -13,7 +14,7 @@ class SiteUrl {
 
     get() {
         if (!this.siteUrl) {
-            throw new ReferenceError('siteUrl must be provided');
+            throw new ReferenceError(`${this.helperName}: siteUrl must be provided`);
         }
 
         return `${this.siteUrl}/`;

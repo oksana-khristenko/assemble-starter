@@ -15,7 +15,8 @@ class ConfigBuilder {
     build() {
         return new Config({
             config: this.config,
-            validator: this.validator
+            validator: this.validator,
+            helperName: this.helperName
         });
     }
 

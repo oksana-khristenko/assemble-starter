@@ -4,10 +4,17 @@ module.exports.register = function(Handlebars, options) {
 
     options = options || {};
 
+    var helperName = 'helper_twitter_card';
+
     var helpers = {
 
-        helper_twitter_card: function(options) {
-            var twitterCard = new TwitterCardFactoryBuilder({page: this.page}).build();
+        [helperName]: function(options) {
+            var obj = {
+                page: this.page,
+                helperName: helperName
+            };
+
+            var twitterCard = new TwitterCardFactoryBuilder(obj).build();
             return options.fn(twitterCard.get());
         }
 

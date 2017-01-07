@@ -7,14 +7,12 @@ var CopyrightValidator = require('../../helpers/validators/CopyrightValidator');
 
 describe('CopyrightValidator', function() {
 
-    var copyrightValidator;
+    var copyrightValidator,
+        helperName;
 
     beforeEach(function() {
-        copyrightValidator = new CopyrightValidator();
-    });
-
-    afterEach(function() {
-        copyrightValidator = null;
+        helperName = 'testHelperName';
+        copyrightValidator = new CopyrightValidator({helperName: helperName});
     });
 
     describe('validateCurrentYear', function() {
@@ -24,7 +22,7 @@ describe('CopyrightValidator', function() {
                 copyrightValidator.validateCurrentYear();
             };
 
-            expect(fn).to.throw(ReferenceError, 'currentYear is undefined');
+            expect(fn).to.throw(ReferenceError, `${helperName}: currentYear is undefined`);
         });
 
         it('should throw TypeError if currentYear is not an integer', function() {
@@ -32,7 +30,7 @@ describe('CopyrightValidator', function() {
                 copyrightValidator.validateCurrentYear('2016');
             };
 
-            expect(fn).to.throw(TypeError, 'currentYear must be an integer');
+            expect(fn).to.throw(TypeError, `${helperName}: currentYear must be an integer`);
         });
 
         it('should not throw if currentYear is an integer', function() {
@@ -52,7 +50,7 @@ describe('CopyrightValidator', function() {
                 copyrightValidator.validateRange();
             };
 
-            expect(fn).to.throw(ReferenceError, 'startYear is undefined');
+            expect(fn).to.throw(ReferenceError, `${helperName}: startYear is undefined`);
         });
 
         it('should throw TypeError if startYear is not an integer', function() {
@@ -60,7 +58,7 @@ describe('CopyrightValidator', function() {
                 copyrightValidator.validateRange('2016', 2018);
             };
 
-            expect(fn).to.throw(TypeError, 'startYear must be an integer');
+            expect(fn).to.throw(TypeError, `${helperName}: startYear must be an integer`);
         });
 
         it('should throw ReferenceError if currentYear is not provided', function() {
@@ -68,7 +66,7 @@ describe('CopyrightValidator', function() {
                 copyrightValidator.validateRange(2017);
             };
 
-            expect(fn).to.throw(ReferenceError, 'currentYear is undefined');
+            expect(fn).to.throw(ReferenceError, `${helperName}: currentYear is undefined`);
         });
 
         it('should throw TypeError if currentYear is not an integer', function() {
@@ -76,7 +74,7 @@ describe('CopyrightValidator', function() {
                 copyrightValidator.validateRange(2018, '2027');
             };
 
-            expect(fn).to.throw(TypeError, 'currentYear must be an integer');
+            expect(fn).to.throw(TypeError, `${helperName}: currentYear must be an integer`);
         });
 
         it('should throw RangeError if currentYear argument is less than startYear', function() {
@@ -84,7 +82,7 @@ describe('CopyrightValidator', function() {
                 copyrightValidator.validateRange(2029, 2020);
             };
 
-            expect(fn).to.throw(RangeError, 'startYear must be equal to or less than currentYear');
+            expect(fn).to.throw(RangeError, `${helperName}: startYear must be equal to or less than currentYear`);
         });
 
         it('should not throw RangeError if currentYear argument is greater than startYear', function() {
