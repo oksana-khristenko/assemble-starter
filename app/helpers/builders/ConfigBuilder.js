@@ -1,7 +1,7 @@
 'use strict';
 
 var Config = require('../modules/Config');
-var configObj = require('../../config.js');
+var configObj = require('../../config/production.js');
 var ConfigValidator = require('../validators/ConfigValidator');
 
 class ConfigBuilder {

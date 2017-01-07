@@ -57,7 +57,7 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 
 ### Update project settings
 
-Update project settings in `app/config.js`.
+Update project settings in `app/config/production.js`.
 
 ### Build
 
