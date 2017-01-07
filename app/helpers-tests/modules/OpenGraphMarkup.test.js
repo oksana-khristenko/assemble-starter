@@ -7,7 +7,7 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var OpenGraphMarkup = require('../../helpers/modules/OpenGraphMarkup');
-var Config = require('../doubles/modules/Config');
+var PageConfig = require('../doubles/modules/PageConfig');
 var PageProperty = require('../doubles/modules/PageProperty');
 var PageImage = require('../doubles/modules/PageImage');
 var PageUrl = require('../doubles/modules/PageUrl');
@@ -18,7 +18,7 @@ describe('OpenGraphMarkup', function() {
 
     beforeEach(function() {
         openGraphMarkup = new OpenGraphMarkup({
-            config: new Config(),
+            config: new PageConfig(),
             pageProperty: new PageProperty(),
             pageImage: new PageImage(),
             pageUrl: new PageUrl()
@@ -30,14 +30,14 @@ describe('OpenGraphMarkup', function() {
         describe('open graph markup is disabled', function() {
 
             it('should return false', function() {
-                var stub = sinon.stub(Config.prototype, 'get');
+                var stub = sinon.stub(PageConfig.prototype, 'get');
                 stub.withArgs('openGraphMarkupEnabled').returns(false);
 
                 var actual = openGraphMarkup.get();
 
                 expect(actual).to.be.false;
 
-                Config.prototype.get.restore();
+                PageConfig.prototype.get.restore();
             });
 
         });
@@ -45,7 +45,7 @@ describe('OpenGraphMarkup', function() {
         describe('open graph markup is enabled', function() {
 
             it('should return an object with correct properties and values', function() {
-                var configStub = sinon.stub(Config.prototype, 'get');
+                var configStub = sinon.stub(PageConfig.prototype, 'get');
 
                 configStub.withArgs('openGraphMarkupEnabled').returns(true);
                 configStub.withArgs('facebookAppId').returns('app id');
@@ -77,7 +77,7 @@ describe('OpenGraphMarkup', function() {
 
                 expect(actual).to.deep.equal(expected);
 
-                Config.prototype.get.restore();
+                PageConfig.prototype.get.restore();
                 PageProperty.prototype.get.restore();
                 PageImage.prototype.getAbsoluteUrl.restore();
                 PageUrl.prototype.getAbsoluteUrl.restore();

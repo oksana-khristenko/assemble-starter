@@ -8,7 +8,7 @@ chai.use(sinonChai);
 
 var TwitterCardFactory = require('../../../helpers/modules/TwitterCard/Factory');
 var TwitterCardSummaryLargeImage = require('../../doubles/modules/TwitterCard/SummaryLargeImage');
-var Config = require('../../doubles/modules/Config');
+var PageConfig = require('../../doubles/modules/PageConfig');
 var ConfigValidator = require('../../doubles/validators/ConfigValidator');
 var PageProperty = require('../../doubles/modules/PageProperty');
 var PagePropertyValidator = require('../../doubles/validators/PagePropertyValidator');
@@ -18,7 +18,7 @@ describe('TwitterCardFactory', function() {
     var twitterCardFactory;
 
     beforeEach(function() {
-        var config = new Config();
+        var config = new PageConfig();
 
         twitterCardFactory = new TwitterCardFactory(
             config,
@@ -35,14 +35,14 @@ describe('TwitterCardFactory', function() {
         describe('twitter card is disabled', function() {
 
             it('should return false', function() {
-                var stub = sinon.stub(Config.prototype, 'get');
+                var stub = sinon.stub(PageConfig.prototype, 'get');
                 stub.withArgs('twitterCardEnabled').returns(false);
 
                 var actual = twitterCardFactory.get();
 
                 expect(actual).to.be.false;
 
-                Config.prototype.get.restore();
+                PageConfig.prototype.get.restore();
             });
 
         });
