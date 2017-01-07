@@ -7,8 +7,9 @@ var ConfigValidator = require('../validators/ConfigValidator');
 class ConfigBuilder {
 
     constructor(obj) {
+        this.helperName = obj && obj.helperName;
         this.config = (obj && obj.config) || configObj;
-        this.validator = (obj && obj.validator) || new ConfigValidator();
+        this.validator = (obj && obj.validator) || new ConfigValidator({helperName: this.helperName});
     }
 
     build() {

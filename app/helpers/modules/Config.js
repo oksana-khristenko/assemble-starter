@@ -5,6 +5,7 @@ class Config {
     constructor(obj) {
         this.config = obj && obj.config;
         this.validator = obj && obj.validator;
+        this.helperName = obj && obj.helperName;
     }
 
     exists(key) {

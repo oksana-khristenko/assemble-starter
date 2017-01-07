@@ -7,7 +7,13 @@ module.exports.register = function(Handlebars, options) {
     var helpers = {
 
         helper_open_graph_markup: function(options) {
-            var openGraphMarkup = new OpenGraphMarkupBuilder({page: this.page}).build();
+            var obj = {
+                page: this.page,
+                helperName: options.name
+            };
+
+            var openGraphMarkup = new OpenGraphMarkupBuilder(obj).build();
+
             return options.fn(openGraphMarkup.get());
         }
 

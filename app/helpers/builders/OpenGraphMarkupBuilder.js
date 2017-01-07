@@ -14,6 +14,7 @@ class OpenGraphMarkupBuilder {
         this.pageProperty = (obj && obj.pageProperty) || new PagePropertyBuilder({page: this.page}).build();
         this.pageImage = (obj && obj.pageImage) || new PageImageBuilder({page: this.page}).build();
         this.pageUrl = (obj && obj.pageUrl) || new PageUrlBuilder({page: this.page}).build();
+        this.helperName = obj && obj.helperName;
     }
 
     build() {
@@ -21,7 +22,8 @@ class OpenGraphMarkupBuilder {
             config: this.config,
             pageProperty: this.pageProperty,
             pageImage: this.pageImage,
-            pageUrl: this.pageUrl
+            pageUrl: this.pageUrl,
+            helperName: this.helperName
         });
     }
 

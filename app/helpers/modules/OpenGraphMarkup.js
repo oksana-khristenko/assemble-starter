@@ -7,6 +7,7 @@ class OpenGraphMarkup {
         this.pageProperty = obj && obj.pageProperty;
         this.pageImage = obj && obj.pageImage;
         this.pageUrl = obj && obj.pageUrl;
+        this.helperName = obj && obj.helperName;
     }
 
     get tags() {
