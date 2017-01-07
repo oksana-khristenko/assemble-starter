@@ -67,6 +67,8 @@ Config settings can be overwritten on page level in page YAML metadata.
 
 ### Development
 
+URL: http://localhost:4001
+
 To serve the app for development on local machine using development config `app/config/development.js`, run this command from project root:
 
 `npm start`
