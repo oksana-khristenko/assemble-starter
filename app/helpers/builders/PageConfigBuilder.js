@@ -8,12 +8,19 @@ class PageConfigBuilder {
 
     constructor(obj) {
         this.helperName = obj && obj.helperName;
-        this.config = (obj && obj.config) || new ConfigBuilder({helperName: this.helperName}).build();
+        this.environment = obj && obj.environment;
+
+        this.config = (obj && obj.config) || new ConfigBuilder({
+            helperName: this.helperName,
+            environment: this.environment
+        }).build();
+
         this.page = obj && obj.page;
 
         this.pageProperty = (obj && obj.pageProperty) || new PagePropertyBuilder({
             page: this.page,
-            helperName: this.helperName
+            helperName: this.helperName,
+            environment: this.environment
         }).build();
     }
 

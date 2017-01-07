@@ -8,16 +8,19 @@ class TwitterCardFactoryBuilder {
 
     constructor(obj) {
         this.helperName = obj && obj.helperName;
-        this.page = obj.page;
+        this.page = obj && obj.page;
+        this.environment = obj && obj.environment;
 
         this.config = (obj && obj.config) || new PageConfigBuilder({
             page: this.page,
-            helperName: this.helperName
+            helperName: this.helperName,
+            environment: this.environment
         }).build();
 
         this.pageProperty = (obj && obj.pageProperty) || new PagePropertyBuilder({
             page: this.page,
-            helperName: this.helperName
+            helperName: this.helperName,
+            environment: this.environment
         }).build();
 
         this.cardType = (obj && obj.cardType) || 'summary_large_image';
@@ -35,7 +38,11 @@ class TwitterCardFactoryBuilder {
         this.modules.forEach((module) => {
             if (module.cardType === cardType) {
                 var twitterCard = require(module.source);
-                this.twitterCard = new twitterCard({page: this.page}).build();
+                this.twitterCard = new twitterCard({
+                    page: this.page,
+                    helperName: this.helperName,
+                    environment: this.environment
+                }).build();
             }
         });
     }

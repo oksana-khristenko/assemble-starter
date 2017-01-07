@@ -5,7 +5,7 @@ module.exports = {
     options: {
         questions: [
           {
-            config: 'enviromentConfig',
+            config: 'environmentConfig',
             type: 'list',
             message: 'Select environment config:',
             default: 'development',
@@ -27,7 +27,7 @@ module.exports = {
     options: {
         questions: [
           {
-            config: 'enviromentConfig',
+            config: 'environmentConfig',
             type: 'list',
             message: 'Select environment config:',
             default: 'production',

@@ -8,7 +8,13 @@ class GoogleAnalyticsTrackingCodeBuilder {
 
     constructor(obj) {
         this.helperName = obj && obj.helperName;
-        this.config = (obj && obj.config) || new ConfigBuilder({helperName: this.helperName}).build();
+        this.environment = obj && obj.environment;
+
+        this.config = (obj && obj.config) || new ConfigBuilder({
+            helperName: this.helperName,
+            environment: this.environment
+        }).build();
+
         this.validator = (obj && obj.validator) || new GoogleAnalyticsTrackingCodeValidator({helperName: this.helperName});
     }
 

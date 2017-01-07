@@ -11,7 +11,8 @@ module.exports.register = function(Handlebars, options) {
         [helperName]: function(options) {
             var obj = {
                 page: this.page,
-                helperName: helperName
+                helperName: helperName,
+                environment: this.environment
             };
 
             var twitterCard = new TwitterCardFactoryBuilder(obj).build();

@@ -11,7 +11,11 @@ module.exports.register = function(Handlebars, options) {
         [helperName]: function(socialAccounts, options) {
             socialAccounts = socialAccounts.split(',');
 
-            var socialAccountsBuilder = new SocialAccountsBuilder({helperName: helperName}).build();
+            var socialAccountsBuilder = new SocialAccountsBuilder({
+                helperName: helperName,
+                environment: this.environment
+            }).build();
+
             return options.fn(socialAccountsBuilder.get(socialAccounts));
         }
 

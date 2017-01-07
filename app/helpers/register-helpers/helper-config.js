@@ -19,7 +19,11 @@ module.exports.register = function(Handlebars, options) {
         [helperName]: function(key, options) {
             validateArguments(arguments);
 
-            var config = new ConfigBuilder({helperName: helperName}).build();
+            var config = new ConfigBuilder({
+                helperName: helperName,
+                environment: this.environment
+            }).build();
+
             return config.get(key);
         }
     };

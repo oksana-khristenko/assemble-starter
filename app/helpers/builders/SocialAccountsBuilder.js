@@ -8,7 +8,13 @@ class SocialAccountsBuilder {
 
     constructor(obj) {
         this.helperName = obj && obj.helperName;
-        this.config = (obj && obj.config) || new ConfigBuilder({helperName: this.helperName}).build();
+        this.environment = obj && obj.environment;
+
+        this.config = (obj && obj.config) || new ConfigBuilder({
+            helperName: this.helperName,
+            environment: this.environment
+        }).build();
+
         this.validator = (obj && obj.validator) || new SocialAccountsValidator({helperName: this.helperName});
         this.helperName = obj && obj.helperName;
     }

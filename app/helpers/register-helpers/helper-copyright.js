@@ -10,13 +10,16 @@ module.exports.register = function(Handlebars, options) {
     var helpers = {
 
         [helperName]: function(format, options) {
-            var date = new Date(),
-                currentYear = date.getFullYear(),
-                config = new ConfigBuilder({helperName: helperName}).build(),
-                startYear = Number(config.get('startYear')),
-                copyright = new CopyrightBuilder({helperName: helperName}).build();
+           var date = new Date(),
+               currentYear = date.getFullYear(),
+               config = new ConfigBuilder({
+                   helperName: helperName,
+                   environment: this.environment
+               }).build(),
+               startYear = Number(config.get('startYear')),
+               copyright = new CopyrightBuilder({helperName: helperName}).build();
 
-            return copyright.get(startYear, currentYear, format);
+          return copyright.get(startYear, currentYear, format);
         }
 
     };

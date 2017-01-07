@@ -6,8 +6,13 @@ var SiteUrl = require('../modules/SiteUrl');
 class SiteUrlBuilder {
 
     constructor(obj) {
-    	this.helperName = obj && obj.helperName;
-        this.config = (obj && obj.config) || new ConfigBuilder({helperName: this.helperName}).build();
+        this.helperName = obj && obj.helperName;
+        this.environment = obj && obj.environment;
+
+        this.config = (obj && obj.config) || new ConfigBuilder({
+            helperName: this.helperName,
+            environment: this.environment
+        }).build();
     }
 
     build() {

@@ -9,7 +9,11 @@ module.exports.register = function(Handlebars, options) {
     var helpers = {
 
         [helperName]: function(options) {
-            var googleAnalyticsTrackingCodeBuilder = new GoogleAnalyticsTrackingCodeBuilder({helperName: helperName}).build();
+            var googleAnalyticsTrackingCodeBuilder = new GoogleAnalyticsTrackingCodeBuilder({
+                helperName: helperName,
+                environment: this.environment
+            }).build();
+
             return options.fn(googleAnalyticsTrackingCodeBuilder.get());
         }
 
