@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     build: 'grunt/tasks/build.js',
     configPath: path.join(process.cwd(), 'grunt/config'),
     config: {
-      environmentConfig: '<%= environmentConfig %>'
+      environment: grunt.option('env')
     },
     jitGrunt: {
       customTasksDir: 'grunt/tasks'

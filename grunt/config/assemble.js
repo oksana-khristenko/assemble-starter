@@ -17,7 +17,7 @@ module.exports = {
     partials: ['app/partials/**/*.hbs'],
     data: ['app/data/**/*.{json,yml}'],
     helpers: 'app/helpers/register-helpers/**/*.js',
-    environment: '<%= environmentConfig %>'
+    environment: '<%= environment %>'
   },
   build: {
     options: {

@@ -2,7 +2,7 @@ module.exports = {
     startYear: '2015', // e.g. 2018 - used in footer copyright
 
     siteName: 'Project Name', // e.g. Twitter
-    siteUrl: 'Site Url', // e.g. https://twitter.com/
+    siteUrl: 'Dev Site Url', // e.g. https://twitter.com/
 
     twitterCardEnabled: true, // e.g. true
     twitterCardType: 'summary_large_image', // e.g. summary_large_image

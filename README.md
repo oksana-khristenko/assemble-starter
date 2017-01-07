@@ -57,23 +57,37 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 
 ### Update project settings
 
-Update project settings in `app/config/production.js`.
+Update project settings in environment config files in `app/config` folder.
 
-### Build
+Development config `app/config/development.js` should be used for developing locally.
 
-Runs tests, compiles HTML files and assets into `public` folder, makes them available at `http://localhost:4001` and watches for file changes.
+Production config `app/config/production.js` should be used to compile and minify files for production use or to test locally using production settings.
 
-Run `npm start` from project root.
+Config settings can be overwritten on page level in page YAML metadata.
 
-Runs tests and watches for test file changes:
+### Development
 
-In a new terminal tab, run `npm run test:watch` from project root.
+To serve the app for development on local machine using development config `app/config/development.js`, run this command from project root:
 
-### Dist
+`npm start`
 
-Runs tests, compiles and minifies HTML files and assets into `dist` folder.
+To serve the app for development on local machine using production config `app/config/production.js` (e.g. to test production settings), run the following command:
 
-Run `npm run dist` from project root.
+`npm run start:prod`
+
+Run tests and watch for test file changes:
+
+`npm run test:watch`
+
+### Production
+
+To compile and minify HTML files and assets into `dist` folder using production config `app/config/production.js`, run the following command from project root:
+
+`npm run dist`
+
+If required (e.g. for testing), compile using development config instead:
+
+`npm run dist:dev`
 
 ### Remove examples
 

@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
   grunt.registerTask('build', [
-    'prompt:build',
     'clean:public',
     'svgstore:build',
     'assemble:build',
