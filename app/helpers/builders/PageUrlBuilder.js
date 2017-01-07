@@ -9,16 +9,14 @@ class PageUrlBuilder {
     constructor(obj) {
         this.environment = obj && obj.environment;
         this.helperName = obj && obj.helperName;
+        this.page = obj && obj.page;
 
         this.siteUrl = (obj && obj.siteUrl) || new SiteUrlBuilder({
             helperName: this.helperName,
             environment: this.environment
         }).build();
 
-        this.page = obj && obj.page;
-
         this.pageProperty = (obj && obj.pageProperty) || new PagePropertyBuilder({
-            page: this.page,
             helperName: this.helperName,
             environment: this.environment
         }).build();

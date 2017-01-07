@@ -14,17 +14,17 @@ describe('Url', function() {
 
     describe('getAbsoluteUrl', function() {
 
-        var pageUrl;
+        var pageUrl,
+            page;
 
         beforeEach(function() {
+            page = {};
+
             pageUrl = new PageUrl({
                 siteUrl: new SiteUrl(),
-                pageProperty: new PageProperty()
+                pageProperty: new PageProperty(),
+                page: page
             });
-        });
-
-        afterEach(function() {
-            pageUrl = null;
         });
 
         describe('public', function() {
@@ -36,7 +36,7 @@ describe('Url', function() {
                 siteUrlStub.returns(url);
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('public/index.html');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/index.html');
 
                 var actual = pageUrl.getAbsoluteUrl();
 
@@ -55,7 +55,7 @@ describe('Url', function() {
                 siteUrlStub.returns(url);
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('public/test/index.html');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/test/index.html');
 
                 var actual = pageUrl.getAbsoluteUrl();
 
@@ -74,7 +74,7 @@ describe('Url', function() {
                 siteUrlStub.returns(url);
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('public/test/test-page.html');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/test/test-page.html');
 
                 var actual = pageUrl.getAbsoluteUrl();
 
@@ -96,7 +96,7 @@ describe('Url', function() {
                 siteUrlStub.returns(url);
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('dist/index.html');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/index.html');
 
                 var actual = pageUrl.getAbsoluteUrl();
 
@@ -115,7 +115,7 @@ describe('Url', function() {
                 siteUrlStub.returns(url);
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('dist/test/index.html');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/test/index.html');
 
                 var actual = pageUrl.getAbsoluteUrl();
 
@@ -134,7 +134,7 @@ describe('Url', function() {
                 siteUrlStub.returns(url);
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-                pagePropertyStub.withArgs('dest').returns('dist/test/test-page.html');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/test/test-page.html');
 
                 var actual = pageUrl.getAbsoluteUrl();
 

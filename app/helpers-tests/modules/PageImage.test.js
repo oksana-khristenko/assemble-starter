@@ -14,12 +14,16 @@ describe('PageImage', function() {
 
     describe('getAbsoluteUrl', function() {
 
-        var pageImage;
+        var pageImage,
+            page;
 
         beforeEach(function() {
+            page = {};
+
             pageImage = new PageImage({
                 siteUrl: new SiteUrl(),
-                pageProperty: new PageProperty()
+                pageProperty: new PageProperty(),
+                page: page
             });
         });
 
@@ -31,7 +35,7 @@ describe('PageImage', function() {
             siteUrlStub.returns(url);
 
             var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-            pagePropertyStub.withArgs('image_url').returns(image);
+            pagePropertyStub.withArgs({page: page, propertyName: 'image_url'}).returns(image);
 
             var actual = pageImage.getAbsoluteUrl();
 
@@ -45,7 +49,7 @@ describe('PageImage', function() {
 
         it('should return false when PageProperty returns a falsy value', function() {
             var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
-            pagePropertyStub.withArgs('image_url').returns(undefined);
+            pagePropertyStub.withArgs({page: page, propertyName: 'image_url'}).returns(undefined);
 
             var actual = pageImage.getAbsoluteUrl();
 

@@ -8,6 +8,7 @@ class OpenGraphMarkup {
         this.pageImage = obj && obj.pageImage;
         this.pageUrl = obj && obj.pageUrl;
         this.helperName = obj && obj.helperName;
+        this.page = obj && obj.page;
     }
 
     get tags() {
@@ -65,11 +66,17 @@ class OpenGraphMarkup {
     }
 
     get title() {
-        return this.pageProperty.get('title');
+        return this.pageProperty.get({
+            propertyName: 'title',
+            page: this.page
+        });
     }
 
     get description() {
-        return this.pageProperty.get('short_summary');
+        return this.pageProperty.get({
+            propertyName: 'short_summary',
+            page: this.page
+        });
     }
 
     get imageUrl() {

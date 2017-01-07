@@ -16,12 +16,16 @@ describe('PageConfig', function() {
         configGetStub,
         configExistsStub,
         pagePropertyExistsStub,
-        pagePropertyGetStub;
+        pagePropertyGetStub,
+        page;
 
     beforeEach(function() {
+        page = {};
+
         pageConfig = new PageConfig({
             config: new Config(),
-            pageProperty: new PageProperty()
+            pageProperty: new PageProperty(),
+            page: page
         });
 
         configExistsStub = sinon.stub(Config.prototype, 'exists');
@@ -45,9 +49,9 @@ describe('PageConfig', function() {
                 var key = 'testConfig';
 
                 configExistsStub.withArgs(key).returns(true);
-                pagePropertyExistsStub.withArgs(key).returns(true);
+                pagePropertyExistsStub.withArgs({propertyName: key, page: page}).returns(true);
                 configGetStub.withArgs(key).returns(1);
-                pagePropertyGetStub.withArgs(key).returns(2);
+                pagePropertyGetStub.withArgs({propertyName: key, page: page}).returns(2);
 
                 var actual = pageConfig.get(key);
 
@@ -62,7 +66,7 @@ describe('PageConfig', function() {
                 var key = 'testConfigVal';
 
                 configExistsStub.withArgs(key).returns(true);
-                pagePropertyExistsStub.withArgs(key).returns(false);
+                pagePropertyExistsStub.withArgs({propertyName: key, page: page}).returns(false);
                 configGetStub.withArgs(key).returns(1);
 
                 var actual = pageConfig.get(key);
@@ -78,8 +82,8 @@ describe('PageConfig', function() {
                 var key = 'testConfigValue';
 
                 configExistsStub.withArgs(key).returns(false);
-                pagePropertyExistsStub.withArgs(key).returns(true);
-                pagePropertyGetStub.withArgs(key).returns('whatever');
+                pagePropertyExistsStub.withArgs({propertyName: key, page: page}).returns(true);
+                pagePropertyGetStub.withArgs({propertyName: key, page: page}).returns('whatever');
 
                 var actual = pageConfig.get(key);
 
@@ -94,7 +98,7 @@ describe('PageConfig', function() {
                 var key = 'testConfigValue';
 
                 configExistsStub.withArgs(key).returns(false);
-                pagePropertyExistsStub.withArgs(key).returns(false);
+                pagePropertyExistsStub.withArgs({propertyName: key, page: page}).returns(false);
 
                 var actual = pageConfig.get(key);
 

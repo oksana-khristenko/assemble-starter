@@ -19,7 +19,6 @@ class TwitterCardSummaryLargeImageBuilder {
         }).build();
 
         this.pageProperty = (obj && obj.pageProperty) || new PagePropertyBuilder({
-            page: this.page,
             helperName: this.helperName,
             environment: this.environment
         }).build();
@@ -36,7 +35,8 @@ class TwitterCardSummaryLargeImageBuilder {
             config: this.config,
             pageProperty: this.pageProperty,
             pageImage: this.pageImage,
-            helperName: this.helperName
+            helperName: this.helperName,
+            page: this.page
         });
     }
 

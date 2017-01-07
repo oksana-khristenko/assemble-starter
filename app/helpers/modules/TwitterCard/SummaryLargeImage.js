@@ -7,6 +7,7 @@ class TwitterCardSummaryLargeImage {
         this.pageProperty = obj && obj.pageProperty;
         this.pageImage = obj && obj.pageImage;
         this.helperName = obj && obj.helperName;
+        this.page = obj && obj.page;
     }
 
     get imageUrlTag() {
@@ -54,11 +55,17 @@ class TwitterCardSummaryLargeImage {
     }
 
     get title() {
-        return this.pageProperty.get('title');
+        return this.pageProperty.get({
+            propertyName: 'title',
+            page: this.page
+        });
     }
 
     get description() {
-        return this.pageProperty.get('short_summary');
+        return this.pageProperty.get({
+            propertyName: 'short_summary',
+            page: this.page
+        });
     }
 
     get imageUrl() {
@@ -66,7 +73,10 @@ class TwitterCardSummaryLargeImage {
     }
 
     get imageAlt() {
-        return this.pageProperty.get('image_alt');
+        return this.pageProperty.get({
+            propertyName: 'image_alt',
+            page: this.page
+        });
     }
 
     validate() {

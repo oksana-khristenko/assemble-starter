@@ -6,6 +6,7 @@ class PageImage {
         this.siteUrl = obj && obj.siteUrl;
         this.pageProperty = obj && obj.pageProperty;
         this.helperName = obj && obj.helperName;
+        this.page = obj && obj.page;
     }
 
     get url() {
@@ -13,7 +14,10 @@ class PageImage {
     }
 
     get imageUrl() {
-        return this.pageProperty.get('image_url');
+        return this.pageProperty.get({
+            propertyName: 'image_url',
+            page: this.page
+        });
     }
 
     getAbsoluteUrl() {

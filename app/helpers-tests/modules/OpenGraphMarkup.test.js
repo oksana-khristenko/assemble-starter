@@ -14,14 +14,18 @@ var PageUrl = require('../doubles/modules/PageUrl');
 
 describe('OpenGraphMarkup', function() {
 
-    var openGraphMarkup;
+    var openGraphMarkup,
+        page;
 
     beforeEach(function() {
+        page = {};
+
         openGraphMarkup = new OpenGraphMarkup({
             config: new PageConfig(),
             pageProperty: new PageProperty(),
             pageImage: new PageImage(),
-            pageUrl: new PageUrl()
+            pageUrl: new PageUrl(),
+            page: page
         });
     });
 
@@ -52,8 +56,8 @@ describe('OpenGraphMarkup', function() {
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
 
-                pagePropertyStub.withArgs('title').returns('title test');
-                pagePropertyStub.withArgs('short_summary').returns('desc test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'title'}).returns('title test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'short_summary'}).returns('desc test');
 
                 var pageImageStub = sinon.stub(PageImage.prototype, 'getAbsoluteUrl');
 

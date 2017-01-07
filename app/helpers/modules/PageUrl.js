@@ -14,7 +14,10 @@ class PageUrl {
     }
 
     get dest() {
-        return this.pageProperty.get('dest');
+        return this.pageProperty.get({
+            propertyName: 'dest',
+            page: this.page
+        });
     }
 
     get slug() {

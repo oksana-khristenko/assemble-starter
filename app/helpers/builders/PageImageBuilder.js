@@ -9,16 +9,14 @@ class PageImageBuilder {
     constructor(obj) {
         this.helperName = obj && obj.helperName;
         this.environment = obj && obj.environment;
+        this.page = obj && obj.page;
 
         this.siteUrl = (obj && obj.siteUrl) || new SiteUrlBuilder({
             helperName: this.helperName,
             environment: this.environment
         }).build();
 
-        this.page = obj && obj.page;
-
         this.pageProperty = (obj && obj.pageProperty) || new PagePropertyBuilder({
-            page: this.page,
             helperName: this.helperName,
             environment: this.environment
         }).build();
@@ -28,7 +26,8 @@ class PageImageBuilder {
         return new PageImage({
             siteUrl: this.siteUrl,
             pageProperty: this.pageProperty,
-            helperName: this.helperName
+            helperName: this.helperName,
+            page: this.page
         });
     }
 

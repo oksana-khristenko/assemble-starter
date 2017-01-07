@@ -13,18 +13,18 @@ var PageImage = require('../../doubles/modules/PageImage');
 
 describe('TwitterCardSummaryLargeImage', function() {
 
-    var twitterCardSummaryLargeImage;
+    var twitterCardSummaryLargeImage,
+        page;
 
     beforeEach(function() {
+        page = {};
+
         twitterCardSummaryLargeImage = new TwitterCardSummaryLargeImage({
             config: new PageConfig(),
             pageProperty: new PageProperty(),
-            pageImage: new PageImage()
+            pageImage: new PageImage(),
+            page: page
         });
-    });
-
-    afterEach(function() {
-        twitterCardSummaryLargeImage = null;
     });
 
     describe('get', function() {
@@ -54,9 +54,9 @@ describe('TwitterCardSummaryLargeImage', function() {
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
 
-                pagePropertyStub.withArgs('title').returns('title test');
-                pagePropertyStub.withArgs('short_summary').returns('desc test');
-                pagePropertyStub.withArgs('image_alt').returns('image alt test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'title'}).returns('title test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'short_summary'}).returns('desc test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'image_alt'}).returns('image alt test');
 
                 var pageImageStub = sinon.stub(PageImage.prototype, 'getAbsoluteUrl');
 
@@ -91,9 +91,9 @@ describe('TwitterCardSummaryLargeImage', function() {
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
 
-                pagePropertyStub.withArgs('title').returns('title test');
-                pagePropertyStub.withArgs('short_summary').returns('desc test');
-                pagePropertyStub.withArgs('image_alt').returns('image alt test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'title'}).returns('title test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'short_summary'}).returns('desc test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'image_alt'}).returns('image alt test');
 
                 var pageImageStub = sinon.stub(PageImage.prototype, 'getAbsoluteUrl');
 
@@ -126,8 +126,8 @@ describe('TwitterCardSummaryLargeImage', function() {
 
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
 
-                pagePropertyStub.withArgs('title').returns('title test');
-                pagePropertyStub.withArgs('short_summary').returns('desc test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'title'}).returns('title test');
+                pagePropertyStub.withArgs({page: page, propertyName: 'short_summary'}).returns('desc test');
 
                 var pageImageStub = sinon.stub(PageImage.prototype, 'getAbsoluteUrl');
                 pageImageStub.returns('image url test');
