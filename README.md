@@ -58,7 +58,7 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 
 ## Workflow
 
-## Project settings
+### Project settings
 
 Update project settings in environment config files in `app/config` folder.
 
@@ -94,7 +94,7 @@ If required (e.g. for testing), compile using development config instead:
 
 `npm run dist:dev`
 
-### Remove examples
+## Remove examples
 
 Removes example files.
 
