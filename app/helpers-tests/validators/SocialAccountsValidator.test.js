@@ -8,8 +8,8 @@ var SocialAccountsValidator = require('../../helpers/validators/SocialAccountsVa
 describe('SocialAccountsValidator', function() {
 
     var socialAccountsValidator,
-    	validSocialAccounts = ['test', 'test1'],
-    	invalidSocialAccounts = ['sample', 'sample1'];
+        validSocialAccounts = ['test', 'test1'],
+        invalidSocialAccounts = ['sample', 'sample1'];
 
     beforeEach(function() {
         socialAccountsValidator = new SocialAccountsValidator(validSocialAccounts);
