@@ -8,6 +8,9 @@ Assemble starter kit for generating static sites (landing pages, brochure sites,
 - [Tech stack](#tech-stack)
 - [Install](#install)
 - [Workflow](#workflow)
+    - [Project settings](#project-settings)
+    - [Development](#development)
+    - [Production](#production)
 
 ## Use cases
 
@@ -30,8 +33,8 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [x] Open graph markup
 - [x] Canonical URL in HTML head
 - [x] [Follow buttons](http://localhost:4001/examples/follow)
-- [ ] Share buttons
 - [ ] Burger menu
+- [ ] Share buttons
 - [ ] Google Analytics events
 - [ ] Lightbox
 - [ ] Slider
@@ -55,7 +58,7 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 
 ## Workflow
 
-### Update project settings
+## Project settings
 
 Update project settings in environment config files in `app/config` folder.
 
