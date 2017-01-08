@@ -22,8 +22,7 @@ describe('Url', function() {
 
             pageUrl = new PageUrl({
                 siteUrl: new SiteUrl(),
-                pageProperty: new PageProperty(),
-                page: page
+                pageProperty: new PageProperty()
             });
         });
 

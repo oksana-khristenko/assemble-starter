@@ -9,7 +9,6 @@ class PageUrlBuilder {
     constructor(obj) {
         this.environment = obj && obj.environment;
         this.helperName = obj && obj.helperName;
-        this.page = obj && obj.page;
 
         this.siteUrl = (obj && obj.siteUrl) || new SiteUrlBuilder({
             helperName: this.helperName,
@@ -26,7 +25,6 @@ class PageUrlBuilder {
         return new PageUrl({
             helperName: this.helperName,
             siteUrl: this.siteUrl,
-            page: this.page,
             pageProperty: this.pageProperty
         });
     }
