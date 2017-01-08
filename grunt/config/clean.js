@@ -23,6 +23,7 @@ module.exports = {
         'content/examples/**/*',
         'assets/css/examples/**/*',
         'assets/js/examples/**/*',
+        'assets/img/examples/**/*',
         'partials/example/**/*',
         'helpers/data/examples/**/*',
         'download/examples/**/*',
