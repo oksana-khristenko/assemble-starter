@@ -14,7 +14,8 @@ class SocialAccounts {
         accounts.forEach((account) => {
             arr.push({
                 account: account,
-                url: this.config.get(`${account}PageUrl`)
+                url: this.config.get(`${account}PageUrl`),
+                icon: `icon-${account}`
             });
         });
 

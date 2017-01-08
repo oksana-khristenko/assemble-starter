@@ -63,11 +63,13 @@ describe('SocialAccounts', function() {
                 items: [
                     {
                         account: 'test',
-                        url: 'test1'
+                        url: 'test1',
+                        icon: 'icon-test'
                     },
                     {
                         account: 'sample',
-                        url: 'test2'
+                        url: 'test2',
+                        icon: 'icon-sample'
                     }
                 ]
             }
