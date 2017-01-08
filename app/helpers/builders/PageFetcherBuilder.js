@@ -1,6 +1,6 @@
 'use strict';
 
-var PageUrl = require('../modules/PageUrl');
+var PageFetcher = require('../modules/PageFetcher');
 var PagePropertyBuilder = require('./PagePropertyBuilder');
 
 class PageFetcherBuilder {

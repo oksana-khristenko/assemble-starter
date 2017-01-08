@@ -3,6 +3,7 @@
 class PageUrl {
 
     getAbsoluteUrl() {}
+    getRootRelativeUrl() {}
 
 };
 

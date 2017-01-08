@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     'jshint:all',
     'jscs:all',
     'browserify:build',
-    'copy:imagesBuild'
+    'copy:imagesBuild',
+    'copy:downloadBuild'
   ]);
 };

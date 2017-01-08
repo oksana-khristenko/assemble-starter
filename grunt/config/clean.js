@@ -24,6 +24,8 @@ module.exports = {
         'assets/css/examples/**/*',
         'assets/js/examples/**/*',
         'partials/example/**/*',
+        'helpers/data/examples/**/*',
+        'download/examples/**/*',
         'layouts/examples.hbs'
       ]
     }]

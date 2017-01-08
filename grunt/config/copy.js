@@ -18,8 +18,19 @@ var getSvgFiles = dest => {
   };
 };
 
+var getDownloadFiles = dest => {
+  return {
+    cwd: 'app/download',
+    src: ['**/*'],
+    dest: `${dest}/download`,
+    expand: true
+  };
+};
+
 module.exports = {
   imagesBuild: getImageFiles('public'),
   imagesDist: getImageFiles('dist'),
-  svgBuild: getSvgFiles('public')
+  svgBuild: getSvgFiles('public'),
+  downloadBuild: getDownloadFiles('public'),
+  downloadDist: getDownloadFiles('dist')
 };

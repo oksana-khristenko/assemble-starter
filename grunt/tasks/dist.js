@@ -11,6 +11,7 @@ module.exports = function(grunt) {
     'jscs:all',
     'browserify:dist',
     'uglify:dist',
-    'copy:imagesDist'
+    'copy:imagesDist',
+    'copy:downloadDist'
   ]);
 };
