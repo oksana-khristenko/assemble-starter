@@ -1,14 +1,10 @@
 'use strict';
 
-import $ from 'jquery';
-import Scroll from '../modules/_scroll';
+import DynamicScroll from '../modules/_dynamic-scroll';
 
-$(document).on('click', '#btn', function(event) {
-    var scroll = new Scroll();
-
-    scroll.to({
-        $el: $('#content'),
-        speed: 500,
-        event: event
-    });
+var scroll = new DynamicScroll({
+    speed: 500,
+    selector: '[data-scroll]'
 });
+
+scroll.init();
