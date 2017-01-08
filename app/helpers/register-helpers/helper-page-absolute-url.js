@@ -10,13 +10,12 @@ module.exports.register = function(Handlebars, options) {
 
         [helperName]: function(options) {
             var obj = {
-                page: this.page,
                 helperName: helperName,
                 environment: this.environment
             };
 
             var pageUrl = new PageUrlBuilder(obj).build();
-            return options.fn(pageUrl.getAbsoluteUrl());
+            return options.fn(pageUrl.getAbsoluteUrl(this.page));
         }
 
     };

@@ -62,7 +62,7 @@ class OpenGraphMarkup {
     }
 
     get pageAbsoluteUrl() {
-        return this.pageUrl.getAbsoluteUrl();
+        return this.pageUrl.getAbsoluteUrl(this.page);
     }
 
     get title() {

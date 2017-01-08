@@ -38,7 +38,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/index.html');
 
-                var actual = pageUrl.getAbsoluteUrl();
+                var actual = pageUrl.getAbsoluteUrl(page);
 
                 var expected = `${url}`;
 
@@ -57,7 +57,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/test/index.html');
 
-                var actual = pageUrl.getAbsoluteUrl();
+                var actual = pageUrl.getAbsoluteUrl(page);
 
                 var expected = `${url}test/`;
 
@@ -76,7 +76,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/test/test-page.html');
 
-                var actual = pageUrl.getAbsoluteUrl();
+                var actual = pageUrl.getAbsoluteUrl(page);
 
                 var expected = `${url}test/test-page.html`;
 
@@ -98,7 +98,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/index.html');
 
-                var actual = pageUrl.getAbsoluteUrl();
+                var actual = pageUrl.getAbsoluteUrl(page);
 
                 var expected = `${url}`;
 
@@ -117,7 +117,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/test/index.html');
 
-                var actual = pageUrl.getAbsoluteUrl();
+                var actual = pageUrl.getAbsoluteUrl(page);
 
                 var expected = `${url}test/`;
 
@@ -136,7 +136,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/test/test-page.html');
 
-                var actual = pageUrl.getAbsoluteUrl();
+                var actual = pageUrl.getAbsoluteUrl(page);
 
                 var expected = `${url}test/test-page.html`;
 
@@ -170,7 +170,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/index.html');
 
-                var actual = pageUrl.getRootRelativeUrl();
+                var actual = pageUrl.getRootRelativeUrl(page);
 
                 var expected = '/';
 
@@ -182,7 +182,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/test/index.html');
 
-                var actual = pageUrl.getRootRelativeUrl();
+                var actual = pageUrl.getRootRelativeUrl(page);
 
                 var expected = '/test/';
 
@@ -194,7 +194,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/test/test-page.html');
 
-                var actual = pageUrl.getRootRelativeUrl();
+                var actual = pageUrl.getRootRelativeUrl(page);
 
                 var expected = '/test/test-page.html';
 
@@ -210,7 +210,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/index.html');
 
-                var actual = pageUrl.getRootRelativeUrl();
+                var actual = pageUrl.getRootRelativeUrl(page);
 
                 var expected = '/';
 
@@ -222,7 +222,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/test/index.html');
 
-                var actual = pageUrl.getRootRelativeUrl();
+                var actual = pageUrl.getRootRelativeUrl(page);
 
                 var expected = '/test/';
 
@@ -235,7 +235,7 @@ describe('Url', function() {
                 var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
                 pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/test/test-page.html');
 
-                var actual = pageUrl.getRootRelativeUrl();
+                var actual = pageUrl.getRootRelativeUrl(page);
 
                 var expected = '/test/test-page.html';
 
