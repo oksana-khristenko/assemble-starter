@@ -149,4 +149,101 @@ describe('Url', function() {
 
     });
 
+    describe('getRootRelativeUrl', function() {
+
+        var pageUrl,
+            page;
+
+        beforeEach(function() {
+            page = {};
+
+            pageUrl = new PageUrl({
+                siteUrl: new SiteUrl(),
+                pageProperty: new PageProperty(),
+                page: page
+            });
+        });
+
+        describe('public', function() {
+
+            it('should return correct url when filename is index.html and file is in the root directory', function() {
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/index.html');
+
+                var actual = pageUrl.getRootRelativeUrl();
+
+                var expected = '/';
+
+                expect(actual).to.equal(expected);
+                PageProperty.prototype.get.restore();
+            });
+
+            it('should return correct url when filename is index.html and file is NOT in the root directory', function() {
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/test/index.html');
+
+                var actual = pageUrl.getRootRelativeUrl();
+
+                var expected = '/test/';
+
+                expect(actual).to.equal(expected);
+                PageProperty.prototype.get.restore();
+            });
+
+            it('should return correct url when filename is NOT index.html', function() {
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('public/test/test-page.html');
+
+                var actual = pageUrl.getRootRelativeUrl();
+
+                var expected = '/test/test-page.html';
+
+                expect(actual).to.equal(expected);
+
+                PageProperty.prototype.get.restore();
+            });
+
+        });
+
+        describe('dist', function() {
+            it('should return correct url when filename is index.html and file is in the root directory', function() {
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/index.html');
+
+                var actual = pageUrl.getRootRelativeUrl();
+
+                var expected = '/';
+
+                expect(actual).to.equal(expected);
+                PageProperty.prototype.get.restore();
+            });
+
+            it('should return correct url when filename is index.html and file is NOT in the root directory', function() {
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/test/index.html');
+
+                var actual = pageUrl.getRootRelativeUrl();
+
+                var expected = '/test/';
+
+                expect(actual).to.equal(expected);
+
+                PageProperty.prototype.get.restore();
+            });
+
+            it('should return correct url when filename is NOT index.html', function() {
+                var pagePropertyStub = sinon.stub(PageProperty.prototype, 'get');
+                pagePropertyStub.withArgs({page: page, propertyName: 'dest'}).returns('dist/test/test-page.html');
+
+                var actual = pageUrl.getRootRelativeUrl();
+
+                var expected = '/test/test-page.html';
+
+                expect(actual).to.equal(expected);
+                PageProperty.prototype.get.restore();
+            });
+        });
+
+    });
+
 });

@@ -28,6 +28,10 @@ class PageUrl {
         return `${this.url}${this.slug}`;
     }
 
+    getRootRelativeUrl() {
+        return this.slug ? `/${this.slug}` : '/';
+    }
+
 }
 
 module.exports = PageUrl;
