@@ -9,12 +9,14 @@ export default class Scroll {
     }
 
     to(obj) {
-        obj.event.preventDefault();
+        if (obj.$el.length > 0) {
+            obj.event.preventDefault();
 
-        var offset = obj.$el.offset().top,
-            speed = obj.speed || this.speed;
+            var offset = obj.$el.offset().top,
+                speed = obj.speed || this.speed;
 
-        obj.$el.parents('body,html').animate({scrollTop: offset}, speed);
+            obj.$el.parents('body,html').animate({scrollTop: offset}, speed);
+        }
     }
 
 }

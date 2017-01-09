@@ -1,7 +1,7 @@
 'use strict';
 
 import $ from 'jquery';
-import Scroll from '../modules/_scroll';
+import Scroll from './_scroll';
 
 export default class DynamicScroll {
 
@@ -11,8 +11,16 @@ export default class DynamicScroll {
         this.selector = obj.selector;
     }
 
+    getTargetElementFromEvent(event) {
+        var $target = $(event.target);
+
+        return $target.is(this.selector) ?
+            $target.attr('href') :
+            $target.parents(this.selector).attr('href');
+    }
+
     handleClick(event) {
-        var el = event.target.getAttribute('href');
+        var el = this.getTargetElementFromEvent(event);
 
         this.scroll.to({
             $el: $(el),
