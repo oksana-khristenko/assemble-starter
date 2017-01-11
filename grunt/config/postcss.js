@@ -22,7 +22,10 @@ module.exports = {
       require('postcss-custom-media')(),
       require('postcss-custom-properties')(),
       require('postcss-custom-selectors')(),
-      require('postcss-calc')()
+      require('postcss-calc')(),
+      require('autoprefixer')({
+          browsers: ['> 1%', 'IE 9']
+      })
     ]
   },
   build: {
