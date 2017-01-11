@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     'svgstore:build',
     'assemble:build',
     'copy:svgBuild',
+    'copy:vendorJsBuild',
     'postcss:build',
     'jshint:all',
     'jscs:all',

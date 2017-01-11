@@ -19,6 +19,7 @@
 
         {{> body }}
 
+        {{#if js_file}}<script src="{{assets}}/js/vendor/babel-polyfill.js"></script>{{/if}}
         {{#if js_file}}<script src="{{assets}}/js/{{js_file}}.js"></script>{{/if}}
         {{> google-analytics-tracking-code }}
 

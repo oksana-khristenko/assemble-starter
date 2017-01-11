@@ -27,10 +27,21 @@ var getDownloadFiles = dest => {
   };
 };
 
+var getVendorJsFiles = dest => {
+  return {
+    cwd: 'app/assets/js/vendor',
+    src: ['**/*'],
+    dest: `${dest}/assets/js/vendor`,
+    expand: true
+  };
+};
+
 module.exports = {
   imagesBuild: getImageFiles('public'),
   imagesDist: getImageFiles('dist'),
   svgBuild: getSvgFiles('public'),
   downloadBuild: getDownloadFiles('public'),
-  downloadDist: getDownloadFiles('dist')
+  downloadDist: getDownloadFiles('dist'),
+  vendorJsBuild: getVendorJsFiles('public'),
+  vendorJsDist: getVendorJsFiles('dist')
 };

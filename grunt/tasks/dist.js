@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     'postcss:dist',
     'cssmin:dist',
     'svgstore:dist',
+    'copy:vendorJsDist',
     'svgmin:dist',
     'jshint:all',
     'jscs:all',
