@@ -4,6 +4,7 @@ var Menu = require('../modules/Menu');
 var PageFetcherBuilder = require('./PageFetcherBuilder');
 var PagePropertyBuilder = require('./PagePropertyBuilder');
 var PageUrlBuilder = require('./PageUrlBuilder');
+var ExternalLinkBuilder = require('./ExternalLinkBuilder');
 
 class MenuBuilder {
 
@@ -29,6 +30,11 @@ class MenuBuilder {
             environment: this.environment,
             pages: this.pages
         }).build();
+
+        this.externalLink = (obj && obj.externalLink) || new ExternalLinkBuilder({
+            helperName: this.helperName,
+            environment: this.environment
+        }).build();
     }
 
     build() {
@@ -38,7 +44,8 @@ class MenuBuilder {
             helperName: this.helperName,
             data: this.data,
             pages: this.pages,
-            pageUrl: this.pageUrl
+            pageUrl: this.pageUrl,
+            externalLink: this.externalLink
         });
     }
 

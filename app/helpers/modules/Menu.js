@@ -6,6 +6,7 @@ class Menu {
         this.helperName = obj && obj.helperName;
         this.pageFetcher = obj && obj.pageFetcher;
         this.pageUrl = obj && obj.pageUrl;
+        this.externalLink = obj && obj.externalLink;
         this.data = obj && obj.data;
     }
 
@@ -23,7 +24,7 @@ class Menu {
         return {
             title: item.title,
             target: item.target || '_blank',
-            url: item.url
+            url: this.externalLink.getUrl({id: item.id})
         };
     }
 

@@ -9,6 +9,7 @@ chai.use(sinonChai);
 var Menu = require('../../helpers/modules/Menu');
 var PageUrl = require('../doubles/modules/PageUrl');
 var PageFetcher = require('../doubles/modules/PageFetcher');
+var ExternalLink = require('../doubles/modules/ExternalLink');
 
 describe('Menu', function() {
 
@@ -16,22 +17,43 @@ describe('Menu', function() {
 
         describe('external menu item type', function() {
 
+            var url,
+                id,
+                externalLinkStub,
+                externalLink;
+
+            beforeEach(function() {
+                url = 'test url';
+                id = 'test id';
+
+                externalLinkStub = sinon.stub(ExternalLink.prototype, 'getUrl');
+
+                externalLink = new ExternalLink({});
+            });
+
+            afterEach(function() {
+                ExternalLink.prototype.getUrl.restore();
+            })
+
             it('should return correct menu when target is NOT provided', function() {
                 var data = [
                     {
                         type: 'external',
-                        url: 'http://url',
+                        id: id,
                         title: 'External Link'
                     }
                 ];
 
+                externalLinkStub.withArgs({id: id}).returns(url);
+
                 var menu = new Menu({
-                    data: data
+                    data: data,
+                    externalLink: externalLink
                 });
 
                 var expected = {
                     items: [{
-                        url: 'http://url',
+                        url: url,
                         title: 'External Link',
                         target: '_blank'
                     }]
@@ -46,19 +68,22 @@ describe('Menu', function() {
                 var data = [
                     {
                         type: 'external',
-                        url: 'http://url1',
+                        id: id,
                         title: 'External Link 1',
                         target: 'test target'
                     }
                 ];
 
+                externalLinkStub.withArgs({id: id}).returns(url);
+
                 var menu = new Menu({
-                    data: data
+                    data: data,
+                    externalLink: externalLink
                 });
 
                 var expected = {
                     items: [{
-                        url: 'http://url1',
+                        url: url,
                         title: 'External Link 1',
                         target: 'test target'
                     }]

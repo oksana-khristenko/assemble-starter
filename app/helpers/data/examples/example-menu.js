@@ -12,13 +12,13 @@ module.exports = {
         },
         {
             type: 'external',
-            url: 'http://url',
+            id: 'exampleId1',
             title: 'External Link 1',
             target: '_blank'
         },
         {
             type: 'external',
-            url: 'http://url',
+            id: 'exampleId2',
             title: 'External Link 2'
         },
         {
