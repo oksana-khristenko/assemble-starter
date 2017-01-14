@@ -1,0 +1,61 @@
+:root {
+    --lightboxBackground: #555;
+}
+
+.lightbox,
+.lightbox__inner {
+    box-sizing: border-box;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.lightbox__inner {
+    background: var(--lightboxBackground);
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: table;
+    position: relative;
+    padding: 30px;
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    transition: opacity .3s;
+    cursor: pointer;
+
+    svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/*
+    1. Prevents partial showing of body background
+    on iOS devices when changing orientation
+*/
+
+/* body */.lightbox-opened {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    position: fixed;
+    overflow: hidden;
+    background: var(--lightboxBackground); /* [1] */
+
+    .lightbox {
+        visibility: visible;
+    }
+}
