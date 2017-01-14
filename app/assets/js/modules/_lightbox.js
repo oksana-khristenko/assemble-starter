@@ -22,7 +22,7 @@ export default class Lightbox {
     }
 
     getTargetElement(event) {
-        var target = $(event.target).attr(this.contentRefAttr);
+        var target = $(this.openButton).attr(this.contentRefAttr);
         return $(`[${target}]`);
     }
 
