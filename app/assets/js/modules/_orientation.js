@@ -11,7 +11,7 @@ export default class Orientation {
     }
 
     getWidthToHeightRatio() {
-        return this.window.getWidth() / this.window.getHeight();
+        return this.window.getWindowWidth() / this.window.getWindowHeight();
     }
 
     getName() {
