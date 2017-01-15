@@ -33,10 +33,9 @@ Available at [http://localhost:4001/examples](http://localhost:4001/examples).
 - [x] Open graph markup
 - [x] Canonical URL in HTML head
 - [x] [Follow buttons](http://localhost:4001/examples/follow)
-- [ ] Burger menu
+- [ ] Lightbox
 - [ ] Share buttons
 - [ ] Google Analytics events
-- [ ] Lightbox
 - [ ] Slider
 
 ## Tech stack
