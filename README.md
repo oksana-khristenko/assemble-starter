@@ -11,6 +11,7 @@ Assemble starter kit for generating static sites (landing pages, brochure sites,
     - [Project settings](#project-settings)
     - [Development](#development)
     - [Production](#production)
+    - [Dist server](#dist-server)
 
 ## Use cases
 
@@ -92,6 +93,12 @@ To compile and minify HTML files and assets into `dist` folder using production 
 If required (e.g. for testing), compile using development config instead:
 
 `npm run dist:dev`
+
+### Dist server
+
+Test compiled and minified production files on local server:
+
+`npm run dist:server`
 
 ## Remove examples
 
