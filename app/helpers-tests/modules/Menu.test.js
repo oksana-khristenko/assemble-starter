@@ -33,7 +33,7 @@ describe('Menu', function() {
 
             afterEach(function() {
                 ExternalLink.prototype.getUrl.restore();
-            })
+            });
 
             it('should return correct menu when target is NOT provided', function() {
                 var data = [
