@@ -96,7 +96,7 @@ If required (e.g. for testing), compile using development config instead:
 
 ### Dist server
 
-Test compiled and minified production files on local server:
+Test compiled and minified production files on local server (uses production config):
 
 `npm run dist:server`
 
