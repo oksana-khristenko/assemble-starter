@@ -3,68 +3,77 @@
 import $ from 'jquery';
 import '../vendor/jquery.actual';
 
-var $window = $(window),
-    cachedWindowWidth = 0,
-    cachedWindowHeight = 0;
+export default class Window {
 
-export function getWindowHeight() {
-    return $window.height();
-}
+    constructor() {
+        this.$window = $(window);
+        this.cachedWindowWidth = 0;
+        this.cachedWindowHeight = 0;
+    }
 
-export function getWindowWidth() {
-    return $window.width();
-}
+    getWindowHeight() {
+        return this.$window.height();
+    }
 
-function setCachedWindowWidth() {
-    cachedWindowWidth = getWindowWidth();
-}
+    getWindowWidth() {
+        return this.$window.width();
+    }
 
-function setCachedWindowHeight() {
-    cachedWindowHeight = getWindowHeight();
-}
+    setCachedWindowWidth() {
+        this.cachedWindowWidth = this.getWindowWidth();
+    }
 
-function getCachedWindowWidth() {
-    return cachedWindowWidth;
-}
+    setCachedWindowHeight() {
+        this.cachedWindowHeight = this.getWindowHeight();
+    }
 
-function getCachedWindowHeight() {
-    return cachedWindowHeight;
-}
+    getCachedWindowWidth() {
+        return this.cachedWindowWidth;
+    }
 
-function getElementHeight($el) {
-    return $el.actual('outerHeight');
-}
+    getCachedWindowHeight() {
+        return this.cachedWindowHeight;
+    }
 
-function getElementWidth($el) {
-    return $el.actual('outerWidth');
-}
+    getElementHeight($el) {
+        return $el.actual('outerHeight');
+    }
 
-function bindEvents() {
-    setCachedWindowWidth();
-    setCachedWindowHeight();
+    getElementWidth($el) {
+        return $el.actual('outerWidth');
+    }
 
-    $(window).on('resize', function() {
-        if (getCachedWindowWidth() !== getWindowWidth()) {
-            $(document).trigger('window_width_changed');
-        }
+    fitsWindowHeight($el) {
+        return this.getElementHeight($el) <= this.getWindowHeight();
+    }
 
-        if (getCachedWindowHeight() !== getWindowHeight()) {
-            $(document).trigger('window_height_changed');
-        }
+    fitsWindowWidth($el) {
+        return this.getElementWidth($el) <= this.getWindowWidth();
+    }
 
-        setCachedWindowWidth();
-        setCachedWindowHeight();
-    });
-}
+    hasWindowWidthChanged() {
+        return this.getCachedWindowWidth() !== this.getWindowWidth();
+    }
 
-export function fitsWindowHeight($el) {
-    return getElementHeight($el) <= getWindowHeight();
-}
+    hasWindowHeightChanged() {
+        return this.getCachedWindowHeight() !== this.getWindowHeight();
+    }
 
-export function fitsWindowWidth($el) {
-    return getElementWidth($el) <= getWindowWidth();
-}
+    onWindowResize() {
+        this.hasWindowWidthChanged() && $(document).trigger('window.width.changed');
+        this.hasWindowHeightChanged() && $(document).trigger('window.height.changed');
 
-export function init() {
-    bindEvents();
+        this.setCachedWindowWidth();
+        this.setCachedWindowHeight();
+    }
+
+    bindEvents() {
+        $(window).on('resize', this.onWindowResize.bind(this));
+    }
+
+    init() {
+        this.setCachedWindowWidth();
+        this.setCachedWindowHeight();
+        this.bindEvents();
+    }
 }
