@@ -10,6 +10,7 @@
   "unused": false, // true: Warn when variables are defined and never used
   "lastsemic": true, // true: Suppress warnings about missing semicolons, but only when the semicolon is omitted for the last statement in a one-line block
   "loopfunc": true,
+  "expr": true,
   "browserify": true,
   "globals" : {
     "window": true,
