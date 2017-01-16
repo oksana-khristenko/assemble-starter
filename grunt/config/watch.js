@@ -11,11 +11,9 @@ module.exports = {
   options: {
     nospawn: true,
     livereload: {
-      port: 35730
+      port: 35729,
+      files: ['public/**/*']
     }
-  },
-  livereload: {
-    files: ['public/**/*']
   },
   css: {
     files: ['app/**/*.css'],
