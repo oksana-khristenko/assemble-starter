@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  default: {
+  build: {
     options: {
       hostname: '0.0.0.0',
       livereload: true,
