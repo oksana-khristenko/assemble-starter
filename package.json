@@ -11,7 +11,7 @@
     "dist:dev": "npm run test && grunt dist --env=development",
     "dist:prod": "npm run test && grunt dist --env=production",
     "dist:server": "npm run test && grunt dist-server --env=production",
-    "test": "./node_modules/.bin/mocha app/helpers-tests/**/*.test.js app/helpers-tests/**/**/*.test.js",
+    "test": "./node_modules/.bin/mocha --recursive ./app/helpers-tests/",
     "test:watch": "npm run test -- -w",
     "removeExamples": "grunt clean:examples"
   },
