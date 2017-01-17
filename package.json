@@ -15,6 +15,12 @@
     "test:watch": "npm run test -- -w",
     "removeExamples": "grunt clean:examples"
   },
+  "babel": {
+      "presets": [
+        "es2015", "es2016"
+      ],
+      "sourceMaps": "inline"
+  },
   "devDependencies": {
     "assemble": "^0.4.42",
     "autoprefixer": "^6.6.1",

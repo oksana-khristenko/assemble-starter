@@ -1,7 +1,5 @@
 'use strict';
 
-var babelConfig = require('../rc/.babelrc');
-
 var getFiles = dest => {
   return [{
     expand: true,
@@ -15,7 +13,7 @@ module.exports = {
   options: {
     transform: [
       'hbsfy',
-      ['babelify', babelConfig]
+      ['babelify']
     ],
   },
   build: {
