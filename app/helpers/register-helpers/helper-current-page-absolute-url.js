@@ -4,7 +4,7 @@ module.exports.register = function(Handlebars, options) {
 
     options = options || {};
 
-    var helperName = 'helper_page_absolute_url';
+    var helperName = 'helper_current_page_absolute_url';
 
     var helpers = {
 

@@ -10,7 +10,7 @@
         {{#if css_file}}<link rel="stylesheet" href="{{assets}}/css/{{css_file}}.css">{{/if}}
         {{> open-graph-markup }}
         {{> twitter-card }}
-        {{#helper_page_absolute_url}}<link rel="canonical" href="{{.}}">{{/helper_page_absolute_url}}
+        {{#helper_current_page_absolute_url}}<link rel="canonical" href="{{.}}">{{/helper_current_page_absolute_url}}
         <link href="{{assets}}/img/favicon.png" rel="shortcut icon">
         <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
     </head>
