@@ -8,20 +8,23 @@ class SocialAccounts {
         this.helperName = obj && obj.helperName;
     }
 
+    getItemData(account) {
+        return {
+            account,
+            url: this.config.get(`${account}PageUrl`),
+            icon: `icon-${account}`
+        }
+    }
+
     getData(accounts) {
-        var arr = [];
+        var items = [];
 
         accounts.forEach((account) => {
-            arr.push({
-                account: account,
-                url: this.config.get(`${account}PageUrl`),
-                icon: `icon-${account}`
-            });
+            var item = this.getItemData(account);
+            items.push(item);
         });
 
-        return {
-            items: arr
-        }
+        return { items }
     }
 
     get(accounts) {
