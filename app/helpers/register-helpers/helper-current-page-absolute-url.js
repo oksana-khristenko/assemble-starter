@@ -1,21 +1,19 @@
 var PageUrlBuilder = require('../builders/PageUrlBuilder');
 
-module.exports.register = function(Handlebars, options) {
-
-    options = options || {};
+module.exports.register = function(Handlebars) {
 
     var helperName = 'helper_current_page_absolute_url';
 
     var helpers = {
 
-        [helperName]: function(options) {
+        [helperName]: function() {
             var obj = {
                 helperName: helperName,
                 environment: this.environment
             };
 
             var pageUrl = new PageUrlBuilder(obj).build();
-            return options.fn(pageUrl.getAbsoluteUrl(this.page));
+            return pageUrl.getAbsoluteUrl(this.page);
         }
 
     };
