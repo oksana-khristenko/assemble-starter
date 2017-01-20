@@ -94,7 +94,7 @@ class TwitterCardSummaryLargeImage {
             this[tag.method] && data.push({name: tag.name, description: this[tag.method]});
         });
 
-        return { data: data };
+        return { data };
     }
 
     get() {

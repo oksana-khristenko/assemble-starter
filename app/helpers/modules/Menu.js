@@ -16,7 +16,7 @@ class Menu {
 
         return {
             title: item.title,
-            url: url
+            url
         };
     }
 
@@ -60,17 +60,17 @@ class Menu {
     };
 
     get() {
-        var menu = [];
+        var items = [];
 
         for (var i = 0; i < this.data.length; i++) {
             var item = this.data[i];
 
-            menu.push(
+            items.push(
                 this.getItemData(item)
             );
         }
 
-        return { items: menu };
+        return { items };
     };
 
 }

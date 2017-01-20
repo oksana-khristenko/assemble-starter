@@ -9,22 +9,22 @@ class PageConfig {
         this.page = obj && obj.page;
     }
 
-    get(key) {
-        if (this.config.exists(key)) {
+    get(propertyName) {
+        if (this.config.exists(propertyName)) {
 
             var pagePropertyExists = this.pageProperty.exists({
-                propertyName: key,
+                propertyName,
                 page: this.page
             });
 
             if (pagePropertyExists) {
                 return this.pageProperty.get({
-                    propertyName: key,
+                    propertyName,
                     page: this.page
                 });
             }
 
-            return this.config.get(key);
+            return this.config.get(propertyName);
         }
 
         return undefined;

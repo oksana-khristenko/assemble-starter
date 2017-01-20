@@ -12,7 +12,7 @@ class PageFetcher {
         var relevantPage;
 
         this.pages.forEach((page) => {
-            if (this.pageProperty.get({page: page, propertyName: 'id'}) === id) {
+            if (this.pageProperty.get({page, propertyName: 'id'}) === id) {
                 relevantPage = page;
                 return;
             }

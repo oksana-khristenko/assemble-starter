@@ -15,7 +15,7 @@ class PageUrl {
     getDest(page) {
         return this.pageProperty.get({
             propertyName: 'dest',
-            page: page
+            page
         });
     }
 
